@@ -15,7 +15,7 @@ body {
   --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
   --tamanho-simulador: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
   --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
-  --tamanho-footer: 65px;
+  --tamanho-footer: 60px;
 }
 
 .pagina_inicial {
@@ -24,9 +24,9 @@ body {
 }
 
 .fundo {
-  height: 1000px;
+  height: 1800px;
   width: 100%;
-  background-image: url(../assets/imgs/fundo.png);
+  background-image: url(../assets/imgs/fundo_site.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -78,10 +78,10 @@ body {
   width: 300px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   list-style: none;
   margin-right: 24px;
-  background-color: #00000085;
+  /* background-color: #00000085; */
 }
 
 .abrindo {
@@ -92,13 +92,38 @@ body {
 /* SOBRE */
 
 .sobre {
-  height: 300px;
-  background-color: black;
+  height: 360px;
+  width: 1200px;
+  background-color: #000000ab;
   color: #e3b062;
   display: flex;
-  align-items: end;
-  justify-content: end;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
+  text-align: center;
+  margin: 150px 150px;
+  border-radius: 50px;
+}
+
+.sobre p {
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+#titulo_sobre {
+  font-size: 30px;
+}
+
+.footer {
+  background-color: rgb(0 0 0);
+  height: 70px;
+  width: 100%;
+  align-items: center;
+  margin-top: -16px;
+  justify-content: center;
+  color: #e3b062;
+  text-align: center;
 }
 
 /* LOGIN */
@@ -113,6 +138,12 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
+  width: 100%;
+}
+
+.login .container .navbar {
+  width: 50px;
+  height: 50px;
 }
 
 .card {
