@@ -6,8 +6,7 @@ body {
   font-family: "Orbitron", sans-serif;
   display: flex;
   width: 100%;
-  overflow-y: scroll;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 :root {
@@ -35,7 +34,7 @@ body {
   display: flex;
   width: 80%;
   margin: auto;
-  height: 500px;
+  /* height: 500px; */
 }
 
 .header {
@@ -85,7 +84,7 @@ body {
 }
 
 .abrindo {
-  height: 900px;
+  height: 730px;
   width: 100%;
 }
 
@@ -115,9 +114,24 @@ body {
   font-size: 30px;
 }
 
+.convite {
+  background-color: black;
+  width: 1200px;
+  height: 150px;
+  margin: 150px 150px;
+  color: #e3b062;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 250px 150px;
+  border-radius: 50px;
+}
+
 .footer {
   background-color: rgb(0 0 0);
-  height: 70px;
+  height: 60px;
   width: 100%;
   align-items: center;
   margin-top: -16px;
@@ -128,34 +142,84 @@ body {
 
 /* LOGIN */
 
-.login {
-  height: var(--tamanho-login);
-  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
+.pagina_login {
+  width: 100%;
+  height: 787px;
+}
+
+.fundo_login {
+  height: 100%;
+  width: 100%;
+  background-image: url(../assets/imgs/Max1.webp);
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
-.login .container {
-  justify-content: center;
+.container_login {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  height: 500px;
+}
+
+.header_login {
+  height: var(--tamanho-header);
+  display: flex;
+  align-items: center;
+}
+
+.header_login .container_login {
+  justify-content: space-between;
   align-items: center;
   height: 100%;
   width: 100%;
+  background-color: rgba(0, 0, 0, 0.511);
 }
 
-.login .container .navbar {
-  width: 50px;
-  height: 50px;
+#logo_login {
+  height: 100px;
+  align-self: center;
+  justify-self: center;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.header_login a {
+  text-decoration: none;
+  color: #e3b062;
+  margin-right: 30px;
+}
+
+.agora_login {
+  font-weight: 900;
+}
+
+.navbar_login {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+  margin-right: 24px;
+  /* background-color: #00000085; */
+}
+
+
+.login {
+  height: var(--tamanho-login);
 }
 
 .card {
-  width: 50%;
-  background-color: #e5e5e5;
-  border-radius: 10px;
+  width: 56%;
+  background-color: #0000008f;
+  border-radius: 200px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   color: palevioletred;
   flex-direction: column;
   height: fit-content;
+  margin: 236px;
   padding: 20px 0;
 }
 
@@ -186,7 +250,7 @@ body {
 
 .formulario select {
   border: 2px solid #32b9cd;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
   color: gray;
   height: 36px;
   text-align: center;
@@ -213,7 +277,7 @@ body {
   width: 120px;
   height: 30px;
   align-self: center;
-  margin-top: 20px;
+  margin-top: px;
 }
 
 .loading-div {
@@ -230,6 +294,95 @@ body {
   display: none
 }
 
+.pagina_cadastro {
+  width: 100%;
+  height: 787px;
+}
+
+.fundo_cadastro {
+  height: 100%;
+  width: 100%;
+  background-image: url(../assets/imgs/Max1.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container_cadastro {
+  display: flex;
+  width: 80%;
+  margin: auto;
+  height: 500px;
+}
+
+.header_cadastro {
+  height: var(--tamanho-header);
+  display: flex;
+  align-items: center;
+}
+
+.header_cadastro .container_cadastro {
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.511);
+}
+
+.header_cadastro .container_cadastro img {
+  height: 40px;
+}
+
+#logo_cadastro {
+  height: 100px;
+  align-self: center;
+  justify-self: center;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.header_cadastro a {
+  text-decoration: none;
+  color: #e3b062;
+  margin-right: 30px;
+}
+
+.agora_cadastro {
+  font-weight: 900;
+}
+
+.navbar_cadastro {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+  margin-right: 24px;
+  /* background-color: #00000085; */
+}
+
+.cadastro {
+  height: var(--tamanho-login);
+}
+
+.card {
+  width: 1200px;
+  background-color: #0000008f;
+  border-radius: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: palevioletred;
+  flex-direction: column;
+  height: 400px;
+  margin-top: 103px;
+  padding: 20px 0;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 30px;
+}
+
 /* FORMULARIO */
 
 .alerta_erro {
@@ -239,7 +392,7 @@ body {
 
 .card_erro {
   display: none;
-  background-color: #fff;
+  /* background-color: #fff; */
   color: black;
   width: 230px;
   position: fixed;
@@ -295,18 +448,6 @@ input {
 .loading-div img {
   height: 50px;
   width: 50px;
-}
-
-/* SIMULADOR */
-
-.simulador {
-  color: white;
-}
-
-.simulador .container {
-  flex-direction: column;
-  overflow: scroll;
-  height: var(--tamanho-simulador);
 }
 
 /* ALERTA */
