@@ -196,9 +196,8 @@ body {
   justify-content: space-around;
   list-style: none;
   margin-right: 24px;
-  
-}
 
+}
 
 .login {
   height: var(--tamanho-login);
@@ -211,7 +210,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  color: palevioletred;
+  color: #e3b062;
   flex-direction: column;
   height: fit-content;
   margin: 236px;
@@ -234,13 +233,6 @@ body {
 .formulario span {
   font-size: 15px;
   font-weight: 800;
-}
-
-.formulario input {
-  border: 2px solid #32b9cd;
-  text-align: center;
-  border-radius: 10px;
-  margin: 0;
 }
 
 .formulario select {
@@ -361,12 +353,12 @@ body {
 
 .card {
   width: 1200px;
-  background-color: #0000008f;
-  border-radius: 200px;
+  background-color: #000000b0;
+  border-radius: 100px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  color: palevioletred;
+  color: #e3b062;
   flex-direction: column;
   height: 400px;
   margin-top: 103px;
@@ -376,6 +368,10 @@ body {
 .card h2 {
   margin: 0;
   font-size: 30px;
+}
+
+.card a{
+  color: #e3b062;
 }
 
 
@@ -413,11 +409,15 @@ body {
 }
 
 input {
+  font-family: 'Orbitron', sans-serif;
   margin-bottom: 10px;
   border: 2px solid #32b9cd;
   padding: 10px;
   text-align: center;
   border-radius: 10px;
+  font-size: 20px;
+  color: #e3b062;
+  background-color: #00000083;
 }
 
 .btn {
@@ -483,14 +483,6 @@ input {
   background-size: cover;
   animation-iteration-count: infinite;
 }
-
-input {
-  font-family: 'Orbitron', sans-serif; /* muda a fonte */
-  font-size: 16px;                     /* muda o tamanho */
-  color: white;                        /* muda a cor */
-  text-align: center;                  /* centraliza o texto */
-}
-
 
 @keyframes bell {
   0% {
