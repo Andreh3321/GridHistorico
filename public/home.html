@@ -1,11 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>GridHistórico | Home</title>
+    <link rel="stylesheet" href="./css/estilo.css">
 </head>
+
 <body>
-    
+    <div class="Home">
+        <div class="historia">
+            <div class="nav_apos_login">
+                <a href="#">Home</a>
+                <div class="dropdown">
+                    <a href="#">Pilotos ▾</a>
+                    <div class="dropdown-content" id="menu-pilotos">
+                        <!-- pilotos -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="1950"></div>
+            <div class="1950"></div>
+            <div class="1960"></div>    
+            <div class="1960"></div>
+            <div class="1970"></div>
+            <div class="1970"></div>
+            <div class="1980"></div>
+            <div class="1980"></div>
+            <div class="1990"></div>
+            <div class="1990"></div>
+            <div class="2000"></div>
+            <div class="2000"></div>
+            <div class="2010"></div>
+            <div class="2010"></div>
+            <div class="2020"></div>
+            <div class="2020"></div>
+        </div>
+    </div>
 </body>
+
 </html>
+<script>
+    fetch("public/dados.json")
+    .then(res => res.json())
+    .then(pilotos => {
+
+        const menu = document.getElementById('menu-pilotos');
+
+        pilotos.forEach(p => {
+            menu.innerHTML += `<a href="detalhe.html?id=${p.id}" class="piloto-item">
+              <img src="${p.imagem}" alt="${p.nome}">
+              <span>${p.nome}</span>
+            </a>`;
+        })
+    })
+</script>
