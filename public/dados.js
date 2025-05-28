@@ -1,4 +1,4 @@
-[
+var bd_pilotos = [    
     {   
         "id": 1,
         "nome": "Michael Schumacher",
@@ -215,4 +215,6 @@
         "imagem": "assets/imgs/Rubinho2.jpg",
         "descricao": "."
     }
-]
+];
+
+module.exports = bd_pilotos;

@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GridHistórico | Home</title>
-    <link rel="stylesheet" href="./css/estilo.css">
+    <link rel="stylesheet" href="./css/home.css">
+    <script src="./dados.js"></script>
 </head>
 
 <body>
@@ -20,40 +21,81 @@
                     </div>
                 </div>
             </div>
+            <div class="primeira_imagem">
+                <img src="assets/icon/Logo F1.png">
+                <div class="teste">kvhjxcbn</div>
+            </div>
+           
+            <!-- <div class="Decada1">
+                <img src="assets/imgs/1950.webp" id="1950">
 
-            <div class="1950"></div>
-            <div class="1950"></div>
-            <div class="1960"></div>    
-            <div class="1960"></div>
-            <div class="1970"></div>
-            <div class="1970"></div>
-            <div class="1980"></div>
-            <div class="1980"></div>
-            <div class="1990"></div>
-            <div class="1990"></div>
-            <div class="2000"></div>
-            <div class="2000"></div>
-            <div class="2010"></div>
-            <div class="2010"></div>
-            <div class="2020"></div>
-            <div class="2020"></div>
+                <div class="container"></div>
+            </div>
+            <div class="Decada1">
+                <img src="assets/imgs/1950.webp" id="1950">
+            </div>
+            <div class="Decada">
+                <img src="assets/imgs/1960.webp" id="1960" >
+            </div>
+            <div class="Decada">
+                <img src="assets/imgs/1960.webp" id="1960'" >
+            </div>
+            <div class="Decada">'
+                <img src="assets/imgs/1970.jpg" id="1970" >
+            </div>
+            <div class="Decada">
+                <img src="assets/imgs/1970.jpg" id="1970" >
+            </div>
+            <div class="Decada">
+                <img src="assets/imgs/1980.jpg" id="1980">
+            </div>
+            <div class="Decada">
+                <img src="assets/imgs/1980.jpg" id="1980">
+            </div>
+            <div class="Decada">
+                <img src="assets/imgs/1990.jpg" id="1990">
+            </div>
+            <div class="Decada">
+                <img src="assets/imgs/1990.jpg" id="1990">
+            </div>
+            <div class="Decada">
+                <img src="assets/imgs/2005.jpg" id="2000">
+            </div>
+            <div class="Decada">
+                <img src="assets/imgs/2005.jpg" id="2000">
+
+            </div>
+            <div class="Decada">
+                <img src="assets/imgs/2015.jpg" id="2010">
+            </div>
+            <div class="Decada">
+                <img src="assets/imgs/2015.jpg" id="2010">
+
+            </div>
+            <div class="Decada">
+                <img src="assets/imgs/2025.jpg" id="2020">
+            </div>
+            <div class="Decada">
+                <img src="assets/imgs/2025.jpg" id="2020">
+
+            </div> -->
         </div>
     </div>
 </body>
 
 </html>
 <script>
-    fetch("public/dados.json")
-    .then(res => res.json())
-    .then(pilotos => {
+    fetch("dados.js")
+        .then(res => res.json())
+        .then(pilotos => {
 
-        const menu = document.getElementById('menu-pilotos');
+            const menu = document.getElementById('menu-pilotos');
 
-        pilotos.forEach(p => {
-            menu.innerHTML += `<a href="detalhe.html?id=${p.id}" class="piloto-item">
+            pilotos.forEach(p => {
+                menu.innerHTML += `<a href="detalhe.html?id=${p.id}" class="piloto-item">
               <img src="${p.imagem}" alt="${p.nome}">
               <span>${p.nome}</span>
             </a>`;
+            })
         })
-    })
 </script>
