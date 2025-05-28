@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
 
-<body onload="listar()">
+<body>
   <div class="pagina_cadastro">
     <div class="fundo_cadastro">
       <div class="header_cadastro">
@@ -40,7 +40,7 @@
           </div>
         </div>
         <div class="container_cadastro">
-          <div class="card card-cadastro">
+          <div class="card card-cadastro" id="card_cadastro">
             <h2>Bem-vindo!</h2>
             <div class="formulario">
               <!--
@@ -49,16 +49,17 @@
                      -->
               <div class="campo">
                 <span>Nome:</span>
-                <input id="nome_input" type="text" placeholder="Seu nome" />
+                <input id="input_nome" type="text" placeholder="Seu nome" />
               </div>
               <div class="campo">
                 <span>E-mail:</span>
-                <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
+                <input id="input_email" type="text" placeholder="meuemail@provedor.com" />
               </div>
               <div class="campo">
                 <span>Senha:</span>
-                <input id="senha_input" type="password" placeholder="******" oninput="verificar_senha_cadastro()" />
+                <input id="input_senha" type="password" placeholder="******" oninput="verificar_senha_cadastro()" />
               </div>
+              <p id="erros_senha_login" class="erros_login"></p>
               <button class="botao" onclick="cadastrar()">Cadastrar</button>
             </div>
             <div id="div_aguardar" class="loading-div">
@@ -84,86 +85,91 @@
 
   var senha_correta = false;
 
-  
-  function verificar_senha_cadastro(){
+   function sumirMensagem(){
+    cardErro.style.display = "none";
+  }
+
+
+  function verificar_senha_cadastro() {
     senha_correta = false;
 
-        var tentativa = ``;
-        var letra_maiuscula = false;
-        var letra_minuscula = false;
-        var caractere_especial = false;
-        var numero = false;
+    var tentativa = ``;
+    var letra_maiuscula = false;
+    var letra_minuscula = false;
+    var caractere_especial = false;
+    var numero = false;
 
-        var senhaComErro = ``;
+    var senhaComErro = ``;
 
-        if (card_cadastro.className == `vazio`) {
-            tentativa = input_email.value.replaceAll(` `, ``)
-        } else {
-            tentativa = input_senha.value.replaceAll(` `, ``)
-        }
+    if (card_cadastro.className == `vazio`) {
+      tentativa = input_email.value.replaceAll(` `, ``)
+    } else {
+      tentativa = input_senha.value.replaceAll(` `, ``)
+    }
 
-        for (i = 0; i < letras_maiusculas.length; i++) {
-            if (tentativa.includes(letras_maiusculas[i])) {
-                letra_maiuscula = true;
-            }
-        }
-        if (!letra_maiuscula) {
-            senhaComErro += `Insira pelo menos uma letra maiúscula na senha<br>`;
-        }
+    for (i = 0; i < letras_maiusculas.length; i++) {
+      if (tentativa.includes(letras_maiusculas[i])) {
+        letra_maiuscula = true;
+      }
+    }
+    if (!letra_maiuscula) {
+      senhaComErro += `Insira pelo menos uma letra maiúscula na senha<br>`;
+    }
 
-        for (i = 0; i < letra_minuscula.length; i++) {
-            if (tentativa.includes(letras_minusculas[i])) {
-                letra_minuscula = true;
-            }
-        }
-        if (!letra_minuscula) {
-            senhaComErro += `Insira pelo menos uma letra minúscula na sua senha<br>`;
-        }
+    for (i = 0; i < letra_minuscula.length; i++) {
+      if (tentativa.includes(letras_minusculas[i])) {
+        letra_minuscula = true;
+      }
+    }
+    if (!letra_minuscula) {
+      senhaComErro += `Insira pelo menos uma letra minúscula na sua senha<br>`;
+    }
 
-        for (i = 0; i < caractere_especial.length; i++) {
-            if (tentativa.includes(caracteres_especiais[i])) {
-                caractere_especial = true;
-            }
-        }
-        if (!caractere_especial) {
-            senhaComErro += `Insira pelo menos um caractere especial na sua senha`;
-        }
+    for (i = 0; i < caractere_especial.length; i++) {
+      if (tentativa.includes(caracteres_especiais[i])) {
+        caractere_especial = true;
+      }
+    }
+    if (!caractere_especial) {
+      senhaComErro += `Insira pelo menos um caractere especial na sua senha<br>`;
+    }
 
-        for (i = 0; i < numero.length; i++) {
-            if (tentativa.includes(numeros[i])) {
-                numero = true;
-            }
-        }
-        if (!numero) {
-            senhaComErro += `Insira pelo menos um número na sua senha`;
-        }
+    for (i = 0; i < numero.length; i++) {
+      if (tentativa.includes(numeros[i])) {
+        numero = true;
+      }
+    }
+    if (!numero) {
+      senhaComErro += `Insira pelo menos um número na sua senha`;
+    }
 
-        if (tentativa == ``) {
-            erros_senha_login.innerHTML = ``;
-        } else if (senhaComErro.length > 0) {
-            erros_senha_login.innerHTML = ``;
-            erros_senha_login.innerHTML = `${senhaComErro}`;
+    if (tentativa == ``) {
+      erros_senha_login.innerHTML = ``;
+    } else if (senhaComErro.length > 0) {
+      erros_senha_login.innerHTML = ``;
+      erros_senha_login.innerHTML = `${senhaComErro}`;
 
-        } else {
-            erros_senha_login.innerHTML = ``;
-            senha_correta = true;
-        }
+    } else {
+      erros_senha_login.innerHTML = ``;
+      senha_correta = true;
+    }
   }
-  
+
   function cadastrar() {
     // aguardar();
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
-    var nomeVar = nome_input.value;
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
+    var nomeVar = input_nome.value;
+    var emailVar = input_email.value;
+    var senhaVar = input_senha.value;
+
 
     // Verificando se há algum campo em branco
     if (
       nomeVar == "" ||
       emailVar == "" ||
-      senhaVar == "" 
+      senhaVar == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
