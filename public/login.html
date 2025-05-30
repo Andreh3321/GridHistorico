@@ -16,59 +16,58 @@
     <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
 </head>
 
+
+
+<!--Header-->
+
 <body>
-
-    <!--Header-->
-
-    <body>
-        <div class="pagina_login">
-            <div class="fundo_login">
-                <div class="header_login">
-                    <div class="container_login">
-                        <img src="assets/icon/Logo F1.png" id="logo_login">
-                        <ul class="navbar">
-                            <li class="agora_login">
-                                <a href="index.html">Inicial</a>
-                            </li>
-                            <li>
-                                <a href="cadastro.html">Cadastro</a>
-                            </li>
-                        </ul>
+    <div class="pagina_login">
+        <div class="fundo_login">
+            <div class="header_login">
+                <div class="container_login">
+                    <img src="assets/icon/Logo F1.png" id="logo_login">
+                    <ul class="navbar">
+                        <li class="agora_login">
+                            <a href="index.html">Inicial</a>
+                        </li>
+                        <li>
+                            <a href="cadastro.html">Cadastro</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="login">
+                <div class="alerta_erro">
+                    <div class="card_erro" id="cardErro">
+                        <span id="mensagem_erro"></span>
                     </div>
                 </div>
-                <div class="login">
-                    <div class="alerta_erro">
-                        <div class="card_erro" id="cardErro">
-                            <span id="mensagem_erro"></span>
-                        </div>
-                    </div>
-                    <div class="container_login">
-                        <div class="card card-login">
-                            <h2>Welcome back, Driver</h2>
-                            <div class="formulario">
-                                <div class="campo">
-                                    <span>E-mail:</span>
-                                    <input id="email_input" type="text" placeholder="Login">
-                                </div>
-                                <div class="campo">
-                                    <span>Senha:</span>
-                                    <input id="senha_input" type="password" placeholder="******"
-                                        oninput="senha_validada()">
-                                </div>
-                                <p id="erros_senha_login" class="erros_login"></p>
-                                <button class="botao" onclick="entrar()">Entrar</button>
+                <div class="container_login">
+                    <div class="card card-login" id="card_cadastro">
+                        <h2>Welcome back, Driver</h2>
+                        <div class="formulario">
+                            <div class="campo">
+                                <span>E-mail:</span>
+                                <input id="input_email" type="text" placeholder="Login">
                             </div>
-                            <p>Não tem uma conta? <a href="cadastro.html">Faça seu cadastro</a></p>
-                            <div id="div_aguardar" class="loading-div">
-                                <img src="./assets/circle-loading.gif" id="loading-gif">
+                            <div class="campo">
+                                <span>Senha:</span>
+                                <input id="input_senha" type="password" placeholder="******" oninput="senha_validada()">
                             </div>
-                            <div id="div_erros_login"></div>
+                            <p id="erros_senha_login" class="erros_login"></p>
+                            <button class="botao" onclick="entrar()">Entrar</button>
                         </div>
+                        <p>Não tem uma conta? <a href="cadastro.html">Faça seu cadastro</a></p>
+                        <div id="div_aguardar" class="loading-div">
+                            <img src="./assets/circle-loading.gif" id="loading-gif">
+                        </div>
+                        <div id="div_erros_login"></div>
                     </div>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</body>
 
 </html>
 
@@ -82,12 +81,15 @@
 
     var senha_correta = false;
 
-    function login() {
-        input_email.value = ``;
-        input_senha.value = ``;
-        card_cadastro.value = `vazio`;
-        card_login.className = `card_login`;
+    function sumirMensagem() {
+        cardErro.style.display = "none";
     }
+
+    function resetarLogin() {
+    input_email.value = "";
+    input_senha.value = "";
+    document.getElementById("erros_senha_login").innerHTML = "";
+}
 
     function senha_validada() {
         senha_correta = false;
@@ -115,7 +117,7 @@
             senhaComErro += `Insira pelo menos uma letra maiúscula na senha<br>`;
         }
 
-        for (i = 0; i < letra_minuscula.length; i++) {
+        for (i = 0; i < letras_minusculas.length; i++) {
             if (tentativa.includes(letras_minusculas[i])) {
                 letra_minuscula = true;
             }
@@ -124,16 +126,16 @@
             senhaComErro += `Insira pelo menos uma letra minúscula na sua senha<br>`;
         }
 
-        for (i = 0; i < caractere_especial.length; i++) {
+        for (i = 0; i < caracteres_especiais.length; i++) {
             if (tentativa.includes(caracteres_especiais[i])) {
                 caractere_especial = true;
             }
         }
         if (!caractere_especial) {
-            senhaComErro += `Insira pelo menos um caractere especial na sua senha`;
+            senhaComErro += `Insira pelo menos um caractere especial na sua senha<br>`;
         }
 
-        for (i = 0; i < numero.length; i++) {
+        for (i = 0; i < numeros.length; i++) {
             if (tentativa.includes(numeros[i])) {
                 numero = true;
             }
@@ -153,73 +155,74 @@
             senha_correta = true;
         }
     }
-        function entrar() {
-            aguardar();
+    function entrar() {
+        aguardar();
 
-            var emailVar = email_input.value;
-            var senhaVar = senha_input.value;
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
 
-            if (emailVar == "" || senhaVar == "") {
-                cardErro.style.display = "block"
-                mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-                finalizarAguardar();
-                return false;
-            }
-            else {
-                setInterval(sumirMensagem, 5000)
-            }
-
-            console.log("FORM LOGIN: ", emailVar);
-            console.log("FORM SENHA: ", senhaVar);
-
-            fetch("/usuarios/autenticar", {
-                method: "get",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    emailServer: emailVar,
-                    senhaServer: senhaVar
-                })
-            }).then(function (resposta) {
-                console.log("ESTOU NO THEN DO entrar()!")
-
-                if (resposta.ok) {
-                    console.log(resposta);
-
-                    resposta.json().then(json => {
-                        console.log(json);
-                        console.log(JSON.stringify(json));
-                        sessionStorage.EMAIL_USUARIO = json.email;
-                        sessionStorage.NOME_USUARIO = json.nome;
-                        sessionStorage.ID_USUARIO = json.id;
-                        sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
-
-                        setTimeout(function () {
-                            window.location = "./dashboard/cards.html";
-                        }, 1000); // apenas para exibir o loading
-
-                    });
-
-                } else {
-
-                    console.log("Houve um erro ao tentar realizar o login!");
-
-                    resposta.text().then(texto => {
-                        console.error(texto);
-                        finalizarAguardar(texto);
-                    });
-                }
-
-            }).catch(function (erro) {
-                console.log(erro);
-            })
-
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar();
             return false;
         }
-
-        function sumirMensagem() {
-            cardErro.style.display = "none"
+        else {
+            setInterval(sumirMensagem, 5000)
         }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch(`/usuarios/autenticar/${emailVar}/${senhaVar}`, {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: emailVar,
+                senha: senhaVar
+            })
+
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+
+                    setTimeout(function () {
+                        alert(`Chegou`)
+                        window.location = "./home.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+
 
 </script>
