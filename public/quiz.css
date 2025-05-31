@@ -9,8 +9,10 @@ button {
 }
 
 body {
-    background-color: #121214;
-    color: #fff;
+    background-image: url(./assets/imgs/História.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #e3b062;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -18,7 +20,7 @@ body {
 }
 
 .container {
-    background-color: #121214;
+    background-color: #121214ab;
     width: 90%;
     max-width: 800px;
     border: 2px solid #e1e1e6;
@@ -40,13 +42,13 @@ body {
     gap: 24px;
 }
 
-.pergunta {
+.perguntas_quiz {
     font-size: 24px;
     font-weight: bold;
     text-align: center;
 }
 
-.respostas {
+.respostas_quiz {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -58,8 +60,8 @@ body {
 }
 
 .button {
-    background-color: #4863f7;
-    color: #fff;
+    background-color: rgba(0, 0, 0, 0.715);
+    color: #e3b062;
     font-size: 16px;
     font-weight: bold;
     border: 0;
@@ -69,10 +71,34 @@ body {
     transition: filter 0.2s;
 }
 
-.button:hover {
+.button:not(:disabled):hover {
     filter: brightness(0.8);
+}
+
+.resposta:disabled {
+    cursor: not-allowed;
 }
 
 .hide {
     display: none;
+}
+
+.correta {
+    background-image: url(./assets/imgs/Senna3.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.errada {
+    background-image: url(./assets/imgs/Latifi.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.certa {
+    background-color: green;
+}
+
+.errou {
+    background-color: #a10101;
 }
