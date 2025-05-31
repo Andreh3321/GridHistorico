@@ -1,216 +1,216 @@
 var bd_pilotos = [    
     {   
-        "id": 1,
+        "id": `Schumacher`,
         "nome": "Michael Schumacher",
         "imagem": "assets/imgs/Schumacher1.jpg",
         "descricao": "."
     },
     {   
-        "id": 2,
+        "id": `Hamilton`,
         "nome": "Lewis Hamilton",
         "imagem": "assets/imgs/Hamilton1.jpg",
         "descricao": "."
     },
     {   
-        "id": 3,
+        "id": `Manoel`,
         "nome": "Juan Manoel Fangio",
         "imagem": "assets/imgs/Fangio1.jpg",
         "descricao": "."
     },
     {   
-        "id": 4,
+        "id": `Prost`,
         "nome": "Alain Prost",
         "imagem": "assets/imgs/Prost1.jpg",
         "descricao": "."
     },
     {   
-        "id": 5,
+        "id": `Vettel`,
         "nome": "Sebastian Vettel",
         "imagem": "assets/imgs/Vettel2.jpg",
         "descricao": "."
     },
     {   
-        "id": 6,
+        "id": `Verstappen`,
         "nome": "Max Verstappen",
         "imagem": "assets/imgs/Max3.jpg",
         "descricao": "."
     },
     {   
-        "id": 7,
+        "id": `Senna`,
         "nome": "Ayrton Senna",
         "imagem": "assets/imgs/Senna6.jpg",
         "descricao": "."
     },
     {   
-        "id": 8,
+        "id": `Brabham`,
         "nome": "Jack Brabham",
         "imagem": "assets/imgs/Brabham1.jpg",
         "descricao": "."
     },
     {   
-        "id": 9,
+        "id": `Stewart`,
         "nome": "Jackie Stewart",
         "imagem": "assets/imgs/Stewart1.jpg",
         "descricao": "."
     },
     {   
-        "id": 10,
+        "id": `Lauda`,
         "nome": "Niki Lauda",
         "imagem": "assets/imgs/Lauda1.jpg",
         "descricao": "."
     },
     {   
-        "id": 11,
+        "id": `Piquet`,
         "nome": "Nelson Piquet",
         "imagem": "assets/imgs/Piquet1.jpg",
         "descricao": "."
     },
     {   
-        "id": 12,
+        "id": `Alonso`,
         "nome": "Fernando Alonso",
         "imagem": "assets/imgs/Alonso1.jpg",
         "descricao": "."
     },
     {   
-        "id": 13,
+        "id": `Häkkinen`,
         "nome": "Mika Häkkinen",
         "imagem": "assets/imgs/Häkkinen1.jpg",
         "descricao": "."
     },
     {   
-        "id": 14,
+        "id": `Fittipaldi`,
         "nome": "Emerson Fittipaldi",
         "imagem": "assets/imgs/Fitti1.jpg",
         "descricao": "."
     },
     {   
-        "id": 15,
+        "id": `Hill`,
         "nome": "Graham Hill",
         "imagem": "assets/imgs/Graham1.jpg",
         "descricao": "."
     },
     {   
-        "id": 16,
+        "id": `Clark`,
         "nome": "Jim Clark",
         "imagem": "assets/imgs/Clark1.jpg",
         "descricao": "."
     },
     {   
-        "id": 17,
+        "id": `Ascari`,
         "nome": "Alberto Ascari",
         "imagem": "assets/imgs/Ascari1.jpg",
         "descricao": "."
     },
     {   
-        "id": 18,
+        "id": `Farina`,
         "nome": "Nino Farina",
         "imagem": "assets/imgs/Farina1.jpg",
         "descricao": "."
     },
     {   
-        "id": 19,
+        "id": `Hawthorn`,
         "nome": "Mike Hawthorn",
         "imagem": "assets/imgs/Hawthorn1.jpg",
         "descricao": "."
     },
     {   
-        "id": 20,
+        "id": `Hill`,
         "nome": "Phil Hill",
         "imagem": "assets/imgs/Phil1.jpg",
         "descricao": "."
     },
     {   
-        "id": 21,
+        "id": `Surtees`,
         "nome": "John Surtees",
         "imagem": "assets/imgs/Surtees1.jpg",
         "descricao": "."
     },
     {   
-        "id": 22,
+        "id": `Hulme`,
         "nome": "Dennu Hulme",
         "imagem": "assets/imgs/Hulme1.jpg",
         "descricao": "."
     },
     {   
-        "id": 23,
+        "id": `Rindt`,
         "nome": "Jochen Rindt",
         "imagem": "assets/imgs/Rindt1.jpg",
         "descricao": "."
     },
     {   
-        "id": 24,
+        "id": `Hunt`,
         "nome": "James Hunt",
         "imagem": "assets/imgs/Hunt1.jpg",
         "descricao": "."
     },
     {   
-        "id": 25,
+        "id": `Andretti`,
         "nome": "Mario Andretti",
         "imagem": "assets/imgs/Andretti1.jpg",
         "descricao": "."
     },
     {   
-        "id": 26,
+        "id": `Schecket`,
         "nome": "Jody Schecket",
         "imagem": "assets/imgs/Scheckter1.jpg",
         "descricao": "."
     },
     {   
-        "id": 27,
+        "id": `Jones`,
         "nome": "Alan Jones",
         "imagem": "assets/imgs/Jones1.jpg",
         "descricao": "."
     },
     {   
-        "id": 28,
+        "id": `Rosberg`,
         "nome": "Keke Rosberg",
         "imagem": "assets/imgs/Keke1.jpg",
         "descricao": "."
     },
     {   
-        "id": 29,
+        "id": `Rosberg`,
         "nome": "Nico Rosberg",
         "imagem": "assets/imgs/Nico1.jpg",
         "descricao": "."
     },
     {   
-        "id": 30,
+        "id": `Mansell`,
         "nome": "Nigel Mansell",
         "imagem": "assets/imgs/Mansell1.jpg",
         "descricao": "."
     },
     {   
-        "id": 31,
+        "id": `Hill`,
         "nome": "Damon Hill",
         "imagem": "assets/imgs/Damon1.jpg",
         "descricao": "."
     },
     {   
-        "id": 32,
+        "id": `Villeneuve`,
         "nome": "Jacques Villeneuve",
         "imagem": "assets/imgs/Villeneuve1.jpg",
         "descricao": "."
     },
     {   
-        "id": 33,
+        "id": `Räikkönen`,
         "nome": "Kimi Räikkönen",
         "imagem": "assets/imgs/Raikkonen1.jpg",
         "descricao": "."
     },
     {   
-        "id": 34,
+        "id": `Button`,
         "nome": "Jenson Button",
         "imagem": "assets/imgs/Button1.jpg",
         "descricao": "."
     },
     {   
-        "id": 35,
+        "id": `Massa`,
         "nome": "Felipe Massa",
         "imagem": "assets/imgs/Massa1.jpg",
         "descricao": "."
     },
     {   
-        "id": 36,
+        "id": `Barrichello`,
         "nome": "Rubens Barrichello",
         "imagem": "assets/imgs/Rubinho2.jpg",
         "descricao": "."
