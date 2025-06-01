@@ -1,11 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes | Pilotos</title>
 </head>
+
 <body>
-    
+    <nav></nav>
+    <div class="biografia_piloto">
+        <img src="imagem_piloto" id="imagem_piloto">
+
+        <p class="nome"><b>Nome:</b><span id="nome"></span></p>
+        <p class="abv"><b>Abreviação:</b><span id="abv"></span></p>
+        <p class="dt_nascimento"><b>Data de Nascimento:</b><span id="dt_nascimento"></span></p>
+        <p class="dt_estreia"><b>Data de estreia:</b><span id="dt_estreia"></span></p>
+        <p class="primeira_vitoria"><b>Primeira Vitória:</b><span id="primeira_vitoria"></span></p>
+        <p class="numero_corridas"><b>Número Corridas:</b><span id="numero_corridas"></span></p>
+        <p class="numero_vitorias"><b>Numero de vitórias:</b><span id="numero_vitorias"></span></p>
+        <p class="numero_titulos"><b>Numero de títulos:</b><span id="numero_titulos"></span></p>
+        <p class="tempo_de_f1"><b>Tempo de F1:</b><span id="tempo_de_f1"></span></p>
+        <p class="nacionalidade"><b>Nacionalidade:</b><span id="nacionalidade"></span></p>
+        <p class="curiosidade"><b>Curiosidade:</b><span id="curiosidade"></span></p>
+        <p class="resumo"><b>Resumo:</b><span id="resumo"></span></p>
+    </div>
 </body>
+
 </html>
+<script>
+    const Pilotos = sessionStorage.Pilotos;
+
+    async function bioPilotos() {
+        const resposta = await fetch(`/pilotos/bioPilotos/${Pilotos}`);
+
+        const dados = await resposta.json();
+
+        imagem_piloto.src = dados[0].back;
+        nome.innerHTML = dados[0].nome;
+        dt_nascimento.innerHTML = dados[0].dt_nascimento;
+        dt_estreia.innerHTML = dados[0].dt_estreia;
+        primeira_vitoria.innerHTML = dados[0].primeira_vitoria;
+        numero_corridas.innerHTML = dados[0].numero_corridas;
+        numero_vitorias.innerHTML = dados[0].numero_vitorias;
+        numero_titulos.innerHTML = dados[0].numero_titulos;
+        tempo_de_f1.innerHTML = dados[0].tempo_de_f1;
+        nacionalidade.innerHTML = dados[0].nacionalidade;
+        curiosidade.innerHTML = dados[0].curiosidade;
+        resumo.innerHTML = dados[0].resumo;
+
+        console.log(dados)
+
+
+    }
+
+    bioPilotos();
+</script>

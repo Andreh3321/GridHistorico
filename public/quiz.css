@@ -17,7 +17,42 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #121214ab;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 20px;
+    height: 80px;
+}
+
+nav a {
+    color: #e3b062;
+}
+
+nav img {
+    height: 80px;
+    width: 80px;
+    margin: 2%;
+}
+
+nav a img {
+    height: 80px;
+    width: 35px;
+}
+
+nav #logo {
+    margin: 10px;
+}
+
 
 .container {
     background-color: #121214ab;
