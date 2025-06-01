@@ -14,7 +14,7 @@
         <img src="assets/icon/Logo F1.png" id="logo">
         <a href="home.html">Home</a>
     </nav>
-    
+    <img src="assets/imgs/" alt="">
     <div class="fundo_pilotos">
         <div class="pilotos">
             <div id="Schumacher">
@@ -166,3 +166,16 @@
 </body>
 
 </html>
+
+<script>
+    const Pilotos = document.querySelectorAll(".pilotos > div")
+
+    pilotos.forEach(piloto => {
+        piloto.addEventListener("click", () => {
+            const id = piloto.id;
+            sessionStorage.setItem("Pilotos", id);
+            window.location.href = "bio_pilotos.html"
+        })
+
+    })
+</script>

@@ -10,7 +10,7 @@
 <body>
     <nav></nav>
     <div class="biografia_piloto">
-        <img src="imagem_piloto" id="imagem_piloto">
+        <img src="" alt="" id="imagem_piloto">
 
         <p class="nome"><b>Nome:</b><span id="nome"></span></p>
         <p class="abv"><b>Abreviação:</b><span id="abv"></span></p>
@@ -29,15 +29,42 @@
 
 </html>
 <script>
-    const Pilotos = sessionStorage.Pilotos;
+    const Pilotos = sessionStorage.getItem("Pilotos");
+    if (!Pilotos) {
+        alert(`Piloto não encontrado`)
+        window.location.href = "Pilotos.html";
+        return;
+    }
+
+    const imagem_piloto = document.getElementById("imagem_piloto");
+    const nome = document.getElementById("nome");
+    const abv = document.getElementById("abv");
+    const dt_nascimento = document.getElementById("dt_nascimento");
+    const dt_estreia = document.getElementById("dt_estreia");
+    const primeira_vitoria = document.getElementById("primeira_vitoria");
+    const numero_corridas = document.getElementById("numero_corridas");
+    const numero_vitorias = document.getElementById("numero_vitorias");
+    const numero_titulos = document.getElementById("numero_titulos");
+    const tempo_de_f1 = document.getElementById("tempo_de_f1");
+    const nacionalidade = document.getElementById("nacionalidade");
+    const curiosidade = document.getElementById("curiosidade");
+    const resumo = document.getElementById("resumo");
 
     async function bioPilotos() {
         const resposta = await fetch(`/pilotos/bioPilotos/${Pilotos}`);
+        if (!resposta.ok) {
+            alert(`Erro ao buscar dados do piloto`)
+        }
 
         const dados = await resposta.json();
+        if (!dados || dados.length == 0) {
+            alert(`Nenhuma informação encontrada`)
+            return
+        }
 
         imagem_piloto.src = dados[0].back;
         nome.innerHTML = dados[0].nome;
+        abv.innerHTML = dados[0].abreviacao;
         dt_nascimento.innerHTML = dados[0].dt_nascimento;
         dt_estreia.innerHTML = dados[0].dt_estreia;
         primeira_vitoria.innerHTML = dados[0].primeira_vitoria;
