@@ -1,11 +1,11 @@
 /* pagina mural */
 
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Orbitron:wght@400..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Orbitron", sans-serif;
 }
 
 .label-captura {
@@ -16,7 +16,7 @@ body {
 .dash-right .avisos {
   width: 100%;
   color: rgb(216, 216, 216);
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Orbitron", sans-serif;
 }
 
 .dash-right .avisos .container {
@@ -51,7 +51,7 @@ body {
 
 .dash-right .avisos .div-form button {
   cursor: pointer;
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Orbitron", sans-serif;
   border: 0;
   border-radius: 5px;
   font-weight: 600;
@@ -64,7 +64,7 @@ body {
 
 .publicacao-btn-editar {
   cursor: pointer;
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Orbitron", sans-serif;
   border: 0;
   border-radius: 5px;
   font-weight: 600;
@@ -120,7 +120,9 @@ body {
   position: relative;
   top: 0;
   left: 20%;
-  background-color: #161618;
+  background-image: url(../assets/imgs/Fundo_dash3.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100vh;
   overflow: auto;
 }
@@ -281,7 +283,7 @@ body {
 }
 
 .btn-chart {
-  font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Orbitron", sans-serif;
   border: 0;
   font-weight: 600;
   font-size: 18px;
@@ -365,7 +367,7 @@ canvas {
 }
 
 .header-left h1 {
-  color: #32b9cd;
+  color: #e3b062;
 }
 
 .hello {
@@ -386,24 +388,25 @@ canvas {
 
 .btn-nav {
   width: 40%;
-  color: white;
-  background-color: #e6005a;
+  color: #e3b062;
+  background-color: black;
   border-radius: 5px;
   text-align: center;
   padding: 2% 5%;
+  border: 3px solid #e3b062;
 }
 
 .btn-nav-white {
   width: 40%;
-  background-color: white;
-  border: 3px solid #e6005a;
+  background-color: black;
+  border: 3px solid #e3b062;
   border-radius: 5px;
   text-align: center;
   padding: 2% 5%;
 }
 
 .btn-nav-white h3 {
-  color: #e6005a;
+  color: #e3b062;
   padding: 0;
   margin: 0;
 }
