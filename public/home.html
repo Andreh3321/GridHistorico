@@ -16,33 +16,33 @@
                 <img src="assets/icon/Logo F1.png" id="logo">
                 <a href="#">Home</a>
                 <select onchange="decadaSelecionada()" id="select_option">
-                    <option>Décadas</option>
-                    <option value="#1950">1950</option>
-                    <option value="#1960">1960</option>
-                    <option value="#1970">1970</option>
-                    <option value="#1980">1980</option>
-                    <option value="#1990">1990</option>
-                    <option value="#2000">2000</option>
-                    <option value="#2010">2010</option>
-                    <option value="#2020">2020</option>
+                    <option value="Origem">Origem</option>
+                    <option value="1950">1950</option>
+                    <option value="1960">1960</option>
+                    <option value="1970">1970</option>
+                    <option value="1980">1980</option>
+                    <option value="1990">1990</option>
+                    <option value="2000">2000</option>
+                    <option value="2010">2010</option>
+                    <option value="2020">2020</option>
                 </select>
                 <a href="Pilotos.html">Pilotos</a>
                 <a href="quiz.html">Quiz</a>
                 <a href="login.html"><img src="assets/icon/Logout2.svg"></a>
             </nav>
-            <div class="Origem">
+            <div class="Origem" id="Origem">
                 <div class="container">
                     <h3>Origem da Fórmula 1</h3>
                     <p>
                         Em 1950, a FIA (Federação Internacional de Automobilismo) teve a ideia de unificar todos os
-                        grandes Grandes Prêmios (GPs) da Europa,
-                        reunindo circuitos onde já eram realizadas etapas muito conhecidas dos fãs, e foi assim que
-                        surgiu a Fórmula 1.
-                        E foi assim então que, no dia 13 de maio de 1950, aconteceu a primeira corrida da história da
-                        F1,
-                        no circuito de Silvertone, Inglaterra. O ganhador desse dia histórico foi o italiano, Giuseppe
-                        Farina, pela
-                        equipe Alfa Romeo.
+                        grandes Grandes Prêmios (GPs) da Europa, reunindo circuitos onde já eram realizadas etapas muito
+                        conhecidas dos fãs,
+                        e foi assim que surgiu a Fórmula 1.
+                        No dia 13 de maio de 1950, aconteceu a primeira corrida da história da F1, no circuito de
+                        Silvertone, Inglaterra.
+                        O ganhador desse dia histórico foi o italiano, Giuseppe Farina, pela equipe Alfa Romeo.
+                    </p>
+                    <p>
                         O nome Fórmula 1 foi escolhido para representar a “fórmula” que todas as equipes devem seguir
                         para construir seus carros.
                         Isso significa respeitar alguns critérios obrigatórios com relação ao tipo de motor, a
@@ -60,335 +60,684 @@
                     </p>
                 </div>
             </div>
-            <div class="Decada1950" id="1950">
-                <div class="container">
-                    <h3>Como foi a década de 50?</h3>
-                    <p>
-                        A década de 1950 marcou o início oficial do Campeonato Mundial de Fórmula 1, estabelecendo o
-                        palco para o esporte motorizado que conhecemos hoje. Em 1950, o italiano Giuseppe "Nino" Farina
-                        sagrou-se o primeiro campeão a bordo de uma Alfa Romeo, dando o pontapé inicial a um período de
-                        experimentação e inovação. Os carros eram bastante rudimentares, com a maioria apresentando
-                        motores na
-                        dianteira, o que os tornava desafiadores de pilotar e com pouquíssima aerodinâmica. No entanto,
-                        o final da
-                        década presenciou uma revolução com a equipe Cooper-Climax e o piloto Jack Brabham, que
-                        popularizaram o
-                        conceito do motor traseiro, alterando fundamentalmente o design e a dinâmica dos carros.
-                    </p>
-
-                    <p>
-                        O período foi amplamente dominado por uma das maiores lendas da categoria: o argentino Juan
-                        Manuel Fangio. Com uma adaptabilidade e um talento inigualáveis, Fangio conquistou cinco títulos
-                        mundiais (1951, 1954, 1955, 1956, 1957) com diferentes equipes de ponta como Alfa Romeo,
-                        Mercedes-Benz,
-                        Ferrari e Maserati, consolidando sua reputação como o "Maestro". Além dele, nomes como o
-                        bicampeão Alberto Ascari e o lendário Stirling Moss também brilharam, embora Moss nunca tenha
-                        alcançado o
-                        título.
-                    </p>
-                    <p>
-                        Apesar da crescente popularidade e da expansão do campeonato para além das fronteiras europeias,
-                        a década de 50 foi um período de extremo perigo na Fórmula 1. A segurança era uma preocupação
-                        secundária, e os carros ofereciam pouca proteção aos pilotos em pistas com pouca ou nenhuma
-                        barreira. Fatalidades eram, infelizmente, comuns. No entanto, foi também uma década de
-                        pioneirismo, com a estreia da italiana Maria Teresa de Filippis como a primeira mulher a
-                        competir em um
-                        Grande Prêmio, abrindo caminhos para o futuro do automobilismo.
-                    </p>
+            <div id="1950" style="display: none;">
+                <div class="Decada1950">
+                    <div class="container">
+                        <h3>Como foi a década de 50?</h3>
+                        <p>
+                            A década de 1950 marcou o início oficial do Campeonato Mundial de Fórmula 1, estabelecendo o
+                            palco para o esporte motorizado que conhecemos hoje. Em 1950, o italiano Giuseppe "Nino"
+                            Farina
+                            sagrou-se o primeiro campeão a bordo de uma Alfa Romeo, dando o pontapé inicial a um período
+                            de
+                            experimentação e inovação. Os carros eram bastante rudimentares, com a maioria apresentando
+                            motores na
+                            dianteira, o que os tornava desafiadores de pilotar e com pouquíssima aerodinâmica. No
+                            entanto,
+                            o final da
+                            década presenciou uma revolução com a equipe Cooper-Climax e o piloto Jack Brabham, que
+                            popularizaram o
+                            conceito do motor traseiro, alterando fundamentalmente o design e a dinâmica dos carros.
+                        </p>
+                        <p>
+                            O período foi amplamente dominado por uma das maiores lendas da categoria: o argentino Juan
+                            Manuel Fangio. Com uma adaptabilidade e um talento inigualáveis, Fangio conquistou cinco
+                            títulos
+                            mundiais (1951, 1954, 1955, 1956, 1957) com diferentes equipes de ponta como Alfa Romeo,
+                            Mercedes-Benz,
+                            Ferrari e Maserati, consolidando sua reputação como o "Maestro". Além dele, nomes como o
+                            bicampeão Alberto Ascari e o lendário Stirling Moss também brilharam, embora Moss nunca
+                            tenha
+                            alcançado o
+                            título.
+                        </p>
+                        <p>
+                            Apesar da crescente popularidade e da expansão do campeonato para além das fronteiras
+                            europeias,
+                            a década de 50 foi um período de extremo perigo na Fórmula 1. A segurança era uma
+                            preocupação
+                            secundária, e os carros ofereciam pouca proteção aos pilotos em pistas com pouca ou nenhuma
+                            barreira. Fatalidades eram, infelizmente, comuns. No entanto, foi também uma década de
+                            pioneirismo, com a estreia da italiana Maria Teresa de Filippis como a primeira mulher a
+                            competir em um
+                            Grande Prêmio, abrindo caminhos para o futuro do automobilismo.
+                        </p>
+                    </div>
+                </div>
+                <div class="Decada2010">
+                    <div class="container">
+                        <div class="div_pilotos">
+                            <h3>Pilotos que se destacaram</h3>
+                            <div class="pilotos">
+                                <div class="vettel">
+                                    <div class="nome_foto">
+                                        <img src="assets/imgs/Vettel2.jpg">
+                                        <p>Sebastian Vettel</p>
+                                    </div>
+                                    <div class="informacoes">
+                                        <p><b>Nacionalidade:</b> Inglês</p>
+                                        <p><b>Número de títulos:</b> 4 <br>(2014, 2015, 2017, 2018, 2019, 2020)</p>
+                                        <p><b>Equipe:</b> RedBull Racing</p>
+                                    </div>
+                                    <div class="imagens_iconicas">
+                                        <img src="assets/imgs/Vettel7.jpg">
+                                    </div>
+                                </div>
+                                <div class="vettel">
+                                    <div class="nome_foto">
+                                        <img src="assets/imgs/Hamilton1.jpg">
+                                        <p>Lewis Hamilton</p>
+                                    </div>
+                                    <div class="informacoes">
+                                        <p><b>Nacionalidade:</b> Inglês</p>
+                                        <p><b>Número de títulos:</b> 4 <br>
+                                            (2014, 2015, 2017, 2018, 2019, 2020)</p>
+                                        <p><b>Equipe:</b> RedBull Racing</p>
+                                    </div>
+                                    <div class="imagens_iconicas">
+                                        <img src="assets/imgs/Hamilton2.jpg">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="Decada1950">
-                <div class="container">
-                    <h3>Informações Gerais da década de 50</h3>
-                    <p>
-
-                    </p>
-                </div>
-            </div>
-            <div class="Decada1960" id="1960">
+        </div>
+        <div id="1960" style="display: none;">
+            <div class="Decada1960">
                 <div class="container">
                     <h3>Como foi a década de 60?</h3>
                     <p>
                         A década de 1960 trouxe uma revolução técnica e de design para a Fórmula 1, consolidando a
-                        mudança para os carros com motor traseiro e elevando o esporte a novos patamares de velocidade e
+                        mudança para os carros com motor traseiro e elevando o esporte a novos patamares de
+                        velocidade e
                         complexidade. O domínio das equipes e pilotos britânicos marcou esse período, que viu a
                         engenharia se tornar tão crucial quanto a perícia do piloto.
                     </p>
                     <p>
-                        O grande marco inicial foi a consagração do motor traseiro, popularizado pela Cooper no final
+                        O grande marco inicial foi a consagração do motor traseiro, popularizado pela Cooper no
+                        final
                         dos anos 50. Essa inovação, que melhorava drasticamente o manuseio e a distribuição de peso,
                         tornou-se o padrão da categoria, forçando equipes tradicionais como Ferrari a se adaptarem
-                        rapidamente. O aumento da cilindrada dos motores de 1.5 litros para 3.0 litros em 1966 elevou
-                        significativamente a potência e a velocidade dos carros, exigindo ainda mais das máquinas e dos
+                        rapidamente. O aumento da cilindrada dos motores de 1.5 litros para 3.0 litros em 1966
+                        elevou
+                        significativamente a potência e a velocidade dos carros, exigindo ainda mais das máquinas e
+                        dos
                         pilotos. A aerodinâmica, embora ainda em estágios iniciais, começou a ser explorada com as
                         primeiras asas e apêndices nos carros, buscando "grudar" os veículos no asfalto.
                     </p>
                     <p>
-                        Este foi o período de ouro para a Grã-Bretanha na Fórmula 1, tanto em termos de equipes quanto
-                        de pilotos. Lendas como Jim Clark, com sua genialidade e as vitórias esmagadoras pela Lotus, e
-                        Graham Hill, conhecido por sua consistência e versatilidade, dominaram as pistas. Jack Brabham
+                        Este foi o período de ouro para a Grã-Bretanha na Fórmula 1, tanto em termos de equipes
+                        quanto
+                        de pilotos. Lendas como Jim Clark, com sua genialidade e as vitórias esmagadoras pela Lotus,
+                        e
+                        Graham Hill, conhecido por sua consistência e versatilidade, dominaram as pistas. Jack
+                        Brabham
                         fez história ao se tornar o único piloto a vencer o campeonato mundial com um carro de sua
-                        própria construção (Brabham-Repco, em 1966). A década também viu a ascensão de outros grandes
+                        própria construção (Brabham-Repco, em 1966). A década também viu a ascensão de outros
+                        grandes
                         nomes como Jackie Stewart e Denny Hulme, que levariam o esporte para a próxima era, e a
-                        introdução da tecnologia de medição de telemetria, começando a coletar dados vitais dos carros.
-                    </p>
-                </div>
-            </div>
-            <div class="Decada1960">
-                <div class="container">
-                    <h3>Informações Gerais da década de 60</h3>
-                    <p>
-
-                    </p>
-                </div>
-            </div>
-            <div class="Decada1970" id="1970">
-                <div class="container">
-                    <h3>Como foi a década de 1970?</h3>
-                    <p>
-                        A década de 1970 foi um período de efervescência na Fórmula 1, caracterizado por uma diversidade
-                        de vencedores, o surgimento de personalidades carismáticas e um avanço notável na aerodinâmica e
-                        na gestão das equipes. No entanto, foi também uma época sombria, marcada por tragédias
-                        frequentes que destacaram a contínua falta de segurança no esporte.
-                    </p>
-                    <p>
-                        Os carros da F1 nos anos 70 tornaram-se visivelmente mais sofisticados. A aerodinâmica passou de
-                        simples apêndices para uma busca intensa por downforce, com a introdução das asas dianteiras e
-                        traseiras cada vez mais complexas e eficazes. O conceito de "efeito solo" começou a ser
-                        explorado por Colin Chapman e a Lotus, que buscavam "sugar" o carro ao asfalto para aumentar a
-                        aderência nas curvas. Essa busca por desempenho resultou em designs inovadores, mas muitas vezes
-                        perigosos, com a construção dos carros ainda sendo bastante frágil em caso de impacto. A década
-                        viu o domínio de motores Cosworth DFV V8, que eram acessíveis e confiáveis, democratizando a
-                        competição entre as equipes.
-                    </p>
-                    <p>
-                        O cenário de pilotos foi um verdadeiro caldeirão de talentos e temperamentos. Lendas como Jackie
-                        Stewart, que conquistou seu terceiro título em 1971 e se tornou um fervoroso defensor da
-                        segurança, Emerson Fittipaldi, o primeiro campeão brasileiro e um dos primeiros não-europeus a
-                        brilhar, e Niki Lauda, com sua inteligência e resiliência inigualáveis, dominaram as pistas. A
-                        rivalidade intensa entre Lauda e James Hunt em 1976 capturou a atenção do mundo e é um dos
-                        capítulos mais famosos da história da F1. Outros campeões notáveis incluíram Jody Scheckter e
-                        Alan Jones, marcando a entrada de novas forças no auge do esporte.
-                    </p>
-                </div>
-            </div>
-            <div class="Decada1970">
-                <div class="container">
-                    <h3>Informações Gerais da década de 70</h3>
-                    <p>
-
-                    </p>
-                </div>
-            </div>
-            <div class="Decada1980" id="1980">
-                <div class="container">
-                    <h3>Como foi a década de 1980?</h3>
-                    <p>
-                        A década de 1980 transformou a Fórmula 1 em um espetáculo de potência bruta e complexidade
-                        tecnológica, impulsionada pela era turbo. Foi um período de contrastes, onde a inovação
-                        desenfreada coexistia com acidentes de alta velocidade, e as pistas se tornaram o palco de
-                        algumas das mais icônicas e acaloradas rivalidades da história.
-                    </p>
-                    <p>
-                        O grande protagonista técnico dos anos 80 foi o motor turbo. Esses motores, que chegavam a
-                        produzir mais de 1000 cavalos de potência em qualificação, transformaram os carros em foguetes,
-                        exigindo uma pilotagem extremamente física e precisa. A gestão da potência e o "turbo lag"
-                        (atraso na resposta do turbo) se tornaram desafios cruciais. Além disso, a eletrônica começou a
-                        ganhar espaço, com o desenvolvimento de sistemas de controle de tração e câmbios
-                        semi-automáticos, marcando o início da informatização dos carros. A aerodinâmica continuou a
-                        evoluir, mas foi a força bruta dos turbos que realmente definiu a era.
-                    </p>
-                    <p>
-                        Este foi o cenário para o nascimento e a ascensão de lendas que se tornariam sinônimos da
-                        Fórmula 1. Alain Prost e Ayrton Senna protagonizaram uma rivalidade lendária e sem precedentes,
-                        dividindo títulos e momentos memoráveis que cativaram milhões de fãs ao redor do mundo. Além
-                        deles, Nelson Piquet conquistou três campeonatos, destacando-se por sua inteligência tática e
-                        habilidade de desenvolver o carro, enquanto Niki Lauda fez um retorno triunfal, conquistando seu
-                        terceiro título mundial. A década também viu o icônico Nigel Mansell emergir como um favorito da
-                        torcida, adicionando emoção a cada corrida. O carisma e a genialidade desses pilotos, combinados
-                        com a ferocidade dos motores turbo, fizeram dos anos 80 uma era inesquecível e um divisor de
-                        águas para a popularidade global da F1.
-                    </p>
-                </div>
-            </div>
-            <div class="Decada1980">
-                <div class="container">
-                    <h3>Informações Gerais da década de 80</h3>
-                    <p>
-
-                    </p>
-                </div>
-            </div>
-            <div class="Decada1990" id="1990">
-                <div class="container">
-                    <h3>Como foi a década de 1990?</h3>
-                    <p>
-                        A década de 1990 na Fórmula 1 foi um período de intensa inovação tecnológica, que culminou em um
-                        domínio técnico sem precedentes, principalmente da equipe Williams, e foi tragicamente marcada
-                        pela perda de um de seus maiores ícones. As rivalidades que se estenderam do final dos anos 80
-                        deram lugar a novas lendas que moldariam o futuro do esporte.
-                    </p>
-                    <p>
-                        Tecnicamente, os anos 90 foram dominados pela busca por vantagem eletrônica e aerodinâmica. No
-                        início da década, carros como a Williams FW14B e a FW15C, apelidados de "carros de outro
-                        planeta", revolucionaram a categoria com a introdução de sistemas eletrônicos avançados como
-                        suspensão ativa, controle de tração e câmbio semi-automático. Essa tecnologia, embora inovadora,
-                        foi eventualmente banida em 1994 em um esforço para reduzir as velocidades e tornar a pilotagem
-                        mais centrada nas habilidades do piloto. A aerodinâmica continuou sua evolução implacável, com
-                        as equipes buscando cada milímetro de downforce, resultando em carros cada vez mais esculpidos e
-                        eficientes.
-                    </p>
-                    <p>
-                        O cenário de pilotos foi profundamente impactado pela trágica morte de Ayrton Senna em 1994, um
-                        evento que levou a uma revisão drástica das normas de segurança. Antes disso, Senna e Alain
-                        Prost ainda protagonizaram os últimos capítulos de sua rivalidade lendária no início da década.
-                        Após a era Senna, o esporte foi dominado por Michael Schumacher, que, com sua chegada à Ferrari
-                        em 1996, começou a construir a base para o que se tornaria a equipe mais vitoriosa da história
-                        da F1 no início dos anos 2000. Nomes como Damon Hill e Jacques Villeneuve também conquistaram
-                        seus títulos, garantindo que a F1 mantivesse seu espetáculo de velocidade e emoção. A década de
-                        90, portanto, é lembrada tanto pela sua ousadia tecnológica quanto pelo legado duradouro de seus
-                        campeões.
-                    </p>
-                </div>
-            </div>
-            <div class="Decada1990">
-                <div class="container">
-                    <h3>Informações Gerais da década de 90</h3>
-                    <p>
-
-                    </p>
-                </div>
-            </div>
-            <div class="Decada2000" id="2000">
-                <div class="container">
-                    <h3>Como foi a década de 2000?</h3>
-                    <p>
-                        A década de 2000 na Fórmula 1 foi amplamente definida pela supremacia inigualável de Michael
-                        Schumacher e da Ferrari, estabelecendo recordes que pareciam inatingíveis. Contudo, a segunda
-                        metade do período viu o surgimento de uma nova geração de talentos e o início de uma era de
-                        maior competitividade, com mudanças regulamentares buscando quebrar o domínio de uma única
-                        equipe.
-                    </p>
-                    <p>
-                        Tecnicamente, os carros continuaram a ser refinados, com a aerodinâmica atingindo níveis de
-                        complexidade nunca antes vistos. A eletrônica avançada (como o controle de tração e o launch
-                        control) foi reintroduzida no início da década, mas rapidamente banida novamente em 2008, após a
-                        FIA buscar um retorno à "pilotagem pura". Os motores permaneceram V10 até 2006, quando foram
-                        substituídos por V8 de 2.4 litros, visando a redução de custos e a diminuição das velocidades. A
-                        década também testemunhou a breve e controversa fase de troca de pneus durante as corridas, que
-                        adicionava uma dimensão estratégica e de espetáculo antes de ser removida.
-                    </p>
-                    <p>
-                        O cenário de pilotos e equipes foi dominado por Michael Schumacher, que conquistou cinco títulos
-                        consecutivos pela Ferrari (de 2000 a 2004), solidificando seu status como o piloto mais
-                        vitorioso da história da F1 em termos de campeonatos. A Ferrari, sob a liderança de Jean Todt,
-                        Ross Brawn e o próprio Schumacher, tornou-se a equipe mais dominante de todos os tempos até
-                        então. No entanto, após a aposentadoria inicial de Schumacher, a F1 viu a ascensão de novas
-                        estrelas como Fernando Alonso, bicampeão com a Renault em 2005 e 2006, quebrou o domínio da
-                        Ferrari. Posteriormente, Kimi Räikkönen conquistou um título emocionante pela Ferrari em 2007, e
-                        o jovem Lewis Hamilton emergiu, ganhando seu primeiro campeonato em 2008, com Jenson Button
-                        surpreendendo com a Brawn GP em 2009. A década de 2000, portanto, equilibrou uma era de
-                        hegemonia com a empolgante ascensão de talentos que moldariam as próximas gerações da Fórmula 1.
-                    </p>
-                </div>
-            </div>
-            <div class="Decada2000">
-                <div class="container">
-                    <h3>Informações Gerais da década de 2000</h3>
-                    <p>
-
-                    </p>
-                </div>
-            </div>
-            <div class="Decada2010" id="2010">
-                <div class="container">
-                    <h3>Como foi a década de 2010?</h3>
-                    <p>
-                        A década de 2010 na Fórmula 1 foi um divisor de águas, marcada pela revolução dos motores
-                        híbridos e a ascensão de um domínio sem precedentes da equipe Mercedes. Foi um período de
-                        intensa inovação tecnológica, que transformou a sonoridade e a dinâmica dos carros, e
-                        solidificou o status de Lewis Hamilton como um dos maiores pilotos da história.
-                    </p>
-                    <p>
-                        Tecnicamente, o grande ponto de virada foi a introdução dos motores V6 turbo híbridos de 1.6
-                        litros em 2014. Essa mudança regulamentar foi a mais significativa em décadas, combinando
-                        motores a combustão interna com sistemas complexos de recuperação de energia (ERS). Isso não só
-                        alterou drasticamente o som característico da F1, mas também introduziu uma camada de
-                        complexidade técnica e eficiência energética que exigiu das equipes uma engenharia de ponta.
-                        Além disso, o DRS (Drag Reduction System), introduzido em 2011, tornou as ultrapassagens mais
-                        dinâmicas, adicionando um elemento estratégico e de ação nas corridas. A aerodinâmica continuou
-                        a ser uma área crucial de desenvolvimento, com os carros se tornando cada vez mais eficientes e
-                        rápidos nas curvas.
-                    </p>
-                    <p>
-                        O cenário de pilotos e equipes foi indiscutivelmente dominado pela Mercedes-AMG Petronas Formula
-                        One Team e por Lewis Hamilton. Após um início de década onde Sebastian Vettel conquistou quatro
-                        títulos consecutivos com a Red Bull Racing (de 2010 a 2013), a introdução dos motores híbridos
-                        abriu caminho para a era de ouro da Mercedes. Hamilton e sua equipe estabeleceram um padrão de
-                        excelência, conquistando seis dos sete campeonatos de pilotos da década (sendo o outro de Nico
-                        Rosberg, também pela Mercedes, em 2016). Essa hegemonia levou a uma série de rivalidades
-                        intensas, especialmente entre os companheiros de equipe Hamilton e Rosberg, e consolidou
-                        Hamilton como uma força dominante e um ícone global do esporte. A década de 2010 redefiniu o que
-                        era ser um carro de Fórmula 1 e um piloto campeão.
+                        introdução da tecnologia de medição de telemetria, começando a coletar dados vitais dos
+                        carros.
                     </p>
                 </div>
             </div>
             <div class="Decada2010">
                 <div class="container">
-                    <h3>Informações Gerais da década de 2010</h3>
-                    <p>
-
-                    </p>
-                </div>
-            </div>
-            <div class="Decada2020" id="2020">
-                <div class="container">
-                    <h3>Como está sendo a atual década?</h3>
-                    <p>
-                        A primeira metade da década de 2020 na Fórmula 1 foi rapidamente moldada pela reintrodução de um
-                        novo regulamento técnico radical e pela ascensão de um novo super-dominador. Após anos de
-                        estabilidade nas regras, a categoria buscou equilibrar a competição e promover uma corrida mais
-                        próxima, resultando em um cenário de alto desempenho e uma nova hegemonia.
-                    </p>
-                    <p>
-
-                        Tecnicamente, o grande destaque veio em 2022 com a implementação de novas regras aerodinâmicas,
-                        focadas no efeito solo e na simplificação da carroceria superior. O objetivo era reduzir o ar
-                        sujo ("dirty air") atrás dos carros, permitindo que eles seguissem uns aos outros mais de perto
-                        e facilitando as ultrapassagens. Isso trouxe de volta o conceito de venturi tunnels e resultou
-                        em carros com designs visualmente distintos, mas também introduziu o fenômeno do "porpoising"
-                        (saltos aerodinâmicos) no início da temporada. Além disso, as equipes tiveram que se adaptar a
-                        um teto orçamentário mais restrito, o que nivelou o campo de jogo financeiro e estratégico entre
-                        as grandes e pequenas equipes.
-                    </p>
-                    <p>
-                        O cenário de pilotos foi rapidamente dominado por Max Verstappen e a equipe Red Bull Racing.
-                        Após uma intensa e controversa disputa pelo título em 2021 contra Lewis Hamilton, Verstappen e a
-                        Red Bull estabeleceram uma era de supremacia, conquistando os campeonatos de pilotos e
-                        construtores de 2022, 2023 e o início de 2024 com uma margem considerável. Essa dominância
-                        lembrou as eras de Schumacher e Hamilton, mas com a novidade dos regulamentos de efeito solo. A
-                        década também continuou a ver a ascensão de jovens talentos e a consolidação de nomes como
-                        Charles Leclerc e George Russell, garantindo que, apesar do domínio, a F1 mantivesse seu apelo
-                        global com uma base de fãs engajada e um futuro promissor de disputas acirradas.
-                    </p>
-                </div>
-            </div>
-            <div class="Decada2020">
-                <div class="container">
-                    <h3>Informações Gerais da atual década</h3>
-
+                    <div class="div_pilotos">
+                        <h3>Pilotos que se destacaram</h3>
+                        <div class="pilotos">
+                            <div class="vettel">
+                                <div class="nome_foto">
+                                    <img src="assets/imgs/Vettel2.jpg">
+                                    <p>Sebastian Vettel</p>
+                                </div>
+                                <div class="informacoes">
+                                    <p><b>Nacionalidade:</b> Inglês</p>
+                                    <p><b>Número de títulos:</b> 4 <br>(2014, 2015, 2017, 2018, 2019, 2020)</p>
+                                    <p><b>Equipe:</b> RedBull Racing</p>
+                                </div>
+                                <div class="imagens_iconicas">
+                                    <img src="assets/imgs/Vettel7.jpg">
+                                </div>
+                            </div>
+                            <div class="vettel">
+                                <div class="nome_foto">
+                                    <img src="assets/imgs/Hamilton1.jpg">
+                                    <p>Lewis Hamilton</p>
+                                </div>
+                                <div class="informacoes">
+                                    <p><b>Nacionalidade:</b> Inglês</p>
+                                    <p><b>Número de títulos:</b> 4 <br>
+                                        (2014, 2015, 2017, 2018, 2019, 2020)</p>
+                                    <p><b>Equipe:</b> RedBull Racing</p>
+                                </div>
+                                <div class="imagens_iconicas">
+                                    <img src="assets/imgs/Hamilton2.jpg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div id="1970" style="display: none;">
+        <div class="Decada1970">
+            <div class="container">
+                <h3>Como foi a década de 1970?</h3>
+                <p>
+                    A década de 1970 foi um período de efervescência na Fórmula 1, caracterizado por uma
+                    diversidade
+                    de vencedores, o surgimento de personalidades carismáticas e um avanço notável na
+                    aerodinâmica e
+                    na gestão das equipes. No entanto, foi também uma época sombria, marcada por tragédias
+                    frequentes que destacaram a contínua falta de segurança no esporte.
+                </p>
+                <p>
+                    Os carros da F1 nos anos 70 tornaram-se visivelmente mais sofisticados. A aerodinâmica
+                    passou de
+                    simples apêndices para uma busca intensa por downforce, com a introdução das asas dianteiras
+                    e
+                    traseiras cada vez mais complexas e eficazes. O conceito de "efeito solo" começou a ser
+                    explorado por Colin Chapman e a Lotus, que buscavam "sugar" o carro ao asfalto para aumentar
+                    a
+                    aderência nas curvas. Essa busca por desempenho resultou em designs inovadores, mas muitas
+                    vezes
+                    perigosos, com a construção dos carros ainda sendo bastante frágil em caso de impacto. A
+                    década
+                    viu o domínio de motores Cosworth DFV V8, que eram acessíveis e confiáveis, democratizando a
+                    competição entre as equipes.
+                </p>
+                <p>
+                    O cenário de pilotos foi um verdadeiro caldeirão de talentos e temperamentos. Lendas como
+                    Jackie
+                    Stewart, que conquistou seu terceiro título em 1971 e se tornou um fervoroso defensor da
+                    segurança, Emerson Fittipaldi, o primeiro campeão brasileiro e um dos primeiros não-europeus
+                    a
+                    brilhar, e Niki Lauda, com sua inteligência e resiliência inigualáveis, dominaram as pistas.
+                    A
+                    rivalidade intensa entre Lauda e James Hunt em 1976 capturou a atenção do mundo e é um dos
+                    capítulos mais famosos da história da F1. Outros campeões notáveis incluíram Jody Scheckter
+                    e
+                    Alan Jones, marcando a entrada de novas forças no auge do esporte.
+                </p>
+            </div>
+        </div>
+        <div class="Decada2010">
+            <div class="container">
+                <div class="div_pilotos">
+                    <h3>Pilotos que se destacaram</h3>
+                    <div class="pilotos">
+                        <div class="vettel">
+                            <div class="nome_foto">
+                                <img src="assets/imgs/Vettel2.jpg">
+                                <p>Sebastian Vettel</p>
+                            </div>
+                            <div class="informacoes">
+                                <p><b>Nacionalidade:</b> Inglês</p>
+                                <p><b>Número de títulos:</b> 4 <br>(2014, 2015, 2017, 2018, 2019, 2020)</p>
+                                <p><b>Equipe:</b> RedBull Racing</p>
+                            </div>
+                            <div class="imagens_iconicas">
+                                <img src="assets/imgs/Vettel7.jpg">
+                            </div>
+                        </div>
+                        <div class="vettel">
+                            <div class="nome_foto">
+                                <img src="assets/imgs/Hamilton1.jpg">
+                                <p>Lewis Hamilton</p>
+                            </div>
+                            <div class="informacoes">
+                                <p><b>Nacionalidade:</b> Inglês</p>
+                                <p><b>Número de títulos:</b> 4 <br>
+                                    (2014, 2015, 2017, 2018, 2019, 2020)</p>
+                                <p><b>Equipe:</b> RedBull Racing</p>
+                            </div>
+                            <div class="imagens_iconicas">
+                                <img src="assets/imgs/Hamilton2.jpg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="1980" style="display: none;">
+        <div class="Decada1980">
+            <div class="container">
+                <h3>Como foi a década de 1980?</h3>
+                <p>
+                    A década de 1980 transformou a Fórmula 1 em um espetáculo de potência bruta e complexidade
+                    tecnológica, impulsionada pela era turbo. Foi um período de contrastes, onde a inovação
+                    desenfreada coexistia com acidentes de alta velocidade, e as pistas se tornaram o palco de
+                    algumas das mais icônicas e acaloradas rivalidades da história.
+                </p>
+                <p>
+                    O grande protagonista técnico dos anos 80 foi o motor turbo. Esses motores, que chegavam a
+                    produzir mais de 1000 cavalos de potência em qualificação, transformaram os carros em
+                    foguetes,
+                    exigindo uma pilotagem extremamente física e precisa. A gestão da potência e o "turbo lag"
+                    (atraso na resposta do turbo) se tornaram desafios cruciais. Além disso, a eletrônica
+                    começou a
+                    ganhar espaço, com o desenvolvimento de sistemas de controle de tração e câmbios
+                    semi-automáticos, marcando o início da informatização dos carros. A aerodinâmica continuou a
+                    evoluir, mas foi a força bruta dos turbos que realmente definiu a era.
+                </p>
+                <p>
+                    Este foi o cenário para o nascimento e a ascensão de lendas que se tornariam sinônimos da
+                    Fórmula 1. Alain Prost e Ayrton Senna protagonizaram uma rivalidade lendária e sem
+                    precedentes,
+                    dividindo títulos e momentos memoráveis que cativaram milhões de fãs ao redor do mundo. Além
+                    deles, Nelson Piquet conquistou três campeonatos, destacando-se por sua inteligência tática
+                    e
+                    habilidade de desenvolver o carro, enquanto Niki Lauda fez um retorno triunfal, conquistando
+                    seu
+                    terceiro título mundial. A década também viu o icônico Nigel Mansell emergir como um
+                    favorito da
+                    torcida, adicionando emoção a cada corrida. O carisma e a genialidade desses pilotos,
+                    combinados
+                    com a ferocidade dos motores turbo, fizeram dos anos 80 uma era inesquecível e um divisor de
+                    águas para a popularidade global da F1.
+                </p>
+            </div>
+        </div>
+        <div class="Decada2010">
+            <div class="container">
+                <div class="div_pilotos">
+                    <h3>Pilotos que se destacaram</h3>
+                    <div class="pilotos">
+                        <div class="vettel">
+                            <div class="nome_foto">
+                                <img src="assets/imgs/Vettel2.jpg">
+                                <p>Sebastian Vettel</p>
+                            </div>
+                            <div class="informacoes">
+                                <p><b>Nacionalidade:</b> Inglês</p>
+                                <p><b>Número de títulos:</b> 4 <br>(2014, 2015, 2017, 2018, 2019, 2020)</p>
+                                <p><b>Equipe:</b> RedBull Racing</p>
+                            </div>
+                            <div class="imagens_iconicas">
+                                <img src="assets/imgs/Vettel7.jpg">
+                            </div>
+                        </div>
+                        <div class="vettel">
+                            <div class="nome_foto">
+                                <img src="assets/imgs/Hamilton1.jpg">
+                                <p>Lewis Hamilton</p>
+                            </div>
+                            <div class="informacoes">
+                                <p><b>Nacionalidade:</b> Inglês</p>
+                                <p><b>Número de títulos:</b> 4 <br>
+                                    (2014, 2015, 2017, 2018, 2019, 2020)</p>
+                                <p><b>Equipe:</b> RedBull Racing</p>
+                            </div>
+                            <div class="imagens_iconicas">
+                                <img src="assets/imgs/Hamilton2.jpg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="1990" style="display: none;">
+        <div class="Decada1990">
+            <div class="container">
+                <h3>Como foi a década de 1990?</h3>
+                <p>
+                    A década de 1990 na Fórmula 1 foi um período de intensa inovação tecnológica, que culminou
+                    em um
+                    domínio técnico sem precedentes, principalmente da equipe Williams, e foi tragicamente
+                    marcada
+                    pela perda de um de seus maiores ícones. As rivalidades que se estenderam do final dos anos
+                    80
+                    deram lugar a novas lendas que moldariam o futuro do esporte.
+                </p>
+                <p>
+                    Tecnicamente, os anos 90 foram dominados pela busca por vantagem eletrônica e aerodinâmica.
+                    No
+                    início da década, carros como a Williams FW14B e a FW15C, apelidados de "carros de outro
+                    planeta", revolucionaram a categoria com a introdução de sistemas eletrônicos avançados como
+                    suspensão ativa, controle de tração e câmbio semi-automático. Essa tecnologia, embora
+                    inovadora,
+                    foi eventualmente banida em 1994 em um esforço para reduzir as velocidades e tornar a
+                    pilotagem
+                    mais centrada nas habilidades do piloto. A aerodinâmica continuou sua evolução implacável,
+                    com
+                    as equipes buscando cada milímetro de downforce, resultando em carros cada vez mais
+                    esculpidos e
+                    eficientes.
+                </p>
+                <p>
+                    O cenário de pilotos foi profundamente impactado pela trágica morte de Ayrton Senna em 1994,
+                    um
+                    evento que levou a uma revisão drástica das normas de segurança. Antes disso, Senna e Alain
+                    Prost ainda protagonizaram os últimos capítulos de sua rivalidade lendária no início da
+                    década.
+                    Após a era Senna, o esporte foi dominado por Michael Schumacher, que, com sua chegada à
+                    Ferrari
+                    em 1996, começou a construir a base para o que se tornaria a equipe mais vitoriosa da
+                    história
+                    da F1 no início dos anos 2000. Nomes como Damon Hill e Jacques Villeneuve também
+                    conquistaram
+                    seus títulos, garantindo que a F1 mantivesse seu espetáculo de velocidade e emoção. A década
+                    de
+                    90, portanto, é lembrada tanto pela sua ousadia tecnológica quanto pelo legado duradouro de
+                    seus
+                    campeões.
+                </p>
+            </div>
+        </div>
+        <div class="Decada2010">
+            <div class="container">
+                <div class="div_pilotos">
+                    <h3>Pilotos que se destacaram</h3>
+                    <div class="pilotos">
+                        <div class="vettel">
+                            <div class="nome_foto">
+                                <img src="assets/imgs/Vettel2.jpg">
+                                <p>Sebastian Vettel</p>
+                            </div>
+                            <div class="informacoes">
+                                <p><b>Nacionalidade:</b> Inglês</p>
+                                <p><b>Número de títulos:</b> 4 <br>(2014, 2015, 2017, 2018, 2019, 2020)</p>
+                                <p><b>Equipe:</b> RedBull Racing</p>
+                            </div>
+                            <div class="imagens_iconicas">
+                                <img src="assets/imgs/Vettel7.jpg">
+                            </div>
+                        </div>
+                        <div class="vettel">
+                            <div class="nome_foto">
+                                <img src="assets/imgs/Hamilton1.jpg">
+                                <p>Lewis Hamilton</p>
+                            </div>
+                            <div class="informacoes">
+                                <p><b>Nacionalidade:</b> Inglês</p>
+                                <p><b>Número de títulos:</b> 4 <br>
+                                    (2014, 2015, 2017, 2018, 2019, 2020)</p>
+                                <p><b>Equipe:</b> RedBull Racing</p>
+                            </div>
+                            <div class="imagens_iconicas">
+                                <img src="assets/imgs/Hamilton2.jpg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="2000" style="display: none;">
+        <div class="Decada2000">
+            <div class="container">
+                <h3>Como foi a década de 2000?</h3>
+                <p>
+                    A década de 2000 na Fórmula 1 foi amplamente definida pela supremacia inigualável de Michael
+                    Schumacher e da Ferrari, estabelecendo recordes que pareciam inatingíveis. Contudo, a
+                    segunda
+                    metade do período viu o surgimento de uma nova geração de talentos e o início de uma era de
+                    maior competitividade, com mudanças regulamentares buscando quebrar o domínio de uma única
+                    equipe.
+                </p>
+                <p>
+                    Tecnicamente, os carros continuaram a ser refinados, com a aerodinâmica atingindo níveis de
+                    complexidade nunca antes vistos. A eletrônica avançada (como o controle de tração e o launch
+                    control) foi reintroduzida no início da década, mas rapidamente banida novamente em 2008,
+                    após a
+                    FIA buscar um retorno à "pilotagem pura". Os motores permaneceram V10 até 2006, quando foram
+                    substituídos por V8 de 2.4 litros, visando a redução de custos e a diminuição das
+                    velocidades. A
+                    década também testemunhou a breve e controversa fase de troca de pneus durante as corridas,
+                    que
+                    adicionava uma dimensão estratégica e de espetáculo antes de ser removida.
+                </p>
+                <p>
+                    O cenário de pilotos e equipes foi dominado por Michael Schumacher, que conquistou cinco
+                    títulos
+                    consecutivos pela Ferrari (de 2000 a 2004), solidificando seu status como o piloto mais
+                    vitorioso da história da F1 em termos de campeonatos. A Ferrari, sob a liderança de Jean
+                    Todt,
+                    Ross Brawn e o próprio Schumacher, tornou-se a equipe mais dominante de todos os tempos até
+                    então. No entanto, após a aposentadoria inicial de Schumacher, a F1 viu a ascensão de novas
+                    estrelas como Fernando Alonso, bicampeão com a Renault em 2005 e 2006, quebrou o domínio da
+                    Ferrari. Posteriormente, Kimi Räikkönen conquistou um título emocionante pela Ferrari em
+                    2007, e
+                    o jovem Lewis Hamilton emergiu, ganhando seu primeiro campeonato em 2008, com Jenson Button
+                    surpreendendo com a Brawn GP em 2009. A década de 2000, portanto, equilibrou uma era de
+                    hegemonia com a empolgante ascensão de talentos que moldariam as próximas gerações da
+                    Fórmula 1.
+                </p>
+            </div>
+        </div>
+        <div class="Decada2010">
+            <div class="container">
+                <div class="div_pilotos">
+                    <h3>Pilotos que se destacaram</h3>
+                    <div class="pilotos">
+                        <div class="vettel">
+                            <div class="nome_foto">
+                                <img src="assets/imgs/Vettel2.jpg">
+                                <p>Sebastian Vettel</p>
+                            </div>
+                            <div class="informacoes">
+                                <p><b>Nacionalidade:</b> Inglês</p>
+                                <p><b>Número de títulos:</b> 4 <br>(2014, 2015, 2017, 2018, 2019, 2020)</p>
+                                <p><b>Equipe:</b> RedBull Racing</p>
+                            </div>
+                            <div class="imagens_iconicas">
+                                <img src="assets/imgs/Vettel7.jpg">
+                            </div>
+                        </div>
+                        <div class="vettel">
+                            <div class="nome_foto">
+                                <img src="assets/imgs/Hamilton1.jpg">
+                                <p>Lewis Hamilton</p>
+                            </div>
+                            <div class="informacoes">
+                                <p><b>Nacionalidade:</b> Inglês</p>
+                                <p><b>Número de títulos:</b> 4 <br>
+                                    (2014, 2015, 2017, 2018, 2019, 2020)</p>
+                                <p><b>Equipe:</b> RedBull Racing</p>
+                            </div>
+                            <div class="imagens_iconicas">
+                                <img src="assets/imgs/Hamilton2.jpg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="2010" style="display: none;">
+        <div class="Decada2010">
+            <div class="container">
+                <h3>Como foi a década de 2010?</h3>
+                <p>
+                    A década de 2010 na Fórmula 1 foi um divisor de águas, marcada pela revolução dos motores
+                    híbridos e a ascensão de um domínio sem precedentes da equipe Mercedes. Foi um período de
+                    intensa inovação tecnológica, que transformou a sonoridade e a dinâmica dos carros, e
+                    solidificou o status de Lewis Hamilton como um dos maiores pilotos da história.
+                </p>
+                <p>
+                    Tecnicamente, o grande ponto de virada foi a introdução dos motores V6 turbo híbridos de 1.6
+                    litros em 2014. Essa mudança regulamentar foi a mais significativa em décadas, combinando
+                    motores a combustão interna com sistemas complexos de recuperação de energia (ERS). Isso não
+                    só
+                    alterou drasticamente o som característico da F1, mas também introduziu uma camada de
+                    complexidade técnica e eficiência energética que exigiu das equipes uma engenharia de ponta.
+                    Além disso, o DRS (Drag Reduction System), introduzido em 2011, tornou as ultrapassagens
+                    mais
+                    dinâmicas, adicionando um elemento estratégico e de ação nas corridas. A aerodinâmica
+                    continuou
+                    a ser uma área crucial de desenvolvimento, com os carros se tornando cada vez mais
+                    eficientes e
+                    rápidos nas curvas.
+                </p>
+                <p>
+                    O cenário de pilotos e equipes foi indiscutivelmente dominado pela Mercedes-AMG Petronas
+                    Formula
+                    One Team e por Lewis Hamilton. Após um início de década onde Sebastian Vettel conquistou
+                    quatro
+                    títulos consecutivos com a Red Bull Racing (de 2010 a 2013), a introdução dos motores
+                    híbridos
+                    abriu caminho para a era de ouro da Mercedes. Hamilton e sua equipe estabeleceram um padrão
+                    de
+                    excelência, conquistando seis dos sete campeonatos de pilotos da década (sendo o outro de
+                    Nico
+                    Rosberg, também pela Mercedes, em 2016). Essa hegemonia levou a uma série de rivalidades
+                    intensas, especialmente entre os companheiros de equipe Hamilton e Rosberg, e consolidou
+                    Hamilton como uma força dominante e um ícone global do esporte. A década de 2010 redefiniu o
+                    que
+                    era ser um carro de Fórmula 1 e um piloto campeão.
+                </p>
+            </div>
+        </div>
+        <div class="Decada2010">
+            <div class="container">
+                <div class="div_pilotos">
+                    <h3>Pilotos que se destacaram</h3>
+                    <div class="pilotos">
+                        <div class="vettel">
+                            <div class="nome_foto">
+                                <img src="assets/imgs/Vettel2.jpg">
+                                <p>Sebastian Vettel</p>
+                            </div>
+                            <div class="informacoes">
+                                <p><b>Nacionalidade:</b> Inglês</p>
+                                <p><b>Número de títulos:</b> 4 <br>(2014, 2015, 2017, 2018, 2019, 2020)</p>
+                                <p><b>Equipe:</b> RedBull Racing</p>
+                            </div>
+                            <div class="imagens_iconicas">
+                                <img src="assets/imgs/Vettel7.jpg">
+                            </div>
+                        </div>
+                        <div class="vettel">
+                            <div class="nome_foto">
+                                <img src="assets/imgs/Hamilton1.jpg">
+                                <p>Lewis Hamilton</p>
+                            </div>
+                            <div class="informacoes">
+                                <p><b>Nacionalidade:</b> Inglês</p>
+                                <p><b>Número de títulos:</b> 4 <br>
+                                    (2014, 2015, 2017, 2018, 2019, 2020)</p>
+                                <p><b>Equipe:</b> RedBull Racing</p>
+                            </div>
+                            <div class="imagens_iconicas">
+                                <img src="assets/imgs/Hamilton2.jpg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="2020" style="display:none;">
+        <div class="Decada2020">
+            <div class="container">
+                <h3>Como está sendo a atual década?</h3>
+                <p>
+                    A primeira metade da década de 2020 na Fórmula 1 foi rapidamente moldada pela reintrodução
+                    de um
+                    novo regulamento técnico radical e pela ascensão de um novo super-dominador. Após anos de
+                    estabilidade nas regras, a categoria buscou equilibrar a competição e promover uma corrida
+                    mais
+                    próxima, resultando em um cenário de alto desempenho e uma nova hegemonia.
+                </p>
+                <p>
+
+                    Tecnicamente, o grande destaque veio em 2022 com a implementação de novas regras
+                    aerodinâmicas,
+                    focadas no efeito solo e na simplificação da carroceria superior. O objetivo era reduzir o
+                    ar
+                    sujo ("dirty air") atrás dos carros, permitindo que eles seguissem uns aos outros mais de
+                    perto
+                    e facilitando as ultrapassagens. Isso trouxe de volta o conceito de venturi tunnels e
+                    resultou
+                    em carros com designs visualmente distintos, mas também introduziu o fenômeno do
+                    "porpoising"
+                    (saltos aerodinâmicos) no início da temporada. Além disso, as equipes tiveram que se adaptar
+                    a
+                    um teto orçamentário mais restrito, o que nivelou o campo de jogo financeiro e estratégico
+                    entre
+                    as grandes e pequenas equipes.
+                </p>
+                <p>
+                    O cenário de pilotos foi rapidamente dominado por Max Verstappen e a equipe Red Bull Racing.
+                    Após uma intensa e controversa disputa pelo título em 2021 contra Lewis Hamilton, Verstappen
+                    e a
+                    Red Bull estabeleceram uma era de supremacia, conquistando os campeonatos de pilotos e
+                    construtores de 2022, 2023 e o início de 2024 com uma margem considerável. Essa dominância
+                    lembrou as eras de Schumacher e Hamilton, mas com a novidade dos regulamentos de efeito
+                    solo. A
+                    década também continuou a ver a ascensão de jovens talentos e a consolidação de nomes como
+                    Charles Leclerc e George Russell, garantindo que, apesar do domínio, a F1 mantivesse seu
+                    apelo
+                    global com uma base de fãs engajada e um futuro promissor de disputas acirradas.
+                </p>
+            </div>
+        </div>
+        <div class="Decada2010">
+            <div class="container">
+                <div class="div_pilotos">
+                    <h3>Pilotos que se destacaram</h3>
+                    <div class="pilotos">
+                        <div class="vettel">
+                            <div class="nome_foto">
+                                <img src="assets/imgs/Vettel2.jpg">
+                                <p>Sebastian Vettel</p>
+                            </div>
+                            <div class="informacoes">
+                                <p><b>Nacionalidade:</b> Inglês</p>
+                                <p><b>Número de títulos:</b> 4 <br>(2014, 2015, 2017, 2018, 2019, 2020)</p>
+                                <p><b>Equipe:</b> RedBull Racing</p>
+                            </div>
+                            <div class="imagens_iconicas">
+                                <img src="assets/imgs/Vettel7.jpg">
+                            </div>
+                        </div>
+                        <div class="vettel">
+                            <div class="nome_foto">
+                                <img src="assets/imgs/Hamilton1.jpg">
+                                <p>Lewis Hamilton</p>
+                            </div>
+                            <div class="informacoes">
+                                <p><b>Nacionalidade:</b> Inglês</p>
+                                <p><b>Número de títulos:</b> 4 <br>
+                                    (2014, 2015, 2017, 2018, 2019, 2020)</p>
+                                <p><b>Equipe:</b> RedBull Racing</p>
+                            </div>
+                            <div class="imagens_iconicas">
+                                <img src="assets/imgs/Hamilton2.jpg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
     </div>
 </body>
 
 </html>
 <script>
-    function decadaSelecionada(select) {
-        const decada = select_option.value;
-        if (decada) {
-            location.href = decada;
+    var decadaAtual = document.getElementById('Origem')
+
+    function decadaSelecionada() {
+        var decadaSelecionada = select_option.value;
+
+        if (decadaSelecionada != decadaAtual) {
+            decadaAtual.style.display = "none"
+            decadaAtual = document.getElementById(decadaSelecionada);
+            decadaAtual.style.display = "block"
         }
+
     }
 </script>
