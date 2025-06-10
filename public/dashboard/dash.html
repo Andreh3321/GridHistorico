@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GridHistorico | Dashboard</title>
+    <link rel="stylesheet" href="dash.css">
+    <script src="dash.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="dashboard">
+        <nav>
+            <img src="../assets/icon/Logo F1.png" id="logo">
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+            <a href="home.html">Home</a>
+            <a href="Pilotos.html">Pilotos</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="login.html"><img src="../assets/icon/Logout2.svg" id="logout"></a>
+        </nav>
+        <div class="background">
+            <div class="indicadores">
+                <div class="maiores_pontuadores">
+                    <span>Ranking de Pontuadores</span>
+                    <br>
+                    <div class="primeiro_lugar">
+                        <p id="primeiro_lugar">1°</p>
+                    </div>
+                    <br>
+                    <div class="segundo_lugar">
+                        <p id="segundo_lugar">2°</p>
+                    </div>
+                    <br>
+                    <div class="terceiro_lugar">
+                        <p id="terceiro_lugar">3°</p>
+                    </div>
+                </div>
+                <div class="conhecimento_previo">
+                    <span>Conhecimento</span>
+                    <p id="conhecimento_previo"></p>
+                </div>
+            </div>
+
+            <div class="graficos">
+                <div class="titulo_graficos">
+                    <h2>Gráficos</h2>
+                </div>
+                <div class="titulos">
+                    <div class="titulo_barras">
+                        <h3>Pontuações</h3>
+                    </div>
+                    <div class="titulo_pizza">
+                        <h3>Conhecimento</h3>
+                    </div>
+                </div>
+                <div class="grafico_barras">
+                    <canvas id="maiores_pontuadores"></canvas>
+                </div>
+                <div class="grafico_pizza">
+                    <canvas id="conhecimento_previo"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

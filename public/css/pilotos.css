@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Orbitron:wght@400..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Orbitron", sans-serif;
+    border: 0;
+    color: #e3b062;
+}
+
+body {
+    background-color: #000000;
+    height: 1500px;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    height: 70px;
+    justify-content: space-between;
+}
+
+nav a {
+    padding: 20px;
+}
+
+nav img {
+    height: 70px;
+    width: 70px;
+    margin: 2px;
+}
+
+.hepta-campeao {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    background-color: #e3b062;
+}
+
+.Schumacher {
+    height: 50%;
+    width: 100%;
+}
+
+.Hamilton {
+    height: 50%;
+    width: 100%;
+}
+
+.penta-campeao {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    background-color: #e3b062;
+}
+
+.tetra-campeao {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    background-color: #e3b062;
+}
+
+.tri-campeao {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    background-color: #e3b062;
+}
+
+.bi-campeao {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    background-color: #e3b062;
+}
+
+.campeao {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    background-color: #e3b062;
+}
+.campeao-2 {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    background-color: #e3b062;
+}
+
+.mencao-honrosa {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    background-color: #e3b062;
+}
+
+img {
+    height: 100px;
+    width: 100px;
+}
