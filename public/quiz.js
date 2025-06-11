@@ -11,11 +11,33 @@ let pergunta_atual = 0;
 let respostas_certas = 0;
 
 
-    function iniciar() {
-        $startquiz.classList.add("hide")
-        container_pergunta.classList.remove("hide")
-        displayProximaPergunta()
+const lista_perguntas = [
+    {
+        pergunta: "Onde foi sediada a primeira corrida da história?",
+        respostas: [
+            { text: "Silverstone", correta: true },
+            { text: "Interlagos", correta: false },
+            { text: "Spa-Francorchamps", correta: false },
+            { text: "Monaco", correta: false }
+        ]
+    },
+    {
+        pergunta: "Em qual data ocorreu a primeira corrida da F1?",
+        respostas: [
+            { text: "13/05/1950", correta: true },
+            { text: "11/06/1943", correta: false },
+            { text: "01/02/1972", correta: false },
+            { text: "03/07/1947", correta: false }
+        ]
     }
+]
+
+
+function iniciar() {
+    $startquiz.classList.add("hide")
+    container_pergunta.classList.remove("hide")
+    displayProximaPergunta()
+}
 
 function displayProximaPergunta() {
     resetar()
@@ -86,20 +108,20 @@ function finalizarQuiz() {
         mensagem = `Uau! Lewis Hamilton? É você?`
     } else if (resultado >= 70) {
         mensagem = `Max Verstappen está ganhando discípulos!`
-    } else if(resultado >= 60){
+    } else if (resultado >= 60) {
         mensagem = `Schumacher está sendo bem representado!`
-    } else if (resultado >= 50){
+    } else if (resultado >= 50) {
         mensagem = `Alonso está pedindo para você estudar um pouco mais`
-    } else if(resultado < 50 && resultado >= 30){
+    } else if (resultado < 50 && resultado >= 30) {
         mensagem = `Bortoleto está triste pois você estudou pouco`
-    } else if(resultado >= 10){
+    } else if (resultado >= 10) {
         mensagem = `Nicholas Latifi está orgulhoso....`
     } else {
         mensagem = `Você é o Mazepin do Quiz`
     }
 
-    container_pergunta.innerHTML = 
-    `
+    container_pergunta.innerHTML =
+        `
     <p>
     Você acertou ${respostas_certas} de ${total_questoes} perguntas, ou seja, ${resultado}% do quiz
     </p>
@@ -112,23 +134,30 @@ function finalizarQuiz() {
     `
 }
 
-const lista_perguntas = [
-    {
-        pergunta: "Onde foi sediada a primeira corrida da história?",
-        respostas: [
-            { text: "Silverstone", correta: true },
-            { text: "Interlagos", correta: false },
-            { text: "Spa-Francorchamps", correta: false },
-            { text: "Monaco", correta: false }
-        ]
-    },
-    {
-        pergunta: "Em qual data ocorreu a primeira corrida da F1?",
-        respostas: [
-            { text: "13/05/1950", correta: true },
-            { text: "11/06/1943", correta: false },
-            { text: "01/02/1972", correta: false },
-            { text: "03/07/1947", correta: false }
-        ]
+function acertos() {
+        fetch("/quiz/inserirAcertos", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ // envia os dados nessa ordem de estruta JSON
+
+            fkUsuario: idUsuario,
+            fkQuiz: fkQuiz,
+            acertos: pontuacaoFinal
+
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+            })
+            .catch(function (resposta) { 
+                console.log(`#ERRO: ${resposta}`);
+            });
     }
-]
+
+
+
+
+
