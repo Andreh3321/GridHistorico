@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GridHistorico | Dashboard</title>
     <link rel="stylesheet" href="dash.css">
-    <script src="dash.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>
+<body onload="melhores()">
     <div class="dashboard">
         <nav>
             <img src="../assets/icon/Logo F1.png" id="logo">
@@ -69,3 +68,39 @@
 </body>
 
 </html>
+<script>
+    function melhores() {
+        fetch("/dashRoutes/melhores", {
+            method: "GET"
+        })
+            .then(response => response.json())
+            .then(dadosMelhores => {
+                
+                const graficBar = document.getElementById('maiores_pontuadores');
+
+                new Chart(graficBar, {
+                    type: 'bar',
+                    data: {
+                        labels: nomes_usuarios,
+                        datasets: [{
+                            label: 'Pontos de Cada Quiz',
+                            data: pontos_usuarios,
+                            borderWidth: 1,
+                            borderColor: '#a52a2a',
+                            backgroundColor: '#ff8c42',
+                            borderRadius: 25,
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                })
+            })
+    }
+
+
+</script>

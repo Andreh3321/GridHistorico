@@ -24,6 +24,78 @@ const lista_perguntas = [
     {
         pergunta: "Em qual data ocorreu a primeira corrida da F1?",
         respostas: [
+            { text: "11/06/1943", correta: false },
+            { text: "13/05/1950", correta: true },
+            { text: "01/02/1972", correta: false },
+            { text: "03/07/1947", correta: false }
+        ]
+    },
+    {
+        pergunta: "Em que ano Senna ganhou seu primeiro título?",
+        respostas: [
+            { text: "1994", correta: false },
+            { text: "1981", correta: false },
+            { text: "1988", correta: true },
+            { text: "1986", correta: false }
+        ]
+    },
+    {
+        pergunta: "Qual o pneu de faixa verde?",
+        respostas: [
+            { text: "Intermediário", correta: true },
+            { text: "Chuva", correta: false },
+            { text: "Macio", correta: false },
+            { text: "Duro", correta: false }
+        ]
+    },
+    {
+        pergunta: "Em qual decada Schumacher fez sua hegemonia?",
+        respostas: [
+            { text: "1950-1959", correta: true },
+            { text: "1980-1989", correta: false },
+            { text: "1990-1999", correta: false },
+            { text: "2000-2009", correta: false }
+        ]
+    },
+    {
+        pergunta: "Quando foi o primeiro título de Verstappen e por qual equipe?",
+        respostas: [
+            { text: "2020 - Ferrari", correta: false },
+            { text: "2021 - McLaren", correta: false },
+            { text: "2024 - Mercedes", correta: false },
+            { text: "2021 - RedBull", correta: true }
+        ]
+    },
+    {
+        pergunta: "Em qual data ocorreu a primeira corrida da F1?",
+        respostas: [
+            { text: "13/05/1950", correta: true },
+            { text: "11/06/1943", correta: false },
+            { text: "01/02/1972", correta: false },
+            { text: "03/07/1947", correta: false }
+        ]
+    },
+    {
+        pergunta: "Em qual data ocorreu a primeira corrida da F1?",
+        respostas: [
+            { text: "13/05/1950", correta: true },
+            { text: "11/06/1943", correta: false },
+            { text: "01/02/1972", correta: false },
+            { text: "03/07/1947", correta: false }
+        ]
+    },
+    {
+        pergunta: "Em qual data ocorreu a primeira corrida da F1?",
+        respostas: [
+            { text: "13/05/1950", correta: true },
+            { text: "11/06/1943", correta: false },
+            { text: "01/02/1972", correta: false },
+            { text: "03/07/1947", correta: false }
+        ]
+    },
+    {
+        pergunta: "Em qual data ocorreu a primeira corrida da F1?",
+        respostas: [
             { text: "13/05/1950", correta: true },
             { text: "11/06/1943", correta: false },
             { text: "01/02/1972", correta: false },
@@ -135,7 +207,7 @@ function finalizarQuiz() {
 }
 
 function acertos() {
-        fetch("/quiz/inserirAcertos", {
+        fetch("/quiz/Acertos", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

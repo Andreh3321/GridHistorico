@@ -3,7 +3,7 @@ var router = express.Router();
 
 var dashController = require("../controllers/dashController")
 
-router.get("/dash", function(req,res){
+router.get("/melhores", function(req,res){
     dashController.melhores(req,res)
 })
 

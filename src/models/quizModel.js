@@ -5,7 +5,7 @@ function Acertos(fkUsuario, fkQuiz, acertos) {
     console.log(fkUsuario, fkQuiz, acertos);
     
     var instrucaoSql = `
-        INSERT INTO resultado (fkUsuario, fkQuiz, acertos) VALUES ('${fkUsuario}', '${fkQuiz}', '${acertos}');
+        INSERT INTO resultado (fkUsuario, fkQuiz, numero_acertos) VALUES ('${fkUsuario}', '${fkQuiz}', '${numero_acertos}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
