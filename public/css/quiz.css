@@ -14,7 +14,7 @@ button {
 }
 
 body {
-    background-image: url(./assets/imgs/História.png);
+    background-image: url(../assets/imgs/História.png);
     background-repeat: no-repeat;
     background-size: cover;
     color: #e3b062;
@@ -124,13 +124,13 @@ nav #logo {
 }
 
 .correta {
-    background-image: url(./assets/imgs/Senna3.webp);
+    background-image: url(../assets/imgs/Senna3.webp);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .errada {
-    background-image: url(./assets/imgs/Latifi.jpg);
+    background-image: url(../assets/imgs/Latifi.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
