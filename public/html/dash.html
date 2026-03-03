@@ -70,25 +70,45 @@
 </html>
 <script>
     function melhores() {
+        // Exibe o nome do usuário logado no topo
+        b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
         fetch("/dashRoutes/melhores", {
             method: "GET"
         })
             .then(response => response.json())
             .then(dadosMelhores => {
-                
+                console.log("Dados recebidos:", dadosMelhores);
+
+                // Criando os arrays para o gráfico
+                let nomes_usuarios = [];
+                let pontos_usuarios = [];
+
+                // Preenchendo os arrays com os dados do SQLite
+                for (let i = 0; i < dadosMelhores.length; i++) {
+                    let registro = dadosMelhores[i];
+                    nomes_usuarios.push(registro.Nome);
+                    pontos_usuarios.push(registro.Acertos);
+
+                    // Preenchendo o Ranking de texto (KPIs)
+                    if (i == 0) primeiro_lugar.innerHTML = `1° ${registro.Nome} - ${registro.Acertos} pts`;
+                    if (i == 1) segundo_lugar.innerHTML = `2° ${registro.Nome} - ${registro.Acertos} pts`;
+                    if (i == 2) terceiro_lugar.innerHTML = `3° ${registro.Nome} - ${registro.Acertos} pts`;
+                }
+
                 const graficBar = document.getElementById('maiores_pontuadores');
 
                 new Chart(graficBar, {
                     type: 'bar',
                     data: {
-                        labels: nomes_usuarios,
+                        labels: nomes_usuarios, // Agora o array existe!
                         datasets: [{
                             label: 'Pontos de Cada Quiz',
-                            data: pontos_usuarios,
+                            data: pontos_usuarios, // Agora o array existe!
                             borderWidth: 1,
                             borderColor: '#a52a2a',
                             backgroundColor: '#ff8c42',
-                            borderRadius: 25,
+                            borderRadius: 10,
                         }]
                     },
                     options: {
@@ -98,9 +118,8 @@
                             }
                         }
                     }
-                })
+                });
             })
+            .catch(erro => console.error("Erro ao carregar ranking:", erro));
     }
-
-
 </script>

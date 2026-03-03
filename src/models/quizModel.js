@@ -1,16 +1,17 @@
-var database = require("../database/config")
+var database = require("../database/config");
 
-// Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
-function Acertos(fkUsuario, fkQuiz, acertos) {
-    console.log(fkUsuario, fkQuiz, acertos);
+function Acertos(fk_usuario, acertos) {
+    // Note que removi o fkQuiz para simplificar, 
+    // já que no nosso CREATE TABLE do config.js só definimos fk_usuario e pontuacao.
     
     var instrucaoSql = `
-        INSERT INTO resultado (fkUsuario, fkQuiz, numero_acertos) VALUES ('${fkUsuario}', '${fkQuiz}', '${numero_acertos}');
+        INSERT INTO resultado (fk_usuario, pontuacao) 
+        VALUES (${fk_usuario}, ${acertos});
     `;
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    
+    console.log("Executando a instrução SQL no SQLite: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
-
 
 module.exports = {
     Acertos

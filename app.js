@@ -24,6 +24,7 @@ app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, "public", "html")));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/usuarios", usuarioRouter);
@@ -31,7 +32,7 @@ app.use("/login", loginRouter);
 app.use("/dashRoutes", dashRoutes);
 app.use("/quizRoutes", quizRoutes)
 
-app.listen(PORTA_APP, function () {
+app.listen(3333, function () {
     console.log(`
     ##   ##  ######   #####             ####       ##     ######     ##              ##  ##    ####    ######  
     ##   ##  ##       ##  ##            ## ##     ####      ##      ####             ##  ##     ##         ##  

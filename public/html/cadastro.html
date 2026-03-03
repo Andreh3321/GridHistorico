@@ -85,7 +85,7 @@
 
   var senha_correta = false;
 
-   function sumirMensagem(){
+  function sumirMensagem() {
     cardErro.style.display = "none";
   }
 
@@ -179,6 +179,9 @@
       return false;
     } else {
       setInterval(sumirMensagem, 5000);
+      console.log("FORM NOME: ", nomeVar);
+      console.log("FORM LOGIN: ", emailVar);
+      console.log("FORM SENHA: ", senhaVar);
     }
 
     // Enviando o valor da nova input
