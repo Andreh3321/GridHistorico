@@ -1,75 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>GridHistórico</title>
+  <title>Página Inicial</title>
 
-  <script src="./js/sessao.js"></script>
-
+  <script src="./js/sessao.js" defer></script>
+  
   <link rel="stylesheet" href="../css/estilo.css">
-  <!-- <link rel="stylesheet" href="./css/teste.css" /> -->
-  <link rel="icon" href="./assets/icon/Logo F1.png">
+  <link rel="icon" href="../assets/icon/Logo F1.png">
   <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
 
 <body>
   <div class="pagina_inicial">
-    <div class="fundo">
-      <div class="header">
+    <main class="fundo">
+      
+      <header class="header">
         <div class="container">
-          <img src="assets/icon/Logo F1.png" id="logo">
-          <ul class="navbar">
-            <li class="agora">
-              <a href="#">Inicial</a>
-            </li>
-            <li>
-              <a href="#sobre">Sobre</a>
-            </li>
-            <li>
-              <a href="login.html"><img src="assets/icon/Login.png"></a>
-            </li>
-          </ul>
+          <img src="../assets/icon/Logo F1.png" id="logo" alt="Logo">
+          
+          <nav>
+            <ul class="navbar">
+              <li class="agora">
+                <a href="#">Inicial</a>
+              </li>
+              <li>
+                <a href="#sobre">Sobre</a>
+              </li>
+              <li>
+                <a href="login.html"><img src="../assets/icon/Login.png" alt="Login"></a>
+              </li>
+            </ul>
+          </nav>
         </div>
-      </div>
+      </header>
+
       <div class="abrindo"></div>
 
-      <div class="sobre" id="sobre">
-        <div id="titulo_sobre">Sobre o Grid Histórico</div>
+      <section class="sobre" id="sobre">
+        <h1 id="titulo_sobre">Sobre o Projeto</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium obcaecati non perspiciatis ab blanditiis,
           molestias suscipit exercitationem adipisci rerum ipsam, iusto veritatis perferendis saepe neque excepturi
-          ullam?
-          Odio, aperiam repudiandae?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium obcaecati non perspiciatis ab blanditiis,
-          molestias suscipit exercitationem adipisci rerum ipsam, iusto veritatis perferendis saepe neque excepturi
-          ullam?
-          Odio, aperiam repudiandae?
+          ullam? Odio, aperiam repudiandae?
         </p>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium obcaecati non perspiciatis ab blanditiis,
           molestias suscipit exercitationem adipisci rerum ipsam, iusto veritatis perferendis saepe neque excepturi
-          ullam?
-          Odio, aperiam repudiandae?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium obcaecati non perspiciatis ab blanditiis,
-          molestias suscipit exercitationem adipisci rerum ipsam, iusto veritatis perferendis saepe neque excepturi
-          ullam?
-          Odio, aperiam repudiandae?
+          ullam? Odio, aperiam repudiandae?
         </p>
-      </div>
-      <div class="convite">
-        Agora que você conhece um pouco da história por trás do GridHistórico,
-        que tal conhecer mais sobre a categoria automobilística mais rápida do mundo?
-      </div>
-    </div>
+      </section>
 
-    <div class="footer">
-      <p>Criado por um aluno SPTech &</p>
-      <a href="agradecimentos.html">Agradecimentos</a>
-    </div>
+      <section class="convite">
+        <p>
+          Agora que você conhece um pouco da história,
+          que tal conhecer mais sobre a categoria automobilística mais rápida do mundo?
+        </p>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <p>Criado por um aluno & <a href="agradecimentos.html">Agradecimentos</a></p>
+    </footer>
   </div>
 </body>
 

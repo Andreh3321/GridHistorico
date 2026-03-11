@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Orbitron:wght@400..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
-/* Reset Universal - A Regra de Ouro da Responsividade */
+/* Reset Universal */
 * {
     margin: 0;
     padding: 0;
@@ -15,17 +15,22 @@ body {
     min-height: 100vh;
 }
 
-/* NAVBAR */
+/* ==============================================================
+   NAVBAR (Garantindo que fique sempre no topo)
+   ============================================================== */
 .navbar {
     width: 100%;
     min-height: 80px;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.95); /* Fundo quase sólido para leitura */
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 5%;
-    flex-wrap: wrap; /* Permite quebrar linha no celular */
+    flex-wrap: wrap; 
     gap: 15px;
+    position: relative;
+    z-index: 100; /* Evita que as fotos de fundo cubram os links */
+    border-bottom: 2px solid #e3b062;
 }
 
 .navbar #logo {
@@ -57,27 +62,35 @@ body {
     border: 1px solid #e3b062;
     padding: 5px 10px;
     font-size: 15px;
-    background-color: transparent;
+    background-color: #000;
     border-radius: 5px;
     cursor: pointer;
+    outline: none;
 }
 
 .logout-link img {
     height: 35px;
-    width: 35px;
+    width: auto;
+    transition: transform 0.3s ease;
 }
 
-/* SEÇÕES DAS DÉCADAS */
+.logout-link img:hover {
+    transform: scale(1.1);
+}
+
+/* ==============================================================
+   SEÇÕES DAS DÉCADAS E CONTEÚDO
+   ============================================================== */
 .decada-secao {
     width: 100%;
-    min-height: 100vh; /* Ocupa no mínimo a tela toda, mas cresce se precisar */
+    min-height: calc(100vh - 85px); /* <-- O Pulo do Gato (85px)! */
     padding: 60px 5%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Efeito Parallax suave */
+    background-attachment: fixed; 
     border-bottom: #e3b062 solid 2px;
 }
 
@@ -92,16 +105,15 @@ body {
 .bg-2010 { background-image: url('../assets/imgs/2015.jpg'); }
 .bg-2020 { background-image: url('../assets/imgs/2025.jpg'); }
 
-/* CAIXA DE CONTEÚDO (Transparente) */
+/* CAIXA DE CONTEÚDO DE TEXTO */
 .conteudo-caixa {
     width: 100%;
     max-width: 1000px;
-    background-color: rgba(0, 0, 0, 0.85); /* Fundo semi-transparente para ler o texto */
+    background-color: rgba(0, 0, 0, 0.85); 
     color: #e3b062;
     padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
-    text-align: justify;
+    border-radius: 16px;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.6);
 }
 
 .conteudo-caixa h3 {
@@ -110,16 +122,21 @@ body {
     margin-bottom: 25px;
     color: #fff;
     text-transform: uppercase;
+    border-bottom: 1px solid rgba(227, 176, 98, 0.3);
+    padding-bottom: 15px;
 }
 
 .conteudo-caixa p {
     margin-bottom: 20px;
     line-height: 1.6;
-    font-family: 'Barlow', sans-serif; /* Fonte secundária para blocos de texto */
+    font-family: 'Barlow', sans-serif; 
     font-size: 1.1rem;
+    text-align: justify;
 }
 
-/* CONTAINER DOS PILOTOS */
+/* ==============================================================
+   CARDS DE PILOTOS
+   ============================================================== */
 .pilotos-container {
     max-width: 1200px;
 }
@@ -130,34 +147,38 @@ body {
     gap: 30px;
 }
 
-/* CARD INDIVIDUAL DO PILOTO */
 .piloto-card {
     display: flex;
-    flex-wrap: wrap; /* Permite empilhar itens em telas menores */
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    background-color: rgba(227, 176, 98, 0.1);
-    border: 1px solid #e3b062;
+    background-color: rgba(0, 0, 0, 0.6); /* Mais escuro para contraste */
+    border: 1px solid rgba(227, 176, 98, 0.5);
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 12px;
     gap: 20px;
+    transition: transform 0.3s ease;
 }
 
-/* FOTOS (Perfil e Carro) */
+.piloto-card:hover {
+    transform: translateX(5px);
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
 .piloto-card figure {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 1 1 200px; /* Flex-grow, shrink e base-width */
+    flex: 1 1 200px;
 }
 
 .piloto-card img {
     width: 100%;
     max-width: 250px;
     height: 180px;
-    object-fit: cover; /* Evita que a imagem estique feio */
+    object-fit: cover; 
     border-radius: 8px;
-    border: 2px solid #000;
+    border: 2px solid #e3b062;
 }
 
 .piloto-perfil figcaption {
@@ -165,11 +186,11 @@ body {
     font-weight: bold;
     text-transform: uppercase;
     text-align: center;
+    color: #fff;
 }
 
-/* INFORMAÇÕES DO PILOTO */
 .piloto-info {
-    flex: 2 1 300px; /* Ocupa o dobro de espaço das imagens */
+    flex: 2 1 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -184,9 +205,10 @@ body {
 
 .piloto-info b {
     color: #fff;
+    font-family: "Orbitron", sans-serif;
+    font-weight: 500;
 }
 
-/* TEXTO EXTRA DA DECADA DE 2020 */
 .card-destaque-texto p {
     text-align: center;
     font-size: 1.2rem;
@@ -195,10 +217,9 @@ body {
 
 
 /* =========================================
-   MEDIA QUERIES (A MÁGICA DA RESPONSIVIDADE)
+   MEDIA QUERIES (RESPONSIVIDADE)
    ========================================= */
 
-/* Tablets e Telas Menores (até 900px) */
 @media screen and (max-width: 900px) {
     .navbar {
         justify-content: center;
@@ -224,7 +245,6 @@ body {
     }
 }
 
-/* Celulares (até 600px) */
 @media screen and (max-width: 600px) {
     .conteudo-caixa {
         padding: 20px;
@@ -234,21 +254,18 @@ body {
         font-size: 1.5rem;
     }
 
-    .conteudo-caixa p {
-        font-size: 1rem;
-    }
-
-    .piloto-info {
+    .conteudo-caixa p, .piloto-info {
         font-size: 1rem;
     }
     
     .nav-links {
         flex-direction: column;
         width: 100%;
-        gap: 10px;
+        gap: 15px;
     }
     
     .navbar select {
         width: 100%;
+        text-align: center;
     }
 }

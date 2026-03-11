@@ -1,144 +1,250 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Orbitron:wght@400..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Orbitron:wght@400..900&display=swap');
 
-
-*{
-    color: #e3b062;
-}
-body {
+/* RESET BÁSICO */
+* {
     margin: 0;
     padding: 0;
-    font-family: "Orbitron", sans-serif;
-    width: 100%;
-    height: 150vh;
-    background-image: url(../assets/imgs/fundo_informacoes.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
+    box-sizing: border-box;
+    color: #e3b062;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
-nav {
-    height: 80px;
+body {
+    font-family: "Orbitron", sans-serif;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.812);
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-nav a {
-    color: #e3b062;
-}
-
-nav img {
-    height: 80px;
-    width: 80px;
-    margin: 2%;
-}
-
-nav a img {
-    height: 80px;
-    width: 35px;
-}
-
-nav #logo {
-    margin: 10px;
-}
-
-.div_informacoes {
+    min-height: 100vh; /* Substituiu o 150vh fixo que quebrava telas */
+    background-image: url(../assets/imgs/fundo_informacoes.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; /* Efeito bacana do fundo parado enquanto você rola */
+    background-position: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
-.container {
-    background-color: #000000d6;
-    width: 80%;
-    color: #e3b062;
-    margin: 3%;
-    border-radius: 20px;
-    box-shadow: 0px 0px 20px 0px black;
-    padding: 2%;
-}
-
-.container:hover {
-    transform: scale(1.1);
-    transition: 1s;
-}
-
-.container h2 {
-    text-align: center;
-}
-
-footer {
-    display: flex;
-    align-items: center;
+/* ==============================================================
+   NAV PRINCIPAL
+   ============================================================== */
+.navbar {
+    min-height: 80px;
     width: 100%;
-    height: 20%;
-    background-color: #000000;
-}
-
-.contatos {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 30%;
-    color: white;
-    margin-left: 2%;
-}
-
-.contatos img {
-    width: 15%;
-}
-
-.email {
-    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 2%;
+    padding: 10px 5%;
+    flex-wrap: wrap;
+    gap: 15px;
+    border-bottom: 2px solid #e3b062;
 }
 
-.telefone {
-    width: 100%;
+.navbar #logo {
+    height: 60px;
+    width: auto;
+}
+
+.nav-links {
     display: flex;
     align-items: center;
-    margin: 2%;
+    flex-wrap: wrap;
+    gap: 25px;
 }
 
-.whatsapp {
-    width: 100%;
+.navbar a {
+    text-decoration: none;
+    color: #e3b062;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #fff;
+}
+
+.logout-link img {
+    height: 35px;
+    width: auto;
+    transition: transform 0.3s;
+}
+
+.logout-link img:hover {
+    transform: scale(1.1);
+}
+
+/* ==============================================================
+   CONTEÚDO PRINCIPAL (MAIN)
+   ============================================================== */
+.informacoes-main {
+    flex: 1; /* Preenche a tela toda empurrando o footer pra baixo */
     display: flex;
+    flex-direction: column;
     align-items: center;
-    margin: 2%;
+    padding: 40px 15px;
+    gap: 30px; /* Espaço uniforme entre os cards */
 }
 
-.contatos span {
-    margin-left: 5%;
+.info-card {
+    background-color: rgba(0, 0, 0, 0.85);
+    width: 100%;
+    max-width: 900px; /* Limite de largura para não ficar gigante no PC */
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.localizacao {
-    width: 80%;
-    margin-left: 15%;
+.info-card:hover {
+    transform: translateY(-5px); /* Efeito flutuante muito mais elegante que o scale(1.1) */
+    box-shadow: 0px 12px 25px rgba(227, 176, 98, 0.2);
+}
+
+.info-card h2 {
     text-align: center;
-    color: white;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    color: #fff;
+    border-bottom: 1px solid rgba(227, 176, 98, 0.3);
+    padding-bottom: 15px;
 }
 
-.localizacao h3 {
-    font-size: 25px;
+.info-card p {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: justify;
 }
 
-.localizacao p {
-    font-size: 12px;
+.info-card strong {
+    color: #fff;
+    font-family: "Orbitron", sans-serif;
+    font-weight: 500;
+}
+
+/* ==============================================================
+   FOOTER (RODAPÉ)
+   ============================================================== */
+.footer-site {
+    background-color: #000;
+    width: 100%;
+    padding: 40px 5%;
+    display: flex;
+    flex-direction: row; /* Alinha os blocos lado a lado no PC */
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Mágica pra não quebrar no celular */
+    gap: 30px;
+    border-top: 2px solid #e3b062;
+}
+
+/* Contatos */
+.contatos {
+    flex: 1;
+    min-width: 250px;
+    font-style: normal; /* Tira o itálico padrão da tag address */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contato-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contato-item img {
+    width: 24px;
+    height: auto;
+}
+
+.contato-item span {
+    color: #fff;
+    font-family: 'Barlow', sans-serif;
+}
+
+/* Localização */
+.localizacao {
+    flex: 2;
+    min-width: 300px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
 .localizacao img {
-    width: 5%;
+    width: 30px;
+    height: auto;
 }
 
-.logo_footer {
-    width: 45%;
-    margin-left: 40%;
+.localizacao h3 {
+    font-size: 1.2rem;
+    color: #fff;
+    line-height: 1.5;
+}
+
+.localizacao p {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Logo Footer */
+.footer-logo {
+    flex: 1;
+    min-width: 150px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer-logo img {
+    width: 100px;
+    height: auto;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+.footer-logo img:hover {
+    opacity: 1;
+}
+
+/* ==============================================================
+   MEDIA QUERIES (TELAS MENORES)
+   ============================================================== */
+@media screen and (max-width: 800px) {
+    .navbar {
+        justify-content: center;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .nav-links {
+        justify-content: center;
+    }
+
+    .footer-site {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contatos {
+        align-items: center;
+    }
+
+    .footer-logo {
+        justify-content: center;
+    }
+
+    .info-card {
+        padding: 25px 15px;
+    }
+
+    .info-card h2 {
+        font-size: 1.4rem;
+    }
 }

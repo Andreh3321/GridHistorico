@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GridHistórico | Evolução das Máquinas</title>
+    <link rel="stylesheet" href="../css/evolucao.css">
+    <link rel="icon" href="../assets/icon/Logo F1.png">
+</head>
+
+<body>
+    <div class="app-container">
+
+        <header>
+            <nav class="navbar">
+                <img src="../assets/icon/Logo F1.png" alt="Logo F1" id="logo">
+                <div class="nav-links">
+                    <a href="index.html">Início</a>
+                    <a href="home.html">História</a>
+                    <select onchange="anoSelecionado()" id="select_option" aria-label="Selecione o Ano">
+                        <option value="1950">Década de 1950</option>
+                        <option value="1960">Década de 1960</option>
+                        <option value="1970">Década de 1970</option>
+                        <option value="1980">Década de 1980</option>
+                        <option value="1990">Década de 1990</option>
+                        <option value="2000">Década de 2000</option>
+                        <option value="2010">Década de 2010</option>
+                        <option value="2020">Década de 2020</option>
+                    </select>
+                    <a href="Pilotos.html">Pilotos</a>
+                    <a href="Informacoes_Gerais.html">Termos</a>
+                    <a href="quiz.html">Quiz</a>
+                    <a href="dash.html">Dashboard</a>
+                    <a href="login.html" class="logout-link"><img src="../assets/icon/Logout2.svg" alt="Sair"></a>
+                </div>
+            </nav>
+        </header>
+
+        <main class="evolucao-container">
+
+            <div id="1950" class="aba-conteudo">
+                <section class="evolucao-secao bg-1950">
+                    <div class="conteudo-caixa">
+                        <h3>Desempenho nos Anos 50</h3>
+                        <p>A década inaugural da Fórmula 1 era dominada por carros de motor dianteiro, pneus finos sem
+                            aderência e ausência total de asas aerodinâmicas. A velocidade nas retas era alta para a
+                            época, mas as curvas eram um verdadeiro teste de coragem para os pioneiros do esporte.</p>
+
+                        <div class="grid-telemetria">
+                            <article class="stat-card">
+                                <h4>Motor / Potência Média</h4>
+                                <span class="stat-valor">~400 HP</span>
+                                <span class="stat-desc">Motores Aspirados e Superchargers</span>
+                            </article>
+                            <article class="stat-card">
+                                <h4>Recorde Monza</h4>
+                                <span class="stat-valor">1:53.200</span>
+                                <span class="stat-desc">J. M. Fangio <br><b class="equipe-nome">Alfa Romeo</b></span>
+                            </article>
+                            <article class="stat-card">
+                                <h4>Recorde Mônaco</h4>
+                                <span class="stat-valor">1:44.400</span>
+                                <span class="stat-desc">J. M. Fangio <br><b class="equipe-nome">Alfa Romeo</b></span>
+                            </article>
+                            <article class="stat-card">
+                                <h4>Recorde Silverstone</h4>
+                                <span class="stat-valor">1:50.800</span>
+                                <span class="stat-desc">N. Farina <br><b class="equipe-nome">Alfa Romeo</b></span>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="1960" class="aba-conteudo" style="display: none;">
+                <section class="evolucao-secao bg-1960">
+                    <div class="conteudo-caixa">
+                        <h3>Desempenho nos Anos 60</h3>
+                        <p>Uma verdadeira revolução. Os motores foram movidos para a parte traseira, melhorando a
+                            distribuição de peso. Foi também no final dos anos 60 que as primeiras asas aerodinâmicas
+                            começaram a aparecer, alterando para sempre a forma como os carros contornavam as pistas
+                            europeias.</p>
+
+                        <div class="grid-telemetria">
+                            <article class="stat-card">
+                                <h4>Motor / Potência Média</h4>
+                                <span class="stat-valor">~420 HP</span>
+                                <span class="stat-desc">Mudança para 3.0 Litros Traseiros</span>
+                            </article>
+                            <article class="stat-card">
+                                <h4>Recorde Monza</h4>
+                                <span class="stat-valor">1:28.500</span>
+                                <span class="stat-desc">Jim Clark <br><b class="equipe-nome">Lotus</b></span>
+                            </article>
+                            <article class="stat-card">
+                                <h4>Recorde Mônaco</h4>
+                                <span class="stat-valor">1:25.500</span>
+                                <span class="stat-desc">J. Stewart <br><b class="equipe-nome">BRM</b></span>
+                            </article>
+                            <article class="stat-card">
+                                <h4>Recorde Silverstone</h4>
+                                <span class="stat-valor">1:20.400</span>
+                                <span class="stat-desc">Jim Clark <br><b class="equipe-nome">Lotus</b></span>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="1970" class="aba-conteudo" style="display: none;">
+                <section class="evolucao-secao bg-1970">
+                    <div class="conteudo-caixa">
+                        <h3>Desempenho nos Anos 70</h3>
+                        <p>A década que trouxe o "Efeito Solo" (Ground Effect) pelas mãos de Colin Chapman. Os carros se
+                            tornaram verdadeiras asas invertidas, grudando no asfalto e permitindo velocidades de
+                            contorno de curva antes inimagináveis. O lendário motor Ford Cosworth DFV dominou boa parte
+                            da era.</p>
+
+                        <div class="grid-telemetria">
+                            <article class="stat-card">
+                                <h4>Motor / Potência Média</h4>
+                                <span class="stat-valor">~500 HP</span>
+                                <span class="stat-desc">Surgimento dos primeiros Turbos</span>
+                            </article>
+                            <article class="stat-card">
+                                <h4>Recorde Monza</h4>
+                                <span class="stat-valor">1:13.800</span>
+                                <span class="stat-desc">J. Jabouille <br><b class="equipe-nome">Renault</b></span>
+                            </article>
+                            <article class="stat-card">
+                                <h4>Recorde Mônaco</h4>
+                                <span class="stat-valor">1:14.300</span>
+                                <span class="stat-desc">C. Reutemann <br><b class="equipe-nome">Ferrari</b></span>
+                            </article>
+                            <article class="stat-card">
+                                <h4>Recorde Silverstone</h4>
+                                <span class="stat-valor">1:11.800</span>
+                                <span class="stat-desc">R. Peterson <br><b class="equipe-nome">Lotus</b></span>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="1980" class="aba-conteudo" style="display: none;">
+                <section class="evolucao-secao bg-1980">
+                    <div class="conteudo-caixa">
+                        <h3>Desempenho nos Anos 80</h3>
+                        <p>A era mais selvagem da potência. Os motores Turbo geravam uma força brutal, ultrapassando os
+                            1.000 cavalos nas classificações. Os carros exigiam enorme força física e perícia para lidar
+                            com o "Turbo Lag" violento, marcando a época de ouro das rivalidades épicas.</p>
+
+                        <div class="grid-telemetria">
+                            <article class="stat-card">
+                                <h4>Motor / Potência Média</h4>
+                                <span class="stat-valor">~1.200 HP</span>
+                                <span class="stat-desc">V6 Turbo em Qualificação</span>
+                            </article>
+                            <article class="stat-card">
+                                <h4>Recorde Monza</h4>
+                                <span class="stat-valor">1:25.974</span>
+                                <span class="stat-desc">Ayrton Senna <br><b class="equipe-nome">McLaren</b></span>
+                            </article>
+                            <article class="stat-card">
+                                <h4>Recorde Mônaco</h4>
+                                <span class="stat-valor">1:23.998</span>
+                                <span class="stat-desc">Ayrton Senna <br><b class="equipe-nome">McLaren</b></span>
+                            </article>
+                            <article class="stat-card">
+                                <h4>Recorde Silverstone</h4>
+                                <span class="stat-valor">1:09.832</span>
+                                <span class="stat-desc">K. Rosberg <br><b class="equipe-nome">Williams</b></span>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="1990" class="aba-conteudo" style="display: none;">
+                <section class="evolucao-secao bg-1990">
+                    <div class="conteudo-caixa">
+                        <h3>Desempenho nos Anos 90</h3>
+                        <p>O boom da tecnologia eletrônica. Suspensões ativas, controle de tração e câmbios
+                            semi-automáticos revolucionaram a pilotagem. Apesar do banimento posterior dessas ajudas
+                            eletrônicas para priorizar o piloto, os motores V10 começaram a reinar com uma sinfonia
+                            inesquecível.</p>
+
+                        <div class="grid-telemetria">
+                            <article class="stat-card">
+                                <h4>Motor / Potência Média</h4>
+                                <span class="stat-valor">~800 HP</span>
+                                <span class="stat-desc">Motores V10 Atmosféricos</span>
+                            </article>
+                            <article class="stat-card">
+                                <h4>Recorde Monza</h4>
+                                <span class="stat-valor">1:21.468</span>
+                                <span class="stat-desc">M. Hakkinen <br><b class="equipe-nome">McLaren</b></span>
+                            </article>
+                            <article class="stat-card">
+                                <h4>Recorde Mônaco</h4>
+                                <span class="stat-valor">1:20.406</span>
+                                <span class="stat-desc">M. Schumacher <br><b class="equipe-nome">Ferrari</b></span>
+                            </article>
+                            <article class="stat-card">
+                                <h4>Recorde Silverstone</h4>
+                                <span class="stat-valor">1:10.966</span>
+                                <span class="stat-desc">Damon Hill <br><b class="equipe-nome">Williams</b></span>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="2000" class="aba-conteudo" style="display: none;">
+                <section class="evolucao-secao bg-2000">
+                    <div class="conteudo-caixa">
+                        <h3>Desempenho nos Anos 2000</h3>
+                        <p>Muitos puristas consideram esta a era de ouro da performance pura. Com carros levíssimos
+                            pesando cerca de 600kg, motores V10 de 3.0 Litros gritando a quase 20.000 RPM e uma intensa
+                            guerra de fabricantes de pneus, vários recordes absolutos de pista foram cravados nesta
+                            época.</p>
+
+                        <div class="grid-telemetria">
+                            <article class="stat-card">
+                                <h4>Motor / Potência Média</h4>
+                                <span class="stat-valor">~920 HP</span>
+                                <span class="stat-desc">V10 (20.000 RPM) e Pneus Sulcados</span>
+                            </article>
+                            <article class="stat-card">
+                                <h4>Recorde Monza</h4>
+                                <span class="stat-valor">1:20.089</span>
+                                <span class="stat-desc">R. Barrichello <br><b class="equipe-nome">Ferrari</b></span>
+                            </article>
+                            <article class="stat-card">
+                                <h4>Recorde Mônaco</h4>
+                                <span class="stat-valor">1:13.532</span>
+                                <span class="stat-desc">K. Raikkonen <br><b class="equipe-nome">McLaren</b></span>
+                            </article>
+                            <article class="stat-card">
+                                <h4>Recorde Silverstone</h4>
+                                <span class="stat-valor">1:18.233</span>
+                                <span class="stat-desc">K. Raikkonen <br><b class="equipe-nome">McLaren</b></span>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="2010" class="aba-conteudo" style="display: none;">
+                <section class="evolucao-secao bg-2010">
+                    <div class="conteudo-caixa">
+                        <h3>Desempenho nos Anos 2010</h3>
+                        <p>A entrada na Era Híbrida. Em 2014, a F1 adotou os complexos motores V6 Turbo Híbridos. Mais
+                            pesados e longos, a aerodinâmica precisou ser revolucionada. Com o acréscimo do DRS para
+                            ultrapassagens, os carros voltaram a quebrar barreiras de tempo nas pistas de alta
+                            velocidade.</p>
+
+                        <div class="grid-telemetria">
+                            <article class="stat-card">
+                                <h4>Motor / Potência Média</h4>
+                                <span class="stat-valor">~1.000 HP</span>
+                                <span class="stat-desc">1.6L V6 Turbo Híbrido</span>
+                            </article>
+                            <article class="stat-card">
+                                <h4>Recorde Monza</h4>
+                                <span class="stat-valor">1:19.119</span>
+                                <span class="stat-desc">K. Raikkonen <br><b class="equipe-nome">Ferrari</b></span>
+                            </article>
+                            <article class="stat-card">
+                                <h4>Recorde Mônaco</h4>
+                                <span class="stat-valor">1:10.166</span>
+                                <span class="stat-desc">L. Hamilton <br><b class="equipe-nome">Mercedes</b></span>
+                            </article>
+                            <article class="stat-card">
+                                <h4>Recorde Silverstone</h4>
+                                <span class="stat-valor">1:25.093</span>
+                                <span class="stat-desc">L. Hamilton <br><b class="equipe-nome">Mercedes</b></span>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="2020" class="aba-conteudo" style="display: none;">
+                <section class="evolucao-secao bg-2020">
+                    <div class="conteudo-caixa">
+                        <h3>Desempenho nos Anos 2020</h3>
+                        <p>O retorno triunfal do "Efeito Solo". Para melhorar as perseguições entre os carros, a F1
+                            aboliu asas complexas e apostou em túneis aerodinâmicos sob o assoalho. Os carros atuais são
+                            os maiores e mais pesados da história (cerca de 800kg), mas carregam a maior eficiência
+                            tecnológica já vista.</p>
+
+                        <div class="grid-telemetria">
+                            <article class="stat-card">
+                                <h4>Motor / Potência Média</h4>
+                                <span class="stat-valor">~1.050 HP</span>
+                                <span class="stat-desc">Unidade de Potência Híbrida Refinada</span>
+                            </article>
+                            <article class="stat-card">
+                                <h4>Recorde Monza</h4>
+                                <span class="stat-valor">1:18.887</span>
+                                <span class="stat-desc">L. Hamilton <br><b class="equipe-nome">Mercedes</b></span>
+                            </article>
+                            <article class="stat-card">
+                                <h4>Recorde Mônaco</h4>
+                                <span class="stat-valor">1:10.270</span>
+                                <span class="stat-desc">M. Verstappen <br><b class="equipe-nome">Red Bull</b></span>
+                            </article>
+                            <article class="stat-card">
+                                <h4>Recorde Silverstone</h4>
+                                <span class="stat-valor">1:24.303</span>
+                                <span class="stat-desc">L. Hamilton <br><b class="equipe-nome">Mercedes</b></span>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        var abaAtual = document.getElementById('1950');
+
+        function anoSelecionado() {
+            var selectOption = document.getElementById('select_option');
+            var abaSelecionadaValue = selectOption.value;
+
+            if (abaSelecionadaValue !== abaAtual.id) {
+                abaAtual.style.display = "none";
+                abaAtual = document.getElementById(abaSelecionadaValue);
+                abaAtual.style.display = "block";
+            }
+        }
+    </script>
+</body>
+
+</html>

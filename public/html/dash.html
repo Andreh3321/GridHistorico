@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -10,116 +10,141 @@
 </head>
 
 <body onload="melhores()">
-    <div class="dashboard">
-        <nav>
-            <img src="../assets/icon/Logo F1.png" id="logo">
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-            <a href="home.html">Home</a>
-            <a href="Pilotos.html">Pilotos</a>
-            <a href="quiz.html">Quiz</a>
-            <a href="login.html"><img src="../assets/icon/Logout2.svg" id="logout"></a>
-        </nav>
-        <div class="background">
-            <div class="indicadores">
-                <div class="maiores_pontuadores">
-                    <span>Ranking de Pontuadores</span>
-                    <br>
-                    <div class="primeiro_lugar">
-                        <p id="primeiro_lugar">1°</p>
-                    </div>
-                    <br>
-                    <div class="segundo_lugar">
-                        <p id="segundo_lugar">2°</p>
-                    </div>
-                    <br>
-                    <div class="terceiro_lugar">
-                        <p id="terceiro_lugar">3°</p>
-                    </div>
-                </div>
-                <div class="conhecimento_previo">
-                    <span>Conhecimento</span>
-                    <p id="conhecimento_previo"></p>
-                </div>
-            </div>
+    <div class="dashboard-layout">
 
-            <div class="graficos">
-                <div class="titulo_graficos">
-                    <h2>Gráficos</h2>
+        <aside class="sidebar">
+            <nav>
+                <img src="../assets/icon/Logo F1.png" id="logo" alt="Logo Grid Historico">
+
+                <div class="hello">
+                    <h3>Olá, <span id="b_usuario">Driver</span>!</h3>
                 </div>
-                <div class="titulos">
-                    <div class="titulo_barras">
-                        <h3>Pontuações</h3>
+
+                <ul class="nav-links">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="home.html">História</a></li>
+                    <li><a href="evolucao.html">Evolução</a></li>
+                    <li><a href="Pilotos.html">Pilotos</a></li>
+                    <li><a href="Informacoes_Gerais.html">Termos</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+
+                    <li class="btn-logout">
+                        <a href="login.html"><img src="../assets/icon/Logout2.svg" id="logout" alt="Sair"></a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="dashboard-content">
+
+            <section class="indicadores">
+                <article class="kpi-card">
+                    <header>
+                        <h2>Ranking do Grid</h2>
+                    </header>
+                    <div class="ranking-lista">
+                        <p id="primeiro_lugar" class="podio primeiro">1° -</p>
+                        <p id="segundo_lugar" class="podio segundo">2° -</p>
+                        <p id="terceiro_lugar" class="podio terceiro">3° -</p>
                     </div>
-                    <div class="titulo_pizza">
-                        <h3>Conhecimento</h3>
+                </article>
+
+                <article class="kpi-card">
+                    <header>
+                        <h2>Conhecimento</h2>
+                    </header>
+                    <div class="kpi-valor">
+                        <p id="conhecimento_previo">Aguardando dados...</p>
                     </div>
+                </article>
+            </section>
+
+            <section class="graficos-container">
+                <header class="titulo_graficos">
+                    <h2>Análise de Desempenho</h2>
+                </header>
+
+                <div class="graficos-grid">
+                    <article class="grafico-card">
+                        <h3>Pontuações (Top Pilotos)</h3>
+                        <div class="canvas-wrapper">
+                            <canvas id="maiores_pontuadores"></canvas>
+                        </div>
+                    </article>
+
+                    <article class="grafico-card">
+                        <h3>Nível de Conhecimento</h3>
+                        <div class="canvas-wrapper">
+                            <canvas id="conhecimento_previo_grafico"></canvas>
+                        </div>
+                    </article>
                 </div>
-                <div class="grafico_barras">
-                    <canvas id="maiores_pontuadores"></canvas>
-                </div>
-                <div class="grafico_pizza">
-                    <canvas id="conhecimento_previo"></canvas>
-                </div>
-            </div>
-        </div>
+            </section>
+        </main>
     </div>
+
+    <script>
+        function melhores() {
+            b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+            fetch("/dashRoutes/melhores", {
+                method: "GET"
+            })
+                .then(response => response.json())
+                .then(dadosMelhores => {
+                    console.log("Dados recebidos:", dadosMelhores);
+
+                    let nomes_usuarios = [];
+                    let pontos_usuarios = [];
+
+                    for (let i = 0; i < dadosMelhores.length; i++) {
+                        let registro = dadosMelhores[i];
+                        nomes_usuarios.push(registro.Nome);
+                        pontos_usuarios.push(registro.Acertos);
+
+                        if (i == 0) primeiro_lugar.innerHTML = `1° ${registro.Nome} - ${registro.Acertos} pts`;
+                        if (i == 1) segundo_lugar.innerHTML = `2° ${registro.Nome} - ${registro.Acertos} pts`;
+                        if (i == 2) terceiro_lugar.innerHTML = `3° ${registro.Nome} - ${registro.Acertos} pts`;
+                    }
+
+                    const graficBar = document.getElementById('maiores_pontuadores');
+
+                    new Chart(graficBar, {
+                        type: 'bar',
+                        data: {
+                            labels: nomes_usuarios,
+                            datasets: [{
+                                label: 'Pontos no Quiz',
+                                data: pontos_usuarios,
+                                borderWidth: 1,
+                                borderColor: '#e3b062',
+                                backgroundColor: 'rgba(227, 176, 98, 0.6)', /* Cor atualizada para combinar com o tema */
+                                borderRadius: 6,
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false, /* Permite que o CSS controle a altura */
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                                    ticks: { color: '#fff' }
+                                },
+                                x: {
+                                    grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                                    ticks: { color: '#fff' }
+                                }
+                            },
+                            plugins: {
+                                legend: { labels: { color: '#fff' } }
+                            }
+                        }
+                    });
+                })
+                .catch(erro => console.error("Erro ao carregar ranking:", erro));
+        }
+    </script>
 </body>
 
 </html>
-<script>
-    function melhores() {
-        // Exibe o nome do usuário logado no topo
-        b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-
-        fetch("/dashRoutes/melhores", {
-            method: "GET"
-        })
-            .then(response => response.json())
-            .then(dadosMelhores => {
-                console.log("Dados recebidos:", dadosMelhores);
-
-                // Criando os arrays para o gráfico
-                let nomes_usuarios = [];
-                let pontos_usuarios = [];
-
-                // Preenchendo os arrays com os dados do SQLite
-                for (let i = 0; i < dadosMelhores.length; i++) {
-                    let registro = dadosMelhores[i];
-                    nomes_usuarios.push(registro.Nome);
-                    pontos_usuarios.push(registro.Acertos);
-
-                    // Preenchendo o Ranking de texto (KPIs)
-                    if (i == 0) primeiro_lugar.innerHTML = `1° ${registro.Nome} - ${registro.Acertos} pts`;
-                    if (i == 1) segundo_lugar.innerHTML = `2° ${registro.Nome} - ${registro.Acertos} pts`;
-                    if (i == 2) terceiro_lugar.innerHTML = `3° ${registro.Nome} - ${registro.Acertos} pts`;
-                }
-
-                const graficBar = document.getElementById('maiores_pontuadores');
-
-                new Chart(graficBar, {
-                    type: 'bar',
-                    data: {
-                        labels: nomes_usuarios, // Agora o array existe!
-                        datasets: [{
-                            label: 'Pontos de Cada Quiz',
-                            data: pontos_usuarios, // Agora o array existe!
-                            borderWidth: 1,
-                            borderColor: '#a52a2a',
-                            backgroundColor: '#ff8c42',
-                            borderRadius: 10,
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
-                        }
-                    }
-                });
-            })
-            .catch(erro => console.error("Erro ao carregar ranking:", erro));
-    }
-</script>

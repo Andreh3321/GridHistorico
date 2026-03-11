@@ -8,221 +8,216 @@
 
     <title>Grid Histórico | Login</title>
 
-    <script src="./js/sessao.js"></script>
+    <script src="./js/sessao.js" defer></script>
 
-    <link rel="stylesheet" href="../css/estilo.css">
-    <!-- <link rel="stylesheet" href="./css/teste.css" /> -->
+    <link rel="stylesheet" href="../css/login.css">
     <link rel="icon" href="../assets/icon/Logo F1.png">
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com"> -->
 </head>
-
-
-
-<!--Header-->
 
 <body>
     <div class="pagina_login">
-        <div class="fundo_login">
-            <div class="header_login">
+        <main class="fundo_login">
+            
+            <header class="header_login">
                 <div class="container_login">
-                    <img src="../assets/icon/Logo F1.png" id="logo_login">
-                    <ul class="navbar">
-                        <li class="agora_login">
-                            <a href="index.html">Inicial</a>
-                        </li>
-                        <li>
-                            <a href="cadastro.html">Cadastro</a>
-                        </li>
-                    </ul>
+                    <img src="../assets/icon/Logo F1.png" id="logo_login" alt="Logo Grid Histórico">
+                    
+                    <nav>
+                        <ul class="navbar">
+                            <li class="agora_login">
+                                <a href="index.html">Inicial</a>
+                            </li>
+                            <li>
+                                <a href="cadastro.html">Cadastro</a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
-            </div>
-            <div class="login">
+            </header>
+
+            <section class="login">
+                
                 <div class="alerta_erro">
                     <div class="card_erro" id="cardErro">
                         <span id="mensagem_erro"></span>
                     </div>
                 </div>
-                <div class="container_login">
-                    <div class="card card-login" id="card_cadastro">
+
+                <div class="container_login form-container">
+                    <article class="card card-login" id="card_cadastro">
                         <h2>Welcome back, Driver</h2>
+                        
                         <div class="formulario">
                             <div class="campo">
-                                <span>E-mail:</span>
+                                <label for="input_email">E-mail:</label>
                                 <input id="input_email" type="text" placeholder="Login">
                             </div>
                             <div class="campo">
-                                <span>Senha:</span>
+                                <label for="input_senha">Senha:</label>
                                 <input id="input_senha" type="password" placeholder="******" oninput="senha_validada()">
                             </div>
+                            
                             <p id="erros_senha_login" class="erros_login"></p>
+                            
                             <button class="botao" onclick="entrar()">Entrar</button>
                         </div>
+                        
                         <p>Não tem uma conta? <a href="cadastro.html">Faça seu cadastro</a></p>
+                        
                         <div id="div_aguardar" class="loading-div">
-                            <img src="./assets/circle-loading.gif" id="loading-gif">
+                            <img src="./assets/circle-loading.gif" id="loading-gif" alt="Aguarde...">
                         </div>
                         <div id="div_erros_login"></div>
-                    </div>
+                    </article>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
     </div>
-</body>
 
-</html>
+    <script>
+        var erros = 0;
 
-<script>
-    var erros = 0;
+        var letras_maiusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        var letras_minusculas = "abcdefghijklmnopqrstuvwxyz"
+        var caracteres_especiais = "!@#$%¨&*()_-+ºª£¢¬§;:|\/<>,.?°{}[]"
+        var numeros = "0123456789"
 
-    var letras_maiusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    var letras_minusculas = "abcdefghijklmnopqrstuvwxyz"
-    var caracteres_especiais = "!@#$%¨&*()_-+ºª£¢¬§;:|\/<>,.?°{}[]"
-    var numeros = "0123456789"
+        var senha_correta = false;
 
-    var senha_correta = false;
-
-    function sumirMensagem() {
-        cardErro.style.display = "none";
-    }
-
-    function resetarLogin() {
-        input_email.value = "";
-        input_senha.value = "";
-        document.getElementById("erros_senha_login").innerHTML = "";
-    }
-
-    function senha_validada() {
-        senha_correta = false;
-
-        var tentativa = ``;
-        var letra_maiuscula = false;
-        var letra_minuscula = false;
-        var caractere_especial = false;
-        var numero = false;
-
-        var senhaComErro = ``;
-
-        if (card_cadastro.className == `vazio`) {
-            tentativa = input_email.value.replaceAll(` `, ``)
-        } else {
-            tentativa = input_senha.value.replaceAll(` `, ``)
+        function sumirMensagem() {
+            cardErro.style.display = "none";
         }
 
-        for (i = 0; i < letras_maiusculas.length; i++) {
-            if (tentativa.includes(letras_maiusculas[i])) {
-                letra_maiuscula = true;
+        function resetarLogin() {
+            input_email.value = "";
+            input_senha.value = "";
+            document.getElementById("erros_senha_login").innerHTML = "";
+        }
+
+        function senha_validada() {
+            senha_correta = false;
+
+            var tentativa = ``;
+            var letra_maiuscula = false;
+            var letra_minuscula = false;
+            var caractere_especial = false;
+            var numero = false;
+
+            var senhaComErro = ``;
+
+            if (card_cadastro.className == `vazio`) {
+                tentativa = input_email.value.replaceAll(` `, ``)
+            } else {
+                tentativa = input_senha.value.replaceAll(` `, ``)
+            }
+
+            for (i = 0; i < letras_maiusculas.length; i++) {
+                if (tentativa.includes(letras_maiusculas[i])) {
+                    letra_maiuscula = true;
+                }
+            }
+            if (!letra_maiuscula) {
+                senhaComErro += `Insira pelo menos uma letra maiúscula na senha<br>`;
+            }
+
+            for (i = 0; i < letras_minusculas.length; i++) {
+                if (tentativa.includes(letras_minusculas[i])) {
+                    letra_minuscula = true;
+                }
+            }
+            if (!letra_minuscula) {
+                senhaComErro += `Insira pelo menos uma letra minúscula na sua senha<br>`;
+            }
+
+            for (i = 0; i < caracteres_especiais.length; i++) {
+                if (tentativa.includes(caracteres_especiais[i])) {
+                    caractere_especial = true;
+                }
+            }
+            if (!caractere_especial) {
+                senhaComErro += `Insira pelo menos um caractere especial na sua senha<br>`;
+            }
+
+            for (i = 0; i < numeros.length; i++) {
+                if (tentativa.includes(numeros[i])) {
+                    numero = true;
+                }
+            }
+            if (!numero) {
+                senhaComErro += `Insira pelo menos um número na sua senha`;
+            }
+
+            if (tentativa == ``) {
+                erros_senha_login.innerHTML = ``;
+            } else if (senhaComErro.length > 0) {
+                erros_senha_login.innerHTML = ``;
+                erros_senha_login.innerHTML = `${senhaComErro}`;
+
+            } else {
+                erros_senha_login.innerHTML = ``;
+                senha_correta = true;
             }
         }
-        if (!letra_maiuscula) {
-            senhaComErro += `Insira pelo menos uma letra maiúscula na senha<br>`;
-        }
 
-        for (i = 0; i < letras_minusculas.length; i++) {
-            if (tentativa.includes(letras_minusculas[i])) {
-                letra_minuscula = true;
+        function entrar() {
+            aguardar();
+
+            var emailVar = input_email.value;
+            var senhaVar = input_senha.value;
+
+            if (emailVar == "" || senhaVar == "") {
+                cardErro.style.display = "block"
+                mensagem_erro.innerHTML = "(Preencha todos os campos)";
+                finalizarAguardar();
+                return false;
             }
-        }
-        if (!letra_minuscula) {
-            senhaComErro += `Insira pelo menos uma letra minúscula na sua senha<br>`;
-        }
+            else {
+                setInterval(sumirMensagem, 5000)
+                console.log("FORM LOGIN: ", emailVar);
+                console.log("FORM SENHA: ", senhaVar);
 
-        for (i = 0; i < caracteres_especiais.length; i++) {
-            if (tentativa.includes(caracteres_especiais[i])) {
-                caractere_especial = true;
-            }
-        }
-        if (!caractere_especial) {
-            senhaComErro += `Insira pelo menos um caractere especial na sua senha<br>`;
-        }
+                fetch("/login/autenticar/", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        email: emailVar,
+                        senha: senhaVar
+                    })
 
-        for (i = 0; i < numeros.length; i++) {
-            if (tentativa.includes(numeros[i])) {
-                numero = true;
-            }
-        }
-        if (!numero) {
-            senhaComErro += `Insira pelo menos um número na sua senha`;
-        }
+                }).then(function (resposta) {
+                    console.log("ESTOU NO THEN DO entrar()!")
 
-        if (tentativa == ``) {
-            erros_senha_login.innerHTML = ``;
-        } else if (senhaComErro.length > 0) {
-            erros_senha_login.innerHTML = ``;
-            erros_senha_login.innerHTML = `${senhaComErro}`;
+                    if (resposta.ok) {
+                        console.log(resposta);
 
-        } else {
-            erros_senha_login.innerHTML = ``;
-            senha_correta = true;
-        }
-    }
-    function entrar() {
-        aguardar();
+                        resposta.json().then(json => {
+                            console.log(json);
+                            console.log(JSON.stringify(json));
+                            sessionStorage.EMAIL_USUARIO = json.email;
+                            sessionStorage.NOME_USUARIO = json.nome;
+                            sessionStorage.ID_USUARIO = json.id; // Lembra do ID que corrigimos?
 
-        var emailVar = input_email.value;
-        var senhaVar = input_senha.value;
+                            window.location = "./home.html";
+                        });
 
-        if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Preencha todos os campos))";
-            finalizarAguardar();
-            return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
-            console.log("FORM LOGIN: ", emailVar);
-            console.log("FORM SENHA: ", senhaVar);
+                    } else {
+                        console.log("Houve um erro ao tentar realizar o login!");
 
-            fetch("/login/autenticar/", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    email: emailVar,
-                    senha: senhaVar
+                        resposta.text().then(texto => {
+                            console.error(texto);
+                            finalizarAguardar(texto);
+                        });
+                    }
+
+                }).catch(function (erro) {
+                    console.log(erro);
                 })
 
-            }).then(function (resposta) {
-                console.log("ESTOU NO THEN DO entrar()!")
-
-                if (resposta.ok) {
-                    console.log(resposta);
-
-
-                    resposta.json().then(json => {
-                        console.log(json);
-                        console.log(JSON.stringify(json));
-                        sessionStorage.EMAIL_USUARIO = json.email;
-                        sessionStorage.NOME_USUARIO = json.nome;
-                        sessionStorage.ID_USUARIO = json.id;
-
-
-                        // apenas para exibir o loading
-
-                        window.location = "./home.html";
-
-                    });
-
-                } else {
-
-                    console.log("Houve um erro ao tentar realizar o login!");
-
-                    resposta.text().then(texto => {
-                        console.error(texto);
-                        finalizarAguardar(texto);
-                    });
-                }
-
-            }).catch(function (erro) {
-                console.log(erro);
-            })
-
-            return false;
+                return false;
+            }
         }
-
-    }
-
-
-
-
-</script>
+    </script>
+</body>
+</html>

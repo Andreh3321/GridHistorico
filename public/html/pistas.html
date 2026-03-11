@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GridHistórico | Circuitos</title>
+    <link rel="stylesheet" href="../css/pistas.css">
+    <link rel="icon" href="../assets/icon/Logo F1.png">
+</head>
+
+<body>
+    <div class="app-container">
+        
+        <header>
+            <nav class="navbar">
+                <img src="../assets/icon/Logo F1.png" alt="Logo F1" id="logo">
+                <div class="nav-links">
+                    <a href="index.html">Início</a>
+                    <a href="home.html">História</a>
+                    <a href="evolucao.html">Evolução</a>
+                    <a href="pistas.html" class="active">Circuitos</a> <a href="Pilotos.html">Pilotos</a>
+                    <a href="Informacoes_Gerais.html">Termos</a>
+                    <a href="quiz.html">Quiz</a>
+                    <a href="dash.html">Dashboard</a>
+                </div>
+            </nav>
+        </header>
+
+        <main class="pistas-container">
+            <div class="titulo-pagina">
+                <h2>Circuitos Históricos</h2>
+                <p>Explore as pistas que forjaram as lendas da Fórmula 1.</p>
+            </div>
+
+            <section class="grid-circuitos" id="grid_circuitos">
+                </section>
+        </main>
+
+        <div class="modal-overlay" id="modal_pista">
+            <div class="modal-content">
+                <button class="fechar-modal" onclick="fecharModal()">X</button>
+                
+                <h3 id="modal_nome">Nome da Pista</h3>
+                <h4 id="modal_pais">País</h4>
+                
+                <div class="modal-dados">
+                    <p><b>Recordista:</b> <span id="modal_recorde">---</span></p>
+                    <p><b>Nº de Corridas:</b> <span id="modal_corridas">---</span></p>
+                    <p><b>Maior Vencedor:</b> <span id="modal_vencedor">---</span></p>
+                    <p><b>Entrada no Calendário:</b> <span id="modal_entrada">---</span></p>
+                    <p><b>Saída:</b> <span id="modal_saida">---</span></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // ARRAY DE DADOS: É aqui que você vai cadastrar todas as 75+ pistas depois!
+        const listaPistas = [
+            {
+                id: "interlagos",
+                nome: "Autódromo José Carlos Pace",
+                pais: "Brasil 🇧🇷",
+                imagem: "../assets/imgs/interlagos.jpg", // Coloque uma foto da pista na sua pasta
+                recorde: "Valtteri Bottas (1:10.540 - 2018)",
+                corridas: 40,
+                vencedor: "Alain Prost (6 vitórias)",
+                entrada: 1973,
+                saida: "Atual"
+            },
+            {
+                id: "monza",
+                nome: "Autodromo Nazionale di Monza",
+                pais: "Itália 🇮🇹",
+                imagem: "../assets/imgs/monza.jpg",
+                recorde: "Rubens Barrichello (1:21.046 - 2004)",
+                corridas: 73,
+                vencedor: "M. Schumacher / L. Hamilton (5 vitórias)",
+                entrada: 1950,
+                saida: "Atual"
+            },
+            {
+                id: "monaco",
+                nome: "Circuit de Monaco",
+                pais: "Mônaco 🇲🇨",
+                imagem: "../assets/imgs/monaco.jpg",
+                recorde: "Lewis Hamilton (1:12.909 - 2021)",
+                corridas: 69,
+                vencedor: "Ayrton Senna (6 vitórias)",
+                entrada: 1950,
+                saida: "Atual"
+            },
+            {
+                id: "spa",
+                nome: "Spa-Francorchamps",
+                pais: "Bélgica 🇧🇪",
+                imagem: "../assets/imgs/spa.jpg",
+                recorde: "Valtteri Bottas (1:46.286 - 2018)",
+                corridas: 56,
+                vencedor: "Michael Schumacher (6 vitórias)",
+                entrada: 1950,
+                saida: "Atual"
+            },
+            {
+                id: "silverstone",
+                nome: "Circuito de Silverstone",
+                pais: "Reino Unido 🇬🇧",
+                imagem: "../assets/imgs/silverstone.jpg",
+                recorde: "Max Verstappen (1:27.097 - 2020)",
+                corridas: 58,
+                vencedor: "Lewis Hamilton (8 vitórias)",
+                entrada: 1950,
+                saida: "Atual"
+            },
+            {
+                id: "nurburgring",
+                nome: "Nürburgring Nordschleife",
+                pais: "Alemanha 🇩🇪",
+                imagem: "../assets/imgs/nurburgring.jpg",
+                recorde: "Clay Regazzoni (7:06.400 - 1975)",
+                corridas: 22,
+                vencedor: "J. M. Fangio / J. Stewart (3 vitórias)",
+                entrada: 1951,
+                saida: "1976 (Traçado Original)"
+            }
+        ];
+
+        // Função que desenha os cards na tela automaticamente
+        function carregarGrid() {
+            const grid = document.getElementById("grid_circuitos");
+            grid.innerHTML = ""; // Limpa antes de carregar
+
+            listaPistas.forEach((pista, index) => {
+                grid.innerHTML += `
+                    <article class="pista-card" onclick="abrirModal(${index})">
+                        <div class="pista-img-container">
+                            <img src="${pista.imagem}" alt="Foto de ${pista.nome}" onerror="this.src='../assets/imgs/fundo_dash8.jpg'"> </div>
+                        <div class="pista-legenda">
+                            <h3>${pista.nome}</h3>
+                            <span>${pista.pais}</span>
+                        </div>
+                    </article>
+                `;
+            });
+        }
+
+        // Funções do Modal (Abre e injeta os dados)
+        function abrirModal(index) {
+            const pista = listaPistas[index];
+            
+            document.getElementById("modal_nome").innerText = pista.nome;
+            document.getElementById("modal_pais").innerText = pista.pais;
+            document.getElementById("modal_recorde").innerText = pista.recorde;
+            document.getElementById("modal_corridas").innerText = pista.corridas;
+            document.getElementById("modal_vencedor").innerText = pista.vencedor;
+            document.getElementById("modal_entrada").innerText = pista.entrada;
+            document.getElementById("modal_saida").innerText = pista.saida;
+
+            document.getElementById("modal_pista").classList.add("ativo");
+        }
+
+        function fecharModal() {
+            document.getElementById("modal_pista").classList.remove("ativo");
+        }
+
+        // Inicia a renderização assim que a página carrega
+        window.onload = carregarGrid;
+    </script>
+</body>
+
+</html>

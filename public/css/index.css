@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Orbitron:wght@400..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+/* GLOBAIS */
+:root {
+  --tamanho-header: 80px;
+  --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-simulador: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-footer: 60px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Orbitron", sans-serif;
+  width: 100%;
+  height: 150vh;
+  background-color: black;
+}
+
+.container {
+  display: flex;
+  width: 80%;
+  margin: auto;
+}
+
+/* ESTRUTURA PRINCIPAL */
+.pagina_inicial {
+  width: 100%;
+  height: 100%;
+}
+
+.fundo {
+  height: 1800px;
+  width: 100%;
+  background-image: url(../assets/imgs/fundo_site.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* HEADER E NAVBAR */
+.header {
+  height: var(--tamanho-header);
+  display: flex;
+  align-items: center;
+}
+
+.header .container {
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.511);
+}
+
+.header .container img {
+  height: 40px;
+}
+
+#logo {
+  height: 100px;
+  align-self: center;
+  justify-self: center;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.header a {
+  text-decoration: none;
+  color: #e3b062;
+  margin-right: 30px;
+}
+
+.agora {
+  font-weight: 900;
+}
+
+.navbar {
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+  margin-right: 24px;
+}
+
+/* CONTEÚDO (SOBRE E CONVITE) */
+.abrindo {
+  height: 730px;
+  width: 100%;
+}
+
+.sobre {
+  width: 90%;
+  max-width: 1000px;
+  margin: 80px auto; 
+  min-height: 300px; 
+  padding: 40px 20px; 
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 16px;
+  color: #e3b062;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.sobre p {
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+#titulo_sobre {
+  font-size: 30px;
+}
+
+.convite {
+  width: 90%;
+  max-width: 1000px;
+  margin: 100px auto;
+  min-height: 150px;
+  padding: 40px 20px;
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: 16px;
+  color: #e3b062;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* RODAPÉ */
+.footer {
+  background-color: rgb(0 0 0);
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: -16px;
+  justify-content: center;
+  color: #e3b062;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  margin-right: 5px;
+}
+
+.footer a {
+  color: #e3b062;
+  text-decoration: none;
+}

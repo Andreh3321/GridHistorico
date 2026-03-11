@@ -87,17 +87,26 @@ body {
 }
 
 .sobre {
-  height: 360px;
-  width: 1200px;
-  background-color: #000000ab;
-  color: #e3b062;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  margin: 150px 150px;
-  border-radius: 50px;
+    /* 1. Largura Fluida e Centralizada */
+    width: 90%;
+    max-width: 1000px; /* Tamanho máximo um pouco menor para o texto não ficar tão espalhado */
+    margin: 80px auto; /* 'auto' centraliza a caixa perfeitamente na horizontal */
+    
+    /* 2. Altura Flexível e Respiro Interno */
+    min-height: 300px; /* Troquei 'height' por 'min-height' para a caixa crescer se o texto quebrar de linha */
+    padding: 40px 20px; /* Garante que o texto nunca cole nas bordas no celular */
+    
+    /* 3. Visual Minimalista */
+    background-color: rgba(0, 0, 0, 0.75); /* Fundo um pouco mais suave */
+    border-radius: 16px; /* Curvatura menor e mais elegante (50px estava muito redondo) */
+    color: #e3b062;
+    
+    /* 4. Alinhamento Flexbox (mantido) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .sobre p {
@@ -111,18 +120,26 @@ body {
 }
 
 .convite {
-  background-color: black;
-  width: 1200px;
-  height: 150px;
-  margin: 150px 150px;
-  color: #e3b062;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  margin: 250px 150px;
-  border-radius: 50px;
+    /* 1. Largura Fluida e Centralizada */
+    width: 90%;
+    max-width: 1000px;
+    margin: 100px auto; /* O 'auto' nas laterais garante que fique perfeitamente no centro */
+    
+    /* 2. Altura Flexível e Respiro Interno */
+    min-height: 150px; /* O 'min-height' permite que a caixa cresça se o texto ocupar mais de uma linha no celular */
+    padding: 40px 20px;
+    
+    /* 3. Estética Minimalista */
+    background-color: rgba(0, 0, 0, 0.85); /* Mantém o preto, mas com uma leve transparência elegante */
+    border-radius: 16px; /* Visual mais quadrado e moderno */
+    color: #e3b062;
+    
+    /* 4. Alinhamento Interno (mantido) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .footer {

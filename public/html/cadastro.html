@@ -2,227 +2,206 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Grid Histórico | Cadastro</title>
+    <title>Grid Histórico | Cadastro</title>
 
-  <script src="./js/sessao.js"></script>
+    <script src="./js/sessao.js" defer></script>
 
-  <link rel="stylesheet" href="../css/estilo.css" />
-  <link rel="icon" href="../assets/icon/Logo F1.png" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="stylesheet" href="../css/cadastro.css" />
+    <link rel="icon" href="../assets/icon/Logo F1.png" />
 </head>
 
 <body>
-  <div class="pagina_cadastro">
-    <div class="fundo_cadastro">
-      <div class="header_cadastro">
-        <div class="container_cadastro">
-          <img src="../assets/icon/Logo F1.png" id="logo_cadastro">
-          <ul class="navbar_cadastro">
-            <li>
-              <a href="index.html">Inicial</a>
-            </li>
-            <li>
-              <a href="login.html"><img src="../assets/icon/Login.png"></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!--header fim-->
+    <div class="pagina_cadastro">
+        <main class="fundo_cadastro">
+            
+            <header class="header_cadastro">
+                <div class="container_cadastro">
+                    <img src="../assets/icon/Logo F1.png" id="logo_cadastro" alt="Logo Grid Histórico">
+                    
+                    <nav>
+                        <ul class="navbar_cadastro">
+                            <li>
+                                <a href="index.html">Inicial</a>
+                            </li>
+                            <li>
+                                <a href="login.html" class="icone-login">
+                                    <img src="../assets/icon/Login.png" alt="Página de Login">
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
 
-      <div class="cadastro">
-        <div class="alerta_erro">
-          <div class="card_erro" id="cardErro">
-            <span id="mensagem_erro"></span>
-          </div>
-        </div>
-        <div class="container_cadastro">
-          <div class="card card-cadastro" id="card_cadastro">
-            <h2>Bem-vindo!</h2>
-            <div class="formulario">
-              <!--
-                         Para inserir mais um campo, copie uma das inputs abaixo.
-                         Assim que inserir vá para o script abaixo.
-                     -->
-              <div class="campo">
-                <span>Nome:</span>
-                <input id="input_nome" type="text" placeholder="Seu nome" />
-              </div>
-              <div class="campo">
-                <span>E-mail:</span>
-                <input id="input_email" type="text" placeholder="meuemail@provedor.com" />
-              </div>
-              <div class="campo">
-                <span>Senha:</span>
-                <input id="input_senha" type="password" placeholder="******" oninput="verificar_senha_cadastro()" />
-              </div>
-              <p id="erros_senha_login" class="erros_login"></p>
-              <button class="botao" onclick="cadastrar()">Cadastrar</button>
-            </div>
-            <div id="div_aguardar" class="loading-div">
-              <img src="./assets/circle-loading.gif" id="loading-gif" />
-            </div>
+            <section class="cadastro">
+                
+                <div class="alerta_erro">
+                    <div class="card_erro" id="cardErro">
+                        <span id="mensagem_erro"></span>
+                    </div>
+                </div>
 
-            <div id="div_erros_login"></div>
-          </div>
-        </div>
-      </div>
+                <div class="container_cadastro form-container">
+                    <article class="card card-cadastro" id="card_cadastro">
+                        <h2>Bem-vindo(a)!</h2>
+                        
+                        <div class="formulario">
+                            <div class="campo">
+                                <label for="input_nome">Nome:</label>
+                                <input id="input_nome" type="text" placeholder="Seu nome" />
+                            </div>
+                            
+                            <div class="campo">
+                                <label for="input_email">E-mail:</label>
+                                <input id="input_email" type="email" placeholder="meuemail@provedor.com" />
+                            </div>
+                            
+                            <div class="campo">
+                                <label for="input_senha">Senha:</label>
+                                <input id="input_senha" type="password" placeholder="******" oninput="verificar_senha_cadastro()" />
+                            </div>
+                            
+                            <p id="erros_senha_login" class="erros_login"></p>
+                            
+                            <button class="botao" onclick="cadastrar()">Cadastrar</button>
+                        </div>
+                        
+                        <div id="div_aguardar" class="loading-div">
+                            <img src="./assets/circle-loading.gif" id="loading-gif" alt="Aguarde" />
+                        </div>
+                        <div id="div_erros_login"></div>
+                    </article>
+                </div>
+            </section>
+        </main>
     </div>
-  </div>
 
-</body>
+    <script>
+        var letras_maiusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        var letras_minusculas = "abcdefghijklmnopqrstuvwxyz";
+        var caracteres_especiais = "!@#$%¨&*()_-+ºª£¢¬§;:|\\/<>,.?°{}[]";
+        var numeros = "0123456789";
 
-</html>
+        var senha_correta = false;
 
-<script>
-  var letras_maiusculas = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  var letras_minusculas = "abcdefghijklmnopqrstuvwxyz"
-  var caracteres_especiais = "!@#$%¨&*()_-+ºª£¢¬§;:|\/<>,.?°{}[]"
-  var numeros = "0123456789"
-
-  var senha_correta = false;
-
-  function sumirMensagem() {
-    cardErro.style.display = "none";
-  }
-
-
-  function verificar_senha_cadastro() {
-    senha_correta = false;
-
-    var tentativa = ``;
-    var letra_maiuscula = false;
-    var letra_minuscula = false;
-    var caractere_especial = false;
-    var numero = false;
-
-    var senhaComErro = ``;
-
-    if (card_cadastro.className == `vazio`) {
-      tentativa = input_email.value.replaceAll(` `, ``)
-    } else {
-      tentativa = input_senha.value.replaceAll(` `, ``)
-    }
-
-    for (i = 0; i < letras_maiusculas.length; i++) {
-      if (tentativa.includes(letras_maiusculas[i])) {
-        letra_maiuscula = true;
-      }
-    }
-    if (!letra_maiuscula) {
-      senhaComErro += `Insira pelo menos uma letra maiúscula na senha<br>`;
-    }
-
-    for (i = 0; i < letra_minuscula.length; i++) {
-      if (tentativa.includes(letras_minusculas[i])) {
-        letra_minuscula = true;
-      }
-    }
-    if (!letra_minuscula) {
-      senhaComErro += `Insira pelo menos uma letra minúscula na sua senha<br>`;
-    }
-
-    for (i = 0; i < caractere_especial.length; i++) {
-      if (tentativa.includes(caracteres_especiais[i])) {
-        caractere_especial = true;
-      }
-    }
-    if (!caractere_especial) {
-      senhaComErro += `Insira pelo menos um caractere especial na sua senha<br>`;
-    }
-
-    for (i = 0; i < numero.length; i++) {
-      if (tentativa.includes(numeros[i])) {
-        numero = true;
-      }
-    }
-    if (!numero) {
-      senhaComErro += `Insira pelo menos um número na sua senha`;
-    }
-
-    if (tentativa == ``) {
-      erros_senha_login.innerHTML = ``;
-    } else if (senhaComErro.length > 0) {
-      erros_senha_login.innerHTML = ``;
-      erros_senha_login.innerHTML = `${senhaComErro}`;
-
-    } else {
-      erros_senha_login.innerHTML = ``;
-      senha_correta = true;
-    }
-  }
-
-  function cadastrar() {
-    // aguardar();
-
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    var nomeVar = input_nome.value;
-    var emailVar = input_email.value;
-    var senhaVar = input_senha.value;
-
-
-    // Verificando se há algum campo em branco
-    if (
-      nomeVar == "" ||
-      emailVar == "" ||
-      senhaVar == ""
-    ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Preencha todos os campos)";
-
-      finalizarAguardar();
-      return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
-      console.log("FORM NOME: ", nomeVar);
-      console.log("FORM LOGIN: ", emailVar);
-      console.log("FORM SENHA: ", senhaVar);
-    }
-
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        nomeServer: nomeVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar,
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-          cardErro.style.display = "block";
-
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-          setTimeout(() => {
-            window.location = "login.html";
-          }, "2000");
-
-          limparFormulario();
-          finalizarAguardar();
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
+        function sumirMensagem() {
+            cardErro.style.display = "none";
         }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
-      });
 
-    return false;
-  }
+        function verificar_senha_cadastro() {
+            senha_correta = false;
 
-</script>
+            var tentativa = ``;
+            var letra_maiuscula = false;
+            var letra_minuscula = false;
+            var caractere_especial = false;
+            var numero = false;
+
+            var senhaComErro = ``;
+
+            if (card_cadastro.className == `vazio`) {
+                tentativa = input_email.value.replaceAll(` `, ``);
+            } else {
+                tentativa = input_senha.value.replaceAll(` `, ``);
+            }
+
+            // CORREÇÃO: Os loops agora usam as strings globais para medir o .length
+            for (let i = 0; i < letras_maiusculas.length; i++) {
+                if (tentativa.includes(letras_maiusculas[i])) {
+                    letra_maiuscula = true;
+                }
+            }
+            if (!letra_maiuscula) {
+                senhaComErro += `Insira pelo menos uma letra maiúscula na senha<br>`;
+            }
+
+            for (let i = 0; i < letras_minusculas.length; i++) {
+                if (tentativa.includes(letras_minusculas[i])) {
+                    letra_minuscula = true;
+                }
+            }
+            if (!letra_minuscula) {
+                senhaComErro += `Insira pelo menos uma letra minúscula na sua senha<br>`;
+            }
+
+            for (let i = 0; i < caracteres_especiais.length; i++) {
+                if (tentativa.includes(caracteres_especiais[i])) {
+                    caractere_especial = true;
+                }
+            }
+            if (!caractere_especial) {
+                senhaComErro += `Insira pelo menos um caractere especial na sua senha<br>`;
+            }
+
+            for (let i = 0; i < numeros.length; i++) {
+                if (tentativa.includes(numeros[i])) {
+                    numero = true;
+                }
+            }
+            if (!numero) {
+                senhaComErro += `Insira pelo menos um número na sua senha`;
+            }
+
+            if (tentativa == ``) {
+                erros_senha_login.innerHTML = ``;
+            } else if (senhaComErro.length > 0) {
+                erros_senha_login.innerHTML = `${senhaComErro}`;
+            } else {
+                erros_senha_login.innerHTML = ``;
+                senha_correta = true;
+            }
+        }
+
+        function cadastrar() {
+            var nomeVar = input_nome.value;
+            var emailVar = input_email.value;
+            var senhaVar = input_senha.value;
+
+            if (nomeVar == "" || emailVar == "" || senhaVar == "") {
+                cardErro.style.display = "block";
+                mensagem_erro.innerHTML = "(Preencha todos os campos)";
+                return false;
+            } else if (!senha_correta) {
+                cardErro.style.display = "block";
+                mensagem_erro.innerHTML = "(A senha não atende aos requisitos)";
+                return false;
+            } else {
+                setInterval(sumirMensagem, 5000);
+            }
+
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    nomeServer: nomeVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar,
+                }),
+            })
+            .then(function (resposta) {
+                if (resposta.ok) {
+                    cardErro.style.display = "block";
+                    mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando...";
+
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, 2000);
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+            return false;
+        }
+    </script>
+</body>
+</html>

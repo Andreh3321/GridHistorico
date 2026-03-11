@@ -1,144 +1,250 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: "Orbitron", sans-serif;
-    border: 0;
-    color: #e3b062;
 }
 
 body {
-    min-height: 100vh;
-    background-color: #000;
-}
-
-.dashboard {
-    display: flex;
-    flex-direction: row; /* Desktop: Lado a lado */
-}
-
-/* NAVEGAÇÃO LATERAL */
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
     height: 100vh;
-    width: 250px; /* Largura fixa para a barra lateral */
+    overflow: hidden;
+    /* MÁGICA 1: Proíbe o scroll global no monitor */
+    background-color: #000;
+    color: #e3b062;
+}
+
+.dashboard-layout {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    /* MÁGICA 2: Fixa a altura do layout base */
+}
+
+/* ====================================
+   ASIDE LATERAL (NAVBAR)
+   ==================================== */
+.sidebar {
+    width: 250px;
+    background-color: rgba(0, 0, 0, 0.95);
+    border-right: 1px solid rgba(227, 176, 98, 0.3);
+    position: fixed;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    border-right: 3px solid #e3b062;
-    background-color: #000000;
+    z-index: 100;
 }
 
-nav a {
-    font-size: 1.2rem;
-    text-decoration: none;
-    text-align: center;
-    padding: 10px;
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+    height: 100%;
 }
 
 #logo {
-    width: 80px;
-    height: auto;
+    width: 100px;
+    margin-bottom: 20px;
 }
 
-/* CONTEÚDO PRINCIPAL */
-.background {
-    flex: 1; /* Ocupa o restante da tela */
-    margin-left: 250px; /* Mesma largura da nav */
-    min-height: 100vh;
+.hello {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+.hello span {
+    color: #e3b062;
+}
+
+.nav-links {
+    list-style: none;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    background-image: url(../assets/imgs/fundo_dash8.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed; /* Mantém o fundo fixo ao rolar */
-}
-
-/* CARDS DE INDICADORES */
-.indicadores {
-    margin: 20px;
-    display: flex;
-    flex-wrap: wrap; /* Quebra linha se necessário */
-    justify-content: center;
-    gap: 20px;
-}
-
-.maiores_pontuadores, .conhecimento_previo {
-    background-color: #000000c8;
-    flex: 1;
-    min-width: 300px; /* Largura mínima antes de quebrar */
-    max-width: 500px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-/* SEÇÃO DE GRÁFICOS */
-.graficos {
-    background-color: #000000c8;
-    width: 90%;
-    max-width: 1100px;
-    min-height: 400px;
-    margin: 20px auto; /* Centraliza horizontalmente */
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-}
-
-.titulos {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-top: 20px;
     gap: 15px;
+    align-items: center;
+    flex: 1;
+    /* Empurra o logout para baixo */
 }
 
-/* AJUSTES PARA TELAS MENORES (TABLETS E CELULARES) */
-@media (max-width: 900px) {
-    .dashboard {
-        flex-direction: column; /* Empilha Nav e Conteúdo */
+.nav-links a {
+    text-decoration: none;
+    color: #e3b062;
+    font-size: 1.1rem;
+    transition: 0.3s;
+    display: block;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.nav-links a:hover {
+    background-color: rgba(227, 176, 98, 0.1);
+    color: #fff;
+}
+
+.btn-logout {
+    margin-top: auto;
+}
+
+#logout {
+    width: 30px;
+    transition: 0.3s;
+}
+
+#logout:hover {
+    transform: scale(1.1);
+}
+
+/* ====================================
+   CONTEÚDO PRINCIPAL (MAIN)
+   ==================================== */
+.dashboard-content {
+    flex: 1;
+    margin-left: 250px;
+    background-image: url(../assets/imgs/fundo_dash8.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px;
+    /* Reduzido para ganhar espaço */
+    gap: 20px;
+    /* Menos espaço entre os KPIs e os Gráficos */
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* CARDS DE INDICADORES (KPIs) */
+.indicadores {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.kpi-card {
+    background-color: rgba(0, 0, 0, 0.85);
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+    padding: 15px;
+    /* Reduzido de 25px para 15px */
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.kpi-card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.ranking-lista p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    font-family: Arial, sans-serif;
+}
+
+/* ÁREA DE GRÁFICOS */
+.graficos-container {
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 16px;
+    padding: 20px;
+    /* Reduzido de 30px para 20px */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.titulo_graficos {
+    margin-bottom: 15px;
+    /* Reduzido para colar mais o título no gráfico */
+}
+
+.titulo_graficos h2 {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.graficos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 30px;
+    justify-content: center;
+}
+
+.grafico-card {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grafico-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+/* MÁGICA DO CHART.JS RESPONSIVO */
+.canvas-wrapper {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    /* Reduzido de 300px para 220px. O Chart.js vai se espremer aqui dentro! */
+}
+
+/* ====================================
+   MEDIA QUERIES (MOBILE E TABLETS)
+   ==================================== */
+@media screen and (max-width: 900px) {
+    .dashboard-layout {
+        flex-direction: column;
     }
 
-    nav {
-        position: relative; /* Sai do topo fixo lateral */
+    .sidebar {
+        position: relative;
         width: 100%;
         height: auto;
+        border-right: none;
+        border-bottom: 1px solid rgba(227, 176, 98, 0.3);
+    }
+
+    .sidebar nav {
+        padding: 15px;
         flex-direction: row;
-        padding: 20px;
-        border-right: 0;
-        border-bottom: 3px solid #e3b062;
-    }
-
-    .background {
-        margin-left: 0; /* Remove o espaço da lateral */
-        width: 100%;
-    }
-
-    .graficos {
-        width: 95%;
-        margin: 10px auto;
-    }
-}
-
-@media (max-width: 600px) {
-    nav {
+        justify-content: space-between;
         flex-wrap: wrap;
-        gap: 10px;
-    }
-    
-    nav a {
-        font-size: 14px;
     }
 
-    .titulos {
-        flex-direction: column;
-        align-items: center;
+    .nav-links {
+        flex-direction: row;
+        width: auto;
+        margin-top: 10px;
+        flex-wrap: wrap;
+    }
+
+    .hello {
+        margin-bottom: 0;
+    }
+
+    .btn-logout {
+        margin-top: 0;
+    }
+
+    .dashboard-content {
+        margin-left: 0;
+        padding: 20px;
     }
 }

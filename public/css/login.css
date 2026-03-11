@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Orbitron", sans-serif;
+    background-color: black;
+    color: #e3b062;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* ESTRUTURA GERAL */
+.pagina_login {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.fundo_login {
+    flex: 1; /* Preenche o espaço restante da tela */
+    width: 100%;
+    background-image: url(../assets/imgs/Max1.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER */
+.header_login {
+    width: 100%;
+    min-height: 80px;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+}
+
+.container_login {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo_login {
+    height: 60px;
+    width: auto;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #e3b062;
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #fff;
+}
+
+/* ÁREA CENTRAL DO LOGIN */
+.login {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 10px;
+    position: relative;
+}
+
+.form-container {
+    justify-content: center;
+}
+
+/* O CARD DO FORMULÁRIO */
+.card {
+    width: 90%;
+    max-width: 450px;
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 40px; /* Mais limpo do que 200px */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.card h2 {
+    font-size: clamp(24px, 5vw, 30px);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.card p {
+    margin-top: 15px;
+    text-align: center;
+    font-family: Arial, sans-serif; /* Mais fácil de ler em textos pequenos */
+}
+
+.card a {
+    color: #e3b062;
+    transition: 0.3s;
+}
+
+.card a:hover {
+    color: #fff;
+}
+
+.formulario {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.campo label {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+input {
+    font-family: 'Orbitron', sans-serif;
+    border: 2px solid #32b9cd;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #e3b062;
+    height: 45px;
+    padding: 0 10px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 100%;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #e3b062;
+    box-shadow: 0 0 8px rgba(227, 176, 98, 0.5); /* Efeito neon sutil ao focar */
+}
+
+.botao {
+    cursor: pointer;
+    border: none;
+    font-family: "Orbitron", sans-serif;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 18px;
+    color: #fff;
+    background-color: #ED145B;
+    width: 100%;
+    height: 45px;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.botao:hover {
+    background-color: #c90e4a;
+}
+
+/* ERROS, ALERTAS E CARREGAMENTO */
+.erros_login {
+    color: #ED145B;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 5px;
+    font-family: Arial, sans-serif;
+}
+
+.alerta_erro {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.card_erro {
+    display: none;
+    background-color: #fff;
+    color: black;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+    border: 3px solid #ED145B;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+#mensagem_erro {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.loading-div {
+    display: none;
+    margin-top: 15px;
+}
+
+.loading-div img {
+    height: 40px;
+    width: 40px;
+}
+
+/* RESPONSIVIDADE (CELULARES) */
+@media screen and (max-width: 768px) {
+    .container_login {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .header_login {
+        padding: 15px 0;
+        height: auto;
+    }
+
+    .navbar {
+        justify-content: center;
+    }
+}
