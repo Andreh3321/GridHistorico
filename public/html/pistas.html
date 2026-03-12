@@ -11,7 +11,7 @@
 
 <body>
     <div class="app-container">
-        
+
         <header>
             <nav class="navbar">
                 <img src="../assets/icon/Logo F1.png" alt="Logo F1" id="logo">
@@ -32,18 +32,21 @@
                 <h2>Circuitos Históricos</h2>
                 <p>Explore as pistas que forjaram as lendas da Fórmula 1.</p>
             </div>
-
+            <div class="busca-container">
+                <input type="text" id="busca_pista" placeholder="Pesquise pelo nome da pista ou país..."
+                    onkeyup="filtrarPistas()">
+            </div>
             <section class="grid-circuitos" id="grid_circuitos">
-                </section>
+            </section>
         </main>
 
         <div class="modal-overlay" id="modal_pista">
             <div class="modal-content">
                 <button class="fechar-modal" onclick="fecharModal()">X</button>
-                
+
                 <h3 id="modal_nome">Nome da Pista</h3>
                 <h4 id="modal_pais">País</h4>
-                
+
                 <div class="modal-dados">
                     <p><b>Recordista:</b> <span id="modal_recorde">---</span></p>
                     <p><b>Nº de Corridas:</b> <span id="modal_corridas">---</span></p>
@@ -58,85 +61,116 @@
 
     <script>
         // ARRAY DE DADOS: É aqui que você vai cadastrar todas as 75+ pistas depois!
+        // ARRAY DE DADOS: Todas as 77 Pistas da História da Fórmula 1
         const listaPistas = [
-            {
-                id: "interlagos",
-                nome: "Autódromo José Carlos Pace",
-                pais: "Brasil 🇧🇷",
-                imagem: "../assets/imgs/interlagos.jpg", // Coloque uma foto da pista na sua pasta
-                recorde: "Valtteri Bottas (1:10.540 - 2018)",
-                corridas: 40,
-                vencedor: "Alain Prost (6 vitórias)",
-                entrada: 1973,
-                saida: "Atual"
-            },
-            {
-                id: "monza",
-                nome: "Autodromo Nazionale di Monza",
-                pais: "Itália 🇮🇹",
-                imagem: "../assets/imgs/monza.jpg",
-                recorde: "Rubens Barrichello (1:21.046 - 2004)",
-                corridas: 73,
-                vencedor: "M. Schumacher / L. Hamilton (5 vitórias)",
-                entrada: 1950,
-                saida: "Atual"
-            },
-            {
-                id: "monaco",
-                nome: "Circuit de Monaco",
-                pais: "Mônaco 🇲🇨",
-                imagem: "../assets/imgs/monaco.jpg",
-                recorde: "Lewis Hamilton (1:12.909 - 2021)",
-                corridas: 69,
-                vencedor: "Ayrton Senna (6 vitórias)",
-                entrada: 1950,
-                saida: "Atual"
-            },
-            {
-                id: "spa",
-                nome: "Spa-Francorchamps",
-                pais: "Bélgica 🇧🇪",
-                imagem: "../assets/imgs/spa.jpg",
-                recorde: "Valtteri Bottas (1:46.286 - 2018)",
-                corridas: 56,
-                vencedor: "Michael Schumacher (6 vitórias)",
-                entrada: 1950,
-                saida: "Atual"
-            },
-            {
-                id: "silverstone",
-                nome: "Circuito de Silverstone",
-                pais: "Reino Unido 🇬🇧",
-                imagem: "../assets/imgs/silverstone.jpg",
-                recorde: "Max Verstappen (1:27.097 - 2020)",
-                corridas: 58,
-                vencedor: "Lewis Hamilton (8 vitórias)",
-                entrada: 1950,
-                saida: "Atual"
-            },
-            {
-                id: "nurburgring",
-                nome: "Nürburgring Nordschleife",
-                pais: "Alemanha 🇩🇪",
-                imagem: "../assets/imgs/nurburgring.jpg",
-                recorde: "Clay Regazzoni (7:06.400 - 1975)",
-                corridas: 22,
-                vencedor: "J. M. Fangio / J. Stewart (3 vitórias)",
-                entrada: 1951,
-                saida: "1976 (Traçado Original)"
-            }
+            { id: "adelaide", nome: "Adelaide Street Circuit", pais: "Austrália 🇦🇺", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 11, vencedor: "---", entrada: 1985, saida: 1995 },
+            { id: "aindiab", nome: "Ain-Diab Circuit", pais: "Marrocos 🇲🇦", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 1, vencedor: "---", entrada: 1958, saida: 1958 },
+            { id: "aintree", nome: "Aintree Motor Racing Circuit", pais: "Reino Unido 🇬🇧", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 5, vencedor: "---", entrada: 1955, saida: 1962 },
+            { id: "albertpark", nome: "Albert Park Circuit", pais: "Austrália 🇦🇺", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: "Atual", vencedor: "---", entrada: 1996, saida: "Atual" },
+            { id: "algarve", nome: "Algarve International Circuit (Portimão)", pais: "Portugal 🇵🇹", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 2, vencedor: "---", entrada: 2020, saida: 2021 },
+            { id: "anderstorp", nome: "Anderstorp Raceway", pais: "Suécia 🇸🇪", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 6, vencedor: "---", entrada: 1973, saida: 1978 },
+            { id: "austin", nome: "Circuit of the Americas (COTA)", pais: "EUA 🇺🇸", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: "Atual", vencedor: "---", entrada: 2012, saida: "Atual" },
+            { id: "avus", nome: "AVUS", pais: "Alemanha 🇩🇪", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 1, vencedor: "---", entrada: 1959, saida: 1959 },
+            { id: "bahrain", nome: "Bahrain International Circuit", pais: "Bahrein 🇧🇭", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: "Atual", vencedor: "---", entrada: 2004, saida: "Atual" },
+            { id: "baku", nome: "Baku City Circuit", pais: "Azerbaijão 🇦🇿", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: "Atual", vencedor: "---", entrada: 2016, saida: "Atual" },
+            { id: "boavista", nome: "Circuito da Boavista", pais: "Portugal 🇵🇹", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 2, vencedor: "---", entrada: 1958, saida: 1960 },
+            { id: "brandshatch", nome: "Brands Hatch", pais: "Reino Unido 🇬🇧", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 14, vencedor: "---", entrada: 1964, saida: 1986 },
+            { id: "bremgarten", nome: "Circuit Bremgarten", pais: "Suíça 🇨🇭", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 5, vencedor: "---", entrada: 1950, saida: 1954 },
+            { id: "buddh", nome: "Buddh International Circuit", pais: "Índia 🇮🇳", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 3, vencedor: "---", entrada: 2011, saida: 2013 },
+            { id: "bugatti", nome: "Bugatti Circuit (Le Mans)", pais: "França 🇫🇷", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 1, vencedor: "---", entrada: 1967, saida: 1967 },
+            { id: "caesarspalace", nome: "Caesars Palace Grand Prix Circuit", pais: "EUA 🇺🇸", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 2, vencedor: "---", entrada: 1981, saida: 1982 },
+            { id: "catalunya", nome: "Circuit de Barcelona-Catalunya", pais: "Espanha 🇪🇸", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: "Atual", vencedor: "---", entrada: 1991, saida: "Atual" },
+            { id: "charade", nome: "Circuit de Charade (Clermont-Ferrand)", pais: "França 🇫🇷", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 4, vencedor: "---", entrada: 1965, saida: 1972 },
+            { id: "dallas", nome: "Dallas Fair Park", pais: "EUA 🇺🇸", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 1, vencedor: "---", entrada: 1984, saida: 1984 },
+            { id: "detroit", nome: "Detroit Street Circuit", pais: "EUA 🇺🇸", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 7, vencedor: "---", entrada: 1982, saida: 1988 },
+            { id: "dijon", nome: "Dijon-Prenois", pais: "França 🇫🇷", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 5, vencedor: "---", entrada: 1974, saida: 1984 },
+            { id: "donington", nome: "Donington Park", pais: "Reino Unido 🇬🇧", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 1, vencedor: "---", entrada: 1993, saida: 1993 },
+            { id: "estoril", nome: "Autódromo do Estoril", pais: "Portugal 🇵🇹", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 13, vencedor: "---", entrada: 1984, saida: 1996 },
+            { id: "fuji", nome: "Fuji Speedway", pais: "Japão 🇯🇵", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 4, vencedor: "---", entrada: 1976, saida: 2008 },
+            { id: "gillesvilleneuve", nome: "Circuit Gilles Villeneuve", pais: "Canadá 🇨🇦", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: "Atual", vencedor: "---", entrada: 1978, saida: "Atual" },
+            { id: "hermanosrodriguez", nome: "Autódromo Hermanos Rodríguez", pais: "México 🇲🇽", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: "Atual", vencedor: "---", entrada: 1963, saida: "Atual" },
+            { id: "hockenheimring", nome: "Hockenheimring", pais: "Alemanha 🇩🇪", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 37, vencedor: "---", entrada: 1970, saida: 2019 },
+            { id: "hungaroring", nome: "Hungaroring", pais: "Hungria 🇭🇺", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: "Atual", vencedor: "---", entrada: 1986, saida: "Atual" },
+            { id: "imola", nome: "Autodromo Enzo e Dino Ferrari (Imola)", pais: "Itália 🇮🇹", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: "Atual", vencedor: "---", entrada: 1980, saida: "Atual" },
+            { id: "indianapolis", nome: "Indianapolis Motor Speedway", pais: "EUA 🇺🇸", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 19, vencedor: "---", entrada: 1950, saida: 2007 },
+            { id: "interlagos", nome: "Autódromo José Carlos Pace", pais: "Brasil 🇧🇷", imagem: "../assets/imgs/interlagos.jpg", recorde: "Valtteri Bottas (1:10.540 - 2018)", corridas: 40, vencedor: "Alain Prost (6 vitórias)", entrada: 1973, saida: "Atual" },
+            { id: "istanbul", nome: "Istanbul Park", pais: "Turquia 🇹🇷", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 9, vencedor: "---", entrada: 2005, saida: 2021 },
+            { id: "jacarepagua", nome: "Autódromo Internacional Nelson Piquet", pais: "Brasil 🇧🇷", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 10, vencedor: "---", entrada: 1978, saida: 1989 },
+            { id: "jarama", nome: "Circuito del Jarama", pais: "Espanha 🇪🇸", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 9, vencedor: "---", entrada: 1968, saida: 1981 },
+            { id: "jeddah", nome: "Jeddah Corniche Circuit", pais: "Arábia Saudita 🇸🇦", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: "Atual", vencedor: "---", entrada: 2021, saida: "Atual" },
+            { id: "jerez", nome: "Circuito de Jerez", pais: "Espanha 🇪🇸", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 7, vencedor: "---", entrada: 1986, saida: 1997 },
+            { id: "kyalami", nome: "Kyalami Racing Circuit", pais: "África do Sul 🇿🇦", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 20, vencedor: "---", entrada: 1967, saida: 1993 },
+            { id: "lasvegas", nome: "Las Vegas Strip Circuit", pais: "EUA 🇺🇸", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: "Atual", vencedor: "---", entrada: 2023, saida: "Atual" },
+            { id: "longbeach", nome: "Long Beach Street Circuit", pais: "EUA 🇺🇸", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 8, vencedor: "---", entrada: 1976, saida: 1983 },
+            { id: "lusail", nome: "Lusail International Circuit", pais: "Catar 🇶🇦", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: "Atual", vencedor: "---", entrada: 2021, saida: "Atual" },
+            { id: "magnycours", nome: "Circuit de Nevers Magny-Cours", pais: "França 🇫🇷", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 18, vencedor: "---", entrada: 1991, saida: 2008 },
+            { id: "marinabay", nome: "Marina Bay Street Circuit", pais: "Singapura 🇸🇬", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: "Atual", vencedor: "---", entrada: 2008, saida: "Atual" },
+            { id: "miami", nome: "Miami International Autodrome", pais: "EUA 🇺🇸", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: "Atual", vencedor: "---", entrada: 2022, saida: "Atual" },
+            { id: "monsanto", nome: "Circuito de Monsanto", pais: "Portugal 🇵🇹", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 1, vencedor: "---", entrada: 1959, saida: 1959 },
+            { id: "montjuic", nome: "Montjuïc Circuit", pais: "Espanha 🇪🇸", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 4, vencedor: "---", entrada: 1969, saida: 1975 },
+            { id: "monttremblant", nome: "Circuit Mont-Tremblant", pais: "Canadá 🇨🇦", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 2, vencedor: "---", entrada: 1968, saida: 1970 },
+            { id: "monza", nome: "Autodromo Nazionale di Monza", pais: "Itália 🇮🇹", imagem: "../assets/imgs/monza.jpg", recorde: "Rubens Barrichello (1:21.046 - 2004)", corridas: 73, vencedor: "M. Schumacher / L. Hamilton (5 vitórias)", entrada: 1950, saida: "Atual" },
+            { id: "mosport", nome: "Mosport Park", pais: "Canadá 🇨🇦", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 8, vencedor: "---", entrada: 1967, saida: 1977 },
+            { id: "mugello", nome: "Mugello Circuit", pais: "Itália 🇮🇹", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 1, vencedor: "---", entrada: 2020, saida: 2020 },
+            { id: "nivelles", nome: "Nivelles-Baulers", pais: "Bélgica 🇧🇪", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 2, vencedor: "---", entrada: 1972, saida: 1974 },
+            { id: "nurburgring", nome: "Nürburgring", pais: "Alemanha 🇩🇪", imagem: "../assets/imgs/nurburgring.jpg", recorde: "Clay Regazzoni (7:06.400 - 1975)", corridas: 41, vencedor: "---", entrada: 1951, saida: 2020 },
+            { id: "okayama", nome: "Okayama International Circuit (TI Circuit)", pais: "Japão 🇯🇵", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 2, vencedor: "---", entrada: 1994, saida: 1995 },
+            { id: "oscargalvez", nome: "Autódromo Oscar y Juan Gálvez", pais: "Argentina 🇦🇷", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 20, vencedor: "---", entrada: 1953, saida: 1998 },
+            { id: "paulricard", nome: "Circuit Paul Ricard", pais: "França 🇫🇷", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 18, vencedor: "---", entrada: 1971, saida: 2022 },
+            { id: "pedralbes", nome: "Pedralbes Circuit", pais: "Espanha 🇪🇸", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 2, vencedor: "---", entrada: 1951, saida: 1954 },
+            { id: "pescara", nome: "Pescara Circuit", pais: "Itália 🇮🇹", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 1, vencedor: "---", entrada: 1957, saida: 1957 },
+            { id: "phoenix", nome: "Phoenix Street Circuit", pais: "EUA 🇺🇸", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 3, vencedor: "---", entrada: 1989, saida: 1991 },
+            { id: "princegeorge", nome: "Prince George Circuit", pais: "África do Sul 🇿🇦", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 3, vencedor: "---", entrada: 1962, saida: 1965 },
+            { id: "redbullring", nome: "Red Bull Ring (A1-Ring / Österreichring)", pais: "Áustria 🇦🇹", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: "Atual", vencedor: "---", entrada: 1970, saida: "Atual" },
+            { id: "reims", nome: "Reims-Gueux", pais: "França 🇫🇷", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 11, vencedor: "---", entrada: 1950, saida: 1966 },
+            { id: "riverside", nome: "Riverside International Raceway", pais: "EUA 🇺🇸", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 1, vencedor: "---", entrada: 1960, saida: 1960 },
+            { id: "rouen", nome: "Rouen-Les-Essarts", pais: "França 🇫🇷", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 5, vencedor: "---", entrada: 1952, saida: 1968 },
+            { id: "sebring", nome: "Sebring International Raceway", pais: "EUA 🇺🇸", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 1, vencedor: "---", entrada: 1959, saida: 1959 },
+            { id: "sepang", nome: "Sepang International Circuit", pais: "Malásia 🇲🇾", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 19, vencedor: "---", entrada: 1999, saida: 2017 },
+            { id: "shanghai", nome: "Shanghai International Circuit", pais: "China 🇨🇳", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: "Atual", vencedor: "---", entrada: 2004, saida: "Atual" },
+            { id: "silverstone", nome: "Circuito de Silverstone", pais: "Reino Unido 🇬🇧", imagem: "../assets/imgs/silverstone.jpg", recorde: "Max Verstappen (1:27.097 - 2020)", corridas: 58, vencedor: "Lewis Hamilton (8 vitórias)", entrada: 1950, saida: "Atual" },
+            { id: "sochi", nome: "Sochi Autodrom", pais: "Rússia 🇷🇺", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 8, vencedor: "---", entrada: 2014, saida: 2021 },
+            { id: "spa", nome: "Spa-Francorchamps", pais: "Bélgica 🇧🇪", imagem: "../assets/imgs/spa.jpg", recorde: "Valtteri Bottas (1:46.286 - 2018)", corridas: 56, vencedor: "Michael Schumacher (6 vitórias)", entrada: 1950, saida: "Atual" },
+            { id: "suzuka", nome: "Suzuka Circuit", pais: "Japão 🇯🇵", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: "Atual", vencedor: "---", entrada: 1987, saida: "Atual" },
+            { id: "valencia", nome: "Valencia Street Circuit", pais: "Espanha 🇪🇸", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 5, vencedor: "---", entrada: 2008, saida: 2012 },
+            { id: "watkinsglen", nome: "Watkins Glen", pais: "EUA 🇺🇸", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 20, vencedor: "---", entrada: 1961, saida: 1980 },
+            { id: "yasmarina", nome: "Yas Marina Circuit", pais: "Abu Dhabi 🇦🇪", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: "Atual", vencedor: "---", entrada: 2009, saida: "Atual" },
+            { id: "yeongam", nome: "Korea International Circuit", pais: "Coreia do Sul 🇰🇷", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 4, vencedor: "---", entrada: 2010, saida: 2013 },
+            { id: "zandvoort", nome: "Circuit Zandvoort", pais: "Países Baixos 🇳🇱", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: "Atual", vencedor: "---", entrada: 1952, saida: "Atual" },
+            { id: "zeltweg", nome: "Zeltweg Air Base", pais: "Áustria 🇦🇹", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 1, vencedor: "---", entrada: 1964, saida: 1964 },
+            { id: "zolder", nome: "Circuit Zolder", pais: "Bélgica 🇧🇪", imagem: "../assets/imgs/fundo_dash8.jpg", recorde: "Em pesquisa...", corridas: 10, vencedor: "---", entrada: 1973, saida: 1984 }
         ];
 
-        // Função que desenha os cards na tela automaticamente
-        function carregarGrid() {
+        // Função turbinada que desenha o grid (agora aceita um termo de filtro)
+        function carregarGrid(filtro = "") {
             const grid = document.getElementById("grid_circuitos");
             grid.innerHTML = ""; // Limpa antes de carregar
 
-            listaPistas.forEach((pista, index) => {
+            // Transforma o que o usuário digitou em minúsculo pra não ter erro de Case Sensitive
+            const termo = filtro.toLowerCase();
+
+            // O filtro mágico do Javascript
+            const pistasFiltradas = listaPistas.filter(pista =>
+                pista.nome.toLowerCase().includes(termo) ||
+                pista.pais.toLowerCase().includes(termo)
+            );
+
+            // Mensagem amigável caso o usuário digite algo que não existe
+            if (pistasFiltradas.length === 0) {
+                grid.innerHTML = `<p style="text-align:center; grid-column: 1 / -1; color: #ccc; font-size: 1.2rem; font-family: 'Barlow', sans-serif;">Nenhuma pista encontrada para "${filtro}".</p>`;
+                return;
+            }
+
+            // Desenha as pistas que passaram no filtro
+            pistasFiltradas.forEach(pista => {
+                // Descobre o ID original para o Modal não abrir a pista errada
+                const indexOriginal = listaPistas.findIndex(p => p.id === pista.id);
+
                 grid.innerHTML += `
-                    <article class="pista-card" onclick="abrirModal(${index})">
+                    <article class="pista-card" onclick="abrirModal(${indexOriginal})">
                         <div class="pista-img-container">
-                            <img src="${pista.imagem}" alt="Foto de ${pista.nome}" onerror="this.src='../assets/imgs/fundo_dash8.jpg'"> </div>
+                            <img src="${pista.imagem}" alt="Foto de ${pista.nome}" onerror="this.src='../assets/imgs/fundo_dash8.jpg'">
+                        </div>
                         <div class="pista-legenda">
                             <h3>${pista.nome}</h3>
                             <span>${pista.pais}</span>
@@ -146,10 +180,19 @@
             });
         }
 
+        // Função que é acionada toda vez que o usuário solta uma tecla (onkeyup)
+        function filtrarPistas() {
+            const termoBuscado = document.getElementById("busca_pista").value;
+            carregarGrid(termoBuscado);
+        }
+
+        // Inicia a renderização assim que a página carrega (com filtro vazio, mostrando tudo)
+        window.onload = () => carregarGrid();
+
         // Funções do Modal (Abre e injeta os dados)
         function abrirModal(index) {
             const pista = listaPistas[index];
-            
+
             document.getElementById("modal_nome").innerText = pista.nome;
             document.getElementById("modal_pais").innerText = pista.pais;
             document.getElementById("modal_recorde").innerText = pista.recorde;

@@ -19,6 +19,8 @@ var usuarioRouter = require("./src/routes/usuarios");
 var loginRouter = require("./src/routes/login");
 var dashRoutes = require("./src/routes/dashRoutes");
 var quizRoutes = require("./src/routes/quizRoutes")
+var pilotoRoutes = require("./src/routes/pilotoRoutes");
+var pistaRouter = require("./src/routes/pistas");
 
 app.use(cors());
 
@@ -31,6 +33,8 @@ app.use("/usuarios", usuarioRouter);
 app.use("/login", loginRouter);
 app.use("/dashRoutes", dashRoutes);
 app.use("/quizRoutes", quizRoutes)
+app.use("/piloto", pilotoRoutes);
+app.use("/pistas", pistaRouter);
 
 app.listen(3333, function () {
     console.log(`

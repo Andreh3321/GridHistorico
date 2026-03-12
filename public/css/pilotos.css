@@ -1,0 +1,447 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Orbitron", sans-serif;
+    background-color: #111;
+    background-image: url('../assets/imgs/fundo_informacoes.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    color: #fff;
+    min-height: 100vh;
+}
+
+/* ==============================================================
+   NAVBAR (Reaproveitada)
+   ============================================================== */
+.navbar {
+    width: 100%;
+    min-height: 80px;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid #e3b062;
+}
+
+.navbar #logo {
+    height: 60px;
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.navbar a {
+    color: #e3b062;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #fff;
+    font-weight: bold;
+}
+
+/* ==============================================================
+   ESTRUTURA PRINCIPAL
+   ============================================================== */
+.pilotos-main {
+    padding: 40px 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.titulo-pagina {
+    text-align: center;
+    margin-bottom: 40px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(227, 176, 98, 0.3);
+}
+
+.titulo-pagina h2 {
+    color: #e3b062;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.titulo-pagina p {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+.divisor-sessoes {
+    width: 80%;
+    max-width: 800px;
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e3b062, transparent);
+    margin: 50px 0;
+}
+
+/* ==============================================================
+   SEÇÕES E GRIDS
+   ============================================================== */
+.sessao-pilotos {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cabecalho-sessao {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 2px solid rgba(227, 176, 98, 0.3);
+    padding-bottom: 10px;
+}
+
+.cabecalho-sessao h3 {
+    font-size: 1.8rem;
+    color: #fff;
+}
+
+/* Badges para identificar a fonte de dados (Didático para a SPTech!) */
+.badge-api {
+    background-color: rgba(40, 167, 69, 0.2);
+    color: #28a745;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border: 1px solid #28a745;
+}
+
+.badge-db {
+    background-color: rgba(227, 176, 98, 0.2);
+    color: #e3b062;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border: 1px solid #e3b062;
+}
+
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+    padding-top: 20px;
+}
+
+/* ==============================================================
+   CARDS DOS PILOTOS
+   ============================================================== */
+.piloto-card {
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.piloto-card:hover {
+    transform: translateY(-8px);
+}
+
+/* Variação Visual: Atual vs Lenda */
+.card-atual {
+    border: 2px solid #555;
+}
+
+.card-atual:hover {
+    box-shadow: 0px 10px 25px rgba(255, 255, 255, 0.2);
+    border-color: #fff;
+}
+
+.card-lenda {
+    border: 2px solid #e3b062;
+}
+
+.card-lenda:hover {
+    box-shadow: 0px 10px 25px rgba(227, 176, 98, 0.4);
+}
+
+.foto-container {
+    width: 100%;
+    height: 250px;
+    position: relative;
+    background-color: #222;
+    /* Fundo caso a foto demore a carregar */
+}
+
+.foto-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    /* Mantém o rosto do piloto focado */
+}
+
+/* Número do grid atual */
+.numero-piloto {
+    position: absolute;
+    bottom: -15px;
+    right: 15px;
+    background-color: #fff;
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: 900;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 3px solid #000;
+}
+
+/* Ícone do Hall das Lendas */
+.icone-lenda {
+    position: absolute;
+    bottom: -15px;
+    right: 15px;
+    background-color: #e3b062;
+    font-size: 1.3rem;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 3px solid #000;
+}
+
+.info-piloto {
+    padding: 25px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.info-piloto h4 {
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.equipe,
+.equipe-historica {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.equipe {
+    color: #aaa;
+}
+
+.equipe-historica {
+    color: #e3b062;
+}
+
+.nacionalidade {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.95rem;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.stats-rodape {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+}
+
+.stats-rodape span {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.9rem;
+    color: #ccc;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* Container que organiza os cards em grade */
+.grid-campeoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 30px;
+    padding: 40px;
+}
+
+/* O card em si: Foco na foto */
+.piloto-card-minimalista {
+    position: relative;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 3px solid #e3b062;
+    /* Detalhe dourado sutil */
+}
+
+.piloto-card-minimalista:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.piloto-card-minimalista img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    /* Faz a foto preencher o card sem achatar */
+    filter: grayscale(40%);
+    /* Efeito clássico */
+    transition: 0.3s;
+}
+
+.piloto-card-minimalista:hover img {
+    filter: grayscale(0%);
+}
+
+/* Informações sobrepostas ou discretas */
+.info-minimalista {
+    padding: 15px;
+    text-align: center;
+    background: linear-gradient(transparent, #000 80%);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.info-minimalista h3 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-minimalista p {
+    margin: 5px 0 0;
+    color: #e3b062;
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+.vitorias-destaque {
+    font-size: 0.8rem !important;
+    opacity: 0.8;
+}
+
+/* =========================================
+   MEDIA QUERIES
+   ========================================= */
+@media screen and (max-width: 900px) {
+    .navbar {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .nav-links {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .titulo-pagina h2 {
+        font-size: 1.8rem;
+    }
+
+    .cabecalho-sessao {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Fundo escuro atrás do modal */
+.modal-container {
+    display: none;
+    /* Escondido por padrão */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+}
+
+/* Caixa do Modal */
+.modal-content {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border: 1px solid #e3b062;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    color: white;
+    font-family: 'Barlow', sans-serif;
+}
+
+.img-modal {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #e3b062;
+    margin-bottom: 15px;
+}
+
+.modal-header {
+    text-align: center;
+}
+
+.modal-stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    padding: 15px;
+    background: #222;
+    border-radius: 8px;
+}
+
+.btn-fechar {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #e3b062;
+}

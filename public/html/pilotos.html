@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GridHistórico | Pilotos</title>
+    <link rel="stylesheet" href="../css/pilotos.css">
+    <link rel="icon" href="../assets/icon/Logo F1.png">
+</head>
+
+<body>
+    <div class="app-container">
+
+        <header>
+            <nav class="navbar">
+                <img src="../assets/icon/Logo F1.png" alt="Logo F1" id="logo">
+                <div class="nav-links">
+                    <a href="index.html">Início</a>
+                    <a href="home.html">História</a>
+                    <a href="evolucao.html">Evolução</a>
+                    <a href="pistas.html">Circuitos</a>
+                    <a href="Pilotos.html" class="active">Pilotos</a>
+                    <a href="Informacoes_Gerais.html">Termos</a>
+                    <a href="quiz.html">Quiz</a>
+                    <a href="dash.html">Dashboard</a>
+                </div>
+            </nav>
+        </header>
+
+        <main class="pilotos-main">
+
+            <div class="titulo-pagina">
+                <h2>Os Protagonistas do Asfalto</h2>
+
+                <hr class="divisor-sessoes">
+
+                <section class="sessao-pilotos">
+                    <div class="cabecalho-sessao">
+                        <h3>Hall das Lendas</h3>
+                    </div>
+                    <div class="grid-campeoes" id="container_db"></div>
+                </section>
+
+        </main>
+    </div>
+
+    <div id="modal_piloto" class="modal-container" onclick="fecharModal(event)">
+        <div class="modal-content">
+            <span class="btn-fechar"
+                onclick="document.getElementById('modal_piloto').style.display='none'">&times;</span>
+            <div id="dados_modal">
+            </div>
+        </div>
+    </div>
+    <script>
+        // 1. Variável GLOBAL (fica fora de todas as funções para ser vista por todos)
+        let listaLendasLocal = [];
+
+        function carregarLendasDB() {
+            const container = document.getElementById('container_db');
+
+            fetch('/piloto/lendas')
+                .then(res => res.json())
+                .then(lendas => {
+                    // 2. GUARDAMOS os dados na variável global para usar no clique depois
+                    listaLendasLocal = lendas;
+
+                    let htmlGerado = '';
+                    lendas.forEach(lenda => {
+                        const selo = lenda.mencao ? "MENÇÃO HONROSA" : `${lenda.titulos}X CAMPEÃO MUNDIAL`;
+
+                        // Adicionamos o onclick passando o sobrenome
+                        htmlGerado += `
+                        <article class="piloto-card-minimalista" onclick="abrirModal('${lenda.sobrenome}')" style="cursor: pointer;">
+                            <img src="../assets/imgs/${lenda.nome}.jpg" onerror="this.src='../assets/imgs/fundo_dash8.jpg'">
+                            <div class="info-minimalista">
+                                <span style="font-size: 0.65rem; color: #e3b062; font-weight: bold;">${selo}</span>
+                                <h3>${lenda.nome} ${lenda.sobrenome}</h3>
+                                <p>🏆 ${lenda.vitorias} Vitórias</p>
+                            </div>
+                        </article>
+                    `;
+                    });
+                    container.innerHTML = htmlGerado;
+                });
+        }
+
+        // 3. Função que o Card chama ao ser clicado
+        function abrirModal(sobrenome) {
+            // Buscamos o piloto específico na nossa lista global
+            const piloto = listaLendasLocal.find(p => p.sobrenome === sobrenome);
+
+            if (piloto) {
+                const containerModal = document.getElementById('dados_modal');
+
+                // Dentro do abrirModal, antes do innerHTML:
+                let statusExtra = "";
+                if (piloto.titulos >= 5) statusExtra = "👑 Lenda Absoluta do Esporte.";
+                else if (piloto.titulos > 0) statusExtra = "🏆 Campeão Mundial Consagrado.";
+                else statusExtra = "🇧🇷 Orgulho do Automobilismo Brasileiro.";
+
+                // No innerHTML, você pode usar a variável ${statusExtra}
+
+                // Preenchemos o conteúdo do modal
+                containerModal.innerHTML = `
+                <div style="text-align: center;">
+                    <img src="../assets/imgs/${piloto.nome}.jpg" 
+                         style="width: 150px; height: 150px; border-radius: 50%; border: 3px solid #e3b062; object-fit: cover; margin-bottom: 15px;"
+                         onerror="this.src='../assets/imgs/fundo_dash8.jpg'">
+                    <h2 style="color: #e3b062; margin-bottom: 5px;">${piloto.nome} ${piloto.sobrenome}</h2>
+                    <p style="font-size: 0.9rem; color: #aaa; margin-bottom: 20px;">🏳️ ${piloto.pais}</p>
+                    
+                    <div style="display: flex; justify-content: space-around; background: #222; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <div>
+                            <p style="font-size: 0.8rem; color: #888;">Títulos</p>
+                            <p style="font-size: 1.2rem; font-weight: bold;">${piloto.titulos}</p>
+                        </div>
+                        <div>
+                            <p style="font-size: 0.8rem; color: #888;">Vitórias</p>
+                            <p style="font-size: 1.2rem; font-weight: bold;">${piloto.vitorias}</p>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.95rem; line-height: 1.6; color: #eee; font-style: italic; border-left: 3px solid #e3b062; padding-left: 15px; margin-top: 20px; text-align: left;">
+    "${piloto.descricao || 'Informações históricas em processamento na telemetria do GridHistórico.'}"
+</p>
+
+<p style="font-size: 0.8rem; color: #888; margin-top: 15px; text-align: center;">
+    ${piloto.nome} ${piloto.sobrenome} conquistou um total de ${piloto.vitorias} vitórias na Fórmula 1.
+</p>
+                </div>
+            `;
+
+                // Mostramos o modal na tela
+                document.getElementById('modal_piloto').style.display = 'flex';
+            }
+        }
+
+        window.onload = carregarLendasDB;
+    </script>
+
+</html>
