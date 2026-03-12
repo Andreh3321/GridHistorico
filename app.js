@@ -36,7 +36,9 @@ app.use("/quizRoutes", quizRoutes)
 app.use("/piloto", pilotoRoutes);
 app.use("/pistas", pistaRouter);
 
-app.listen(3333, function () {
+var porta = process.env.PORT || 3333;
+
+app.listen(porta, function () {
     console.log(`
     ##   ##  ######   #####             ####       ##     ######     ##              ##  ##    ####    ######  
     ##   ##  ##       ##  ##            ## ##     ####      ##      ####             ##  ##     ##         ##  
