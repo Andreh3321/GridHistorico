@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  gridhistorico-app:
+    build: .
+    container_name: gridhistorico_node
+    restart: always
+    ports:
+      - "3333:3333"
+    volumes:
+      # Mapeia a diretoria do banco de dados para um volume persistente
+      - gridhistorico_data:/usr/src/app/database
+
+volumes:
+  gridhistorico_data:

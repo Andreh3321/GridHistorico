@@ -90,30 +90,119 @@ body {
   width: 100%;
 }
 
-.sobre {
-  width: 90%;
-  max-width: 1000px;
-  margin: 80px auto; 
-  min-height: 300px; 
-  padding: 40px 20px; 
-  background-color: rgba(0, 0, 0, 0.75);
-  border-radius: 16px;
-  color: #e3b062;
+/* Seção Sobre */
+.sobre-gridhistorico {
+  padding: 60px 20px;
+  background-color: #121212;
+  /* Fundo bem escuro */
+  color: #fff;
+  font-family: 'Barlow', sans-serif;
+}
+
+.sobre-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
+  gap: 50px;
 }
 
-.sobre p {
-  padding: 20px;
-  align-items: center;
-  justify-content: center;
+.sobre-texto {
+  flex: 1;
 }
 
-#titulo_sobre {
-  font-size: 30px;
+.sobre-texto h2 {
+  font-size: 2.5rem;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.destaque-dourado {
+  color: #e3b062;
+}
+
+.subtitulo-sobre {
+  font-size: 1.1rem;
+  color: #888;
+  margin-bottom: 30px;
+  font-style: italic;
+  border-left: 3px solid #e3b062;
+  padding-left: 15px;
+}
+
+.sobre-texto p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #ccc;
+  margin-bottom: 25px;
+}
+
+.features-lista {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 40px;
+}
+
+.features-lista li {
+  margin-bottom: 15px;
+  padding: 15px;
+  background: rgba(30, 30, 30, 0.6);
+  border-radius: 8px;
+  border-left: 2px solid #444;
+  transition: 0.3s;
+}
+
+.features-lista li:hover {
+  border-left-color: #e3b062;
+  background: rgba(40, 40, 40, 0.8);
+  transform: translateX(5px);
+}
+
+.features-lista strong {
+  color: #e3b062;
+}
+
+/* Botão de Ação */
+.btn-primario {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #e3b062;
+  color: #111;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.btn-primario:hover {
+  background-color: #fff;
+  box-shadow: 0 0 15px rgba(227, 176, 98, 0.5);
+}
+
+/* Imagem Lateral */
+.sobre-imagem {
+  flex: 1;
+}
+
+.img-tech {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #333;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+  filter: grayscale(20%);
+  transition: 0.5s;
+}
+
+.img-tech:hover {
+  filter: grayscale(0%);
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 900px) {
+  .sobre-container {
+    flex-direction: column;
+  }
 }
 
 .convite {
@@ -132,25 +221,156 @@ body {
   text-align: center;
 }
 
-/* RODAPÉ */
-.footer {
-  background-color: rgb(0 0 0);
-  height: 60px;
+/* ==============================================================
+   FOOTER (RODAPÉ)
+   ============================================================== */
+.footer-site {
+  background-color: #000;
   width: 100%;
+  padding: 40px 5%;
+  display: flex;
+  flex-direction: row;
+  /* Alinha os blocos lado a lado no PC */
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  /* Mágica pra não quebrar no celular */
+  gap: 30px;
+  border-top: 2px solid #e3b062;
+}
+
+/* Contatos */
+.contatos {
+  flex: 1;
+  min-width: 250px;
+  font-style: normal;
+  /* Tira o itálico padrão da tag address */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contato-item {
   display: flex;
   align-items: center;
-  margin-top: -16px;
-  justify-content: center;
-  color: #e3b062;
+  gap: 15px;
+}
+
+.contato-item img {
+  width: 24px;
+  height: auto;
+}
+
+.contato-item span {
+  color: #fff;
+  font-family: 'Barlow', sans-serif;
+}
+
+/* Localização */
+.localizacao {
+  flex: 2;
+  min-width: 300px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
 }
 
-.footer p {
-  margin: 0;
-  margin-right: 5px;
+.localizacao img {
+  width: 30px;
+  height: auto;
 }
 
-.footer a {
-  color: #e3b062;
-  text-decoration: none;
+.localizacao h3 {
+  font-size: 1.2rem;
+  color: #fff;
+  line-height: 1.5;
+}
+
+.localizacao p {
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Logo Footer */
+.footer-logo {
+  flex: 1;
+  min-width: 150px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer-logo img {
+  width: 100px;
+  height: auto;
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.footer-logo img:hover {
+  opacity: 1;
+}
+
+/* ==============================================================
+   RESPONSIVIDADE (CELULARES E TABLETS)
+   ============================================================== */
+@media (max-width: 768px) {
+
+  /* 1. Soltando as alturas fixas que quebram o layout */
+  .fundo {
+    height: auto;
+    /* Tira os 1800px travados */
+    min-height: 100vh;
+    padding-bottom: 50px;
+  }
+
+  .abrindo {
+    height: auto;
+    min-height: 300px;
+    /* Reduz o espaço gigante no celular */
+  }
+
+  /* 2. Empilhando o Header e a Navbar */
+  .header {
+    height: auto;
+    padding: 15px 0;
+  }
+
+  .header .container {
+    flex-direction: column;
+    /* Coloca a logo em cima e o menu embaixo */
+    gap: 15px;
+  }
+
+  .navbar {
+    width: 100%;
+    /* Solta os 300px fixos */
+    justify-content: center;
+    flex-wrap: wrap;
+    /* Deixa os links descerem se faltar espaço */
+    gap: 15px;
+    margin-right: 0;
+    padding: 0;
+  }
+
+  /* 3. Ajustando a largura dos textos */
+  .sobre,
+  .convite {
+    width: 95%;
+    margin-top: 40px;
+    padding: 20px 10px;
+  }
+
+  /* 4. Forçando o Footer a empilhar perfeitamente */
+  .contatos,
+  .localizacao,
+  .footer-logo {
+    min-width: 100%;
+    /* Obriga cada bloco a ocupar a linha toda no celular */
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
 }
